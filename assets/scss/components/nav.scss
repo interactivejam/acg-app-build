@@ -1,0 +1,66 @@
+@import "../elements/colors.scss";
+
+.nav_sec{
+  font-size: $font16;
+  color: $dblack;
+  font-family: $helvetikar;
+  padding: 20px 0;
+}
+.nav_sec {
+  .navbar-brand{ padding:0; margin:0;}
+}
+.nav_sec{
+  .navbar{ padding:0;}
+}
+.nav_sec{
+  .navbar-light{
+    .navbar-nav{
+      li{ margin:0 20px 0 0;}
+    }
+  }
+}
+.nav_sec{
+  .navbar-light{
+    .navbar-nav{
+      .nav-link{ margin:0; padding:0; font-size:$font18; color:$dblack;}
+    }
+  }
+}
+.nav_sec {
+  .navbar-light {
+    .navbar-nav{
+      .nav-link
+      {
+        &:hover{ color: $red;}
+      }
+    }   
+  }
+}
+.nav_sec {
+  .logo{ margin:0; padding:0;}
+}
+.nav_sec {
+  .input-group{ margin:0; padding:0; position:relative;}
+}
+.nav_sec {
+  .input-group {
+    .form-control{ margin:0; padding:0 50px 0 20px; height:50px; font-size:16px; color:$dblack; background:rgba(255,255,255,0.4); border:none; border-radius:30px; 
+      box-shadow:none;
+    }
+  }
+}
+.nav_sec {
+  .input-group {
+    i{ position:absolute; top:16px; right:20px; z-index:9;}
+  }
+}
+.nav_sec{
+  &::placeholder {color:#171616;}
+}
+
+@media (max-width: 1600px){
+  .col-c-xl-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+}

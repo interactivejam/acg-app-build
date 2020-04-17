@@ -1,0 +1,163 @@
+$brand-color: #357f8a;
+
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 960px;
+$breakpoint-xlarge: 1220px;
+$breakpoint-mini-max: ($breakpoint-small - 1);
+$breakpoint-small-max: ($breakpoint-medium - 1);
+$breakpoint-medium-max: ($breakpoint-large - 1);
+$breakpoint-large-max: ($breakpoint-xlarge - 1);
+
+@import "elements/body.scss";
+@import "components/util.scss";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400");
+
+@font-face {
+  font-family: "helvetica47regularcondensed";
+  src: url("~assets/fonts/helvetica47regularcondensed.eot");
+  src: url("~assets/fonts/helvetica47regularcondensed.eot")
+      format("embedded-opentype"),
+    url("~assets/fonts/helvetica47regularcondensed.woff2") format("woff2"),
+    url("~assets/fonts/helvetica47regularcondensed.woff") format("woff"),
+    url("~assets/fonts/helvetica47regularcondensed.ttf") format("truetype"),
+    url("~assets/fonts/helvetica47regularcondensed.svg#helvetica47regularcondensed")
+      format("svg");
+}
+@font-face {
+  font-family: "helvetica47boldcondensed";
+  src: url("~assets/fonts/helvetica47boldcondensed.woff2") format("woff2"),
+    url("~assets/fonts/helvetica47boldcondensed.woff") format("woff"),
+    url("~assets/fonts/helvetica47boldcondensed.ttf") format("truetype");
+}
+@font-face {
+  font-family: "helvetica47lightcondensed";
+  src: url("~assets/fonts/helvetica47lightcondensed.woff2") format("woff2"),
+    url("~assets/fonts/helvetica47lightcondensed.woff") format("woff"),
+    url("~assets/fonts/helvetica47lightcondensed.ttf") format("truetype");
+}
+
+
+h1, .h1 {
+  font-size: 1.75rem !important;font-family: "helvetica47lightcondensed" !important; }
+h2, .h2 {
+  font-size: 1.5rem !important;font-family: "helvetica47lightcondensed" !important; }
+h3, .h3 {
+  font-size: 1.35rem !important;font-family: "helvetica47lightcondensed" !important; }
+h4, .h4 {
+  font-size: 1.15rem !important; }
+h5, .h5 {
+  font-size: 1.05rem !important; }
+h6, .h6 {
+  font-size: 1rem !important; }
+
+@media (min-width: 1200px) {
+  .container-fluid {
+    padding-right: 45px !important;
+    padding-left: 45px !important;
+  }
+}
+
+
+@media (max-width: 1599px) {
+  .go_btn {
+    font-size: 14px;
+    padding: 7px 15px;
+  }
+}
+a:hover {
+  text-decoration: none !important;
+}
+.game_info {
+  margin: 0;
+  padding: 0;
+}
+.richtext p {
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-size: 16px;
+  color: #171616;
+}
+
+.corpo_block {
+  margin: 0 0 10px 0;
+  padding: 0.5em 1em;
+  display: block;
+  background: #f6f5f5;
+  font-size: 19px;
+  color: #ed1c24;
+  position: relative;
+  font-family: "helvetica47lightcondensed";
+}
+.corpo_block.nuxt-link-active {
+  background: #f7e037;
+  color: #171616;
+}
+.corpo_block.nuxt-link-active svg, .corpo_block.nuxt-link-active i {
+  display: none;
+}
+
+.corpo_block svg, .corpo_block i {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0.75em;
+  right: 0.5em;
+  font-size: 0.85em;
+}
+.fa-angle-right:before {
+  content: "\f105";
+}
+
+.corpo_block:hover {
+  background: #ed1c24;
+  color: #fff;
+}
+
+.menu-items a {
+  display: inline-block;
+  width: calc( 50% - 5px );
+}
+.menu-items a:nth-child(even) {
+  margin-left: 5px;
+}
+.menu-items a:nth-child(odd) {
+  margin-right: 5px;
+}
+.middle_section{
+    padding-bottom: 80px;
+}
+.menu-items-icon{
+    position: absolute;
+    right: 15px;
+    top:15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+section {
+    margin:0!important;
+}
+
+body:after {
+    display: none;
+}
+
+
+.detail .richtext p {
+  margin: 0 0 15px 0!important;
+  padding: 0!important;
+  font-size: 16px!important;
+  color: #171616!important;
+}
+
+.col-custom-list .col-lg-12 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+@media (max-width:992px){
+  .col-custom-list .col-lg-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

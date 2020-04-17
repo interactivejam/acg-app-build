@@ -1,0 +1,130 @@
+{
+    "Sports": [
+        {
+            "SportCode": "NTB",
+            "SportTitle": "Netball",
+            "Events": [
+                {
+                    "EventCode": "3871",
+                    "EventTitle": "Mixed Open",
+                    "Leaderboard": [
+                        {
+                            "PoolFullCode": "1A",
+                            "OrgName": "Test Org 1",
+                            "TeamName": "Neball Team 1",
+                            "LeaderboardRank": 1
+                        },
+                        {
+                            "PoolFullCode": "1B",
+                            "OrgName": "Test Org 2",
+                            "TeamName": "Neball Team 2",
+                            "LeaderboardRank": 2
+                        },
+                        {
+                            "PoolFullCode": "1C",
+                            "OrgName": "Test Org 3",
+                            "TeamName": "Neball Team 3",
+                            "LeaderboardRank": 3
+                        },
+                        {
+                            "PoolFullCode": "1D",
+                            "OrgName": "Test Org 4",
+                            "TeamName": "Neball Team 4",
+                            "LeaderboardRank": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "SportCode": "SO6",
+            "SportTitle": "Soccer 6's",
+            "Events": [
+                {
+                    "EventCode": "6682",
+                    "EventTitle": "6's Women Open",
+                    "Leaderboard": [
+                        {
+                            "PoolFullCode": "1A",
+                            "OrgName": "Test Org 1",
+                            "TeamName": "Women Team 1",
+                            "LeaderboardRank": 1
+                        },
+                        {
+                            "PoolFullCode": "1B",
+                            "OrgName": "Test Org 2",
+                            "TeamName": "Women Team 2",
+                            "LeaderboardRank": 2
+                        },
+                        {
+                            "PoolFullCode": "1C",
+                            "OrgName": "Test Org 3",
+                            "TeamName": "Women Team 3",
+                            "LeaderboardRank": 3
+                        },
+                        {
+                            "PoolFullCode": "1D",
+                            "OrgName": "Test Org 4",
+                            "TeamName": "Women Team 4",
+                            "LeaderboardRank": 4
+                        }
+                    ]
+                },
+                {
+                    "EventCode": "6683",
+                    "EventTitle": "6's Men Open",
+                    "Leaderboard": [
+                        {
+                            "PoolFullCode": "19A",
+                            "OrgName": "Qenos",
+                            "TeamName": "Qenos United FC",
+                            "LeaderboardRank": 1
+                        },
+                        {
+                            "PoolFullCode": "2B",
+                            "OrgName": "EnergyAustralia",
+                            "TeamName": "EnergyAustralia DANGA",
+                            "LeaderboardRank": 2
+                        },
+                        {
+                            "PoolFullCode": "25B",
+                            "OrgName": "EY",
+                            "TeamName": "EY Soccer FC 2",
+                            "LeaderboardRank": 3
+                        },
+                        {
+                            "PoolFullCode": "24A",
+                            "OrgName": "Red Energy",
+                            "TeamName": "Snowy United",
+                            "LeaderboardRank": 4
+                        },
+                        {
+                            "PoolFullCode": "3C",
+                            "OrgName": "Rider Levett Bucknall",
+                            "TeamName": "RLB united",
+                            "LeaderboardRank": 5
+                        },
+                        {
+                            "PoolFullCode": "17A",
+                            "OrgName": "SMEC Australia",
+                            "TeamName": "SMEC Soccer 6's",
+                            "LeaderboardRank": 6
+                        },
+                        {
+                            "PoolFullCode": "20C",
+                            "OrgName": "ANZ",
+                            "TeamName": "Balls of Glory",
+                            "LeaderboardRank": 7
+                        },
+                        {
+                            "PoolFullCode": "6A",
+                            "OrgName": "News Corp Australia",
+                            "TeamName": "Herald Sun",
+                            "LeaderboardRank": 8
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
