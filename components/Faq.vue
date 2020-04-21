@@ -1,38 +1,35 @@
 <template>
   <div class="container faq">
-    <h1>Frequently Asked Questions</h1>
     <div class="during_info">
       <div class="row">
-        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 align-self-center">
+        <div class="col-xl-9 col-md-9">
+          <h1 class="detail_title">Frequently Asked Questions</h1>
           <ul v-for="category in category" :key="category.id" class="during_list">
             <div v-if="blok.Categories == category.uuid">
-              <span class="path">{{ category.content.Name }}</span><fa :icon="['fas', 'long-arrow-alt-right']"/>
+              <span class="path">{{ category.content.Name }}</span><fa :icon="['fas', 'arrow-right']"/>
               <li><span>{{ blok.Title }}</span></li>
             </div>
           </ul>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 align-self-center text-right">
-          <a href="#" class="back_btn"><fa :icon="['fas', 'long-arrow-alt-left']"/> Go Back</a>
+        <div class="col-xl-3 col-md-3">
+          <a href="/faq" class="back_btn"><fa :icon="['fas', 'arrow-left']"/> Go Back</a>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 mb-40">
+      <div class="col-xl-9 col-md-9">
         <h3 class="title">{{ blok.Title }}</h3>
-        <!-- <div>
-          cfdsafs
-          <div class="richtext" v-html="richtext">fdsafdsf</div>
-        </div> -->
         <p>
           {{ blok.text.content[0].content[0].text}}
-          <!-- {{ blok.text }} -->
         </p>
       </div>
-      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+      <div class="col-xl-3 col-md-3">
         <ul class="faq_list">
           <li><a href="#">Sibling FAQ 1</a></li>
           <li><a href="#">Sibling FAQ 2</a></li>
           <li><a href="#">Sibling FAQ 3</a></li>
+          <li><a href="#">Sibling FAQ 4</a></li>
+          <li><a href="#">Sibling FAQ 5</a></li>
         </ul>
       </div>
     </div>
@@ -42,11 +39,6 @@
 <script>
 export default {
   props: ['blok'],
-  computed: {
-    richtext() {
-      return this.blok.page_content ? this.$storyapi.richTextResolver.render(this.blok.content) : ''
-    }
-  },
   data() {
     return {
       category: []
@@ -77,7 +69,10 @@ export default {
 <style scoped>
   .faq {
     margin-top: 40px;
-    /* margin-bottom: 40px; */
+  }
+
+  .detail_title {
+    margin-bottom: 10px !important;
   }
 
   .title {
@@ -113,7 +108,7 @@ export default {
 
   .back_btn {
     margin: 0;
-    padding: 10px 40px;
+    padding: 10px 20px;
     display: inline-block;
     border: 1px solid #c6c6c6;
     border-radius: 30px;

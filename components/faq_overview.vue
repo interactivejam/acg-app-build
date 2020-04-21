@@ -2,7 +2,7 @@
  <div class="container faq">
   <h1>Frequently Asked Questions</h1>
   <div class="row">
-    <div class="col-xl-12 col-sm-6">
+    <div class="col-xl-12 col-md-12">
       <div class="row">
         <ul v-for="category in category" :key="category.id" class="col-xl-4 col-sm-6 ask_block">
           <li class="categories"> {{category.content.Name}}
@@ -67,7 +67,6 @@ export default {
 <style scoped>
  .faq {
     margin-top: 40px;
-    /* margin-bottom: 40px; */
   }
   .line {
     border: none;
