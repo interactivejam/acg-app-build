@@ -67,7 +67,7 @@ export default {
 <style scoped>
  .faq {
     margin-top: 40px;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
   .line {
     border: none;

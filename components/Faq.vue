@@ -19,8 +19,13 @@
     <div class="row">
       <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 mb-40">
         <h3 class="title">{{ blok.Title }}</h3>
+        <!-- <div>
+          cfdsafs
+          <div class="richtext" v-html="richtext">fdsafdsf</div>
+        </div> -->
         <p>
-          {{ blok.Categories }}
+          {{ blok.text.content[0].content[0].text}}
+          <!-- {{ blok.text }} -->
         </p>
       </div>
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
@@ -37,6 +42,11 @@
 <script>
 export default {
   props: ['blok'],
+  computed: {
+    richtext() {
+      return this.blok.page_content ? this.$storyapi.richTextResolver.render(this.blok.content) : ''
+    }
+  },
   data() {
     return {
       category: []
@@ -67,7 +77,7 @@ export default {
 <style scoped>
   .faq {
     margin-top: 40px;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
 
   .title {
