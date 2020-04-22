@@ -1,35 +1,35 @@
 <template>
   <div class="container faq">
     <div class="during_info">
+      <h1 class="detail_title">Frequently Asked Questions</h1>
       <div class="row">
-        <div class="col-xl-9 col-md-9">
-          <h1 class="detail_title">Frequently Asked Questions</h1>
+        <div class="col-xl-9 col-md-9 align-self-center">
           <ul v-for="category in category" :key="category.id" class="during_list">
-            <div v-if="blok.Categories == category.uuid">
-              <span class="path">{{ category.content.Name }}</span><fa :icon="['fas', 'arrow-right']"/>
+            <div class="path" v-if="blok.Categories == category.uuid">
+              <span>{{ category.content.Name }}</span><fa :icon="['fas', 'long-arrow-alt-right']" class="icon"/>
               <li><span>{{ blok.Title }}</span></li>
             </div>
           </ul>
         </div>
-        <div class="col-xl-3 col-md-3">
-          <a href="/faq" class="back_btn"><fa :icon="['fas', 'arrow-left']"/> Go Back</a>
+        <div class="col-xl-3 col-md-3 back">
+          <a href="/faq" class="back_btn"><fa :icon="['fas', 'long-arrow-alt-left']"/> Go Back</a>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-9 col-md-9">
+      <div class="col-xl-8 col-md-8">
         <h3 class="title">{{ blok.Title }}</h3>
-        <p>
+        <p class="content">
           {{ blok.text.content[0].content[0].text}}
         </p>
       </div>
-      <div class="col-xl-3 col-md-3">
-        <ul class="faq_list">
-          <li><a href="#">Sibling FAQ 1</a></li>
-          <li><a href="#">Sibling FAQ 2</a></li>
-          <li><a href="#">Sibling FAQ 3</a></li>
-          <li><a href="#">Sibling FAQ 4</a></li>
-          <li><a href="#">Sibling FAQ 5</a></li>
+      <div class="col-xl-4 col-md-4">
+        <ul v-for="faq in faq" :key="faq.id" class="faq_list">
+          <div v-if="faq.content.Categories[0] == blok.Categories">
+            <li>
+              <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
+            </li>
+          </div>
         </ul>
       </div>
     </div>
@@ -41,10 +41,27 @@ export default {
   props: ['blok'],
   data() {
     return {
-      category: []
+      page: {story: {content: []}},
+      faq: [],
+      category: [],
     }
   },
   mounted() {
+    this.$storyapi.get
+    ('cdn/stories',
+      {
+        starts_with: 'faq/',
+        is_startpage: '0',
+        cv: this.$store.state.cacheVersion
+      }
+    )
+    .then((res) => {
+      this.faq = res.data.stories
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
+
     this.$storyapi.get('cdn/stories', {
       starts_with: 'category/',
       cv: this.$store.state.cacheVersion
@@ -70,15 +87,21 @@ export default {
   .faq {
     margin-top: 40px;
   }
-
-  .detail_title {
-    margin-bottom: 10px !important;
+  .icon {
+    margin: 0 10px 0 10px;
   }
-
+  .detail_title {
+    color: #000;
+    margin-bottom: 20px !important;
+    margin-top: 80px;
+  }
   .title {
     color: #ed1c24;
+    font-size: 24px !important;
   }
-
+  .content {
+    font-size: 20px;
+  }
   .during_info {
     margin: -20px 0 50px 0;
     padding: 0 0 15px 0;
@@ -96,7 +119,8 @@ export default {
 
   .path {
     margin-right: 5px;
-    }
+    font-size: 22px;
+  }
   ul.during_list li:last-child:before {
     display: none; }
 
@@ -105,6 +129,9 @@ export default {
 
   ul.during_list li a:hover {
     color: #ed1c24; }
+  .back {
+    text-align: right;
+  }
 
   .back_btn {
     margin: 0;
@@ -127,5 +154,12 @@ export default {
   ul.faq_list li a {
     color: #ed1c24;
     font-size: 24px;
-}
+    margin-bottom: 40px;
+    font-family: "helvetica47lightcondensed"
+  }
+  @media (min-width: 1200px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1500px;
+    }
+  }
 </style>
