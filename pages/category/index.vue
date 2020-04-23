@@ -1,7 +1,7 @@
 <template>
   <div>
   <section>
-    <div class="find_sec">
+    <!-- <div class="find_sec">
       <div class="container">
         <h2>What do you need to find out more about?</h2>
         <div class="row justify-content-center">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
+    <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component> -->
   </section>
   </div>
 </template>

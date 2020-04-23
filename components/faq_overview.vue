@@ -5,12 +5,21 @@
     <div class="col-xl-12 col-md-12">
       <div class="row">
         <ul v-for="category in category" :key="category.id" class="col-xl-3 col-sm-6 ask_block faq_list" >
-          <li class="categories"> {{category.content.Name}}
+          <li class="categories">{{category.content.Name}}
             <hr class="line">
             <ul class="ask_block">
               <li v-for="faq in faq" :key="faq.id" >
-                <div v-if="faq.content.Categories[0] == category.uuid">
-                <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
+                <div v-if="faq.content.Categories[0] == category.uuid" >
+                  <div v-if="path">
+                    <li v-for="publish in faq.content.Publish" :key="publish.id">
+                      <div v-if="publish == path" >
+                      <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
+                      </div>
+                    </li>
+                  </div>
+                  <div v-else>
+                    <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -26,12 +35,16 @@
 export default {
   data() {
     return {
-      page: {story: {content: []}},
+      story: {content: []},
       faq: [],
       category: []
      }
   },
-  props: ['blok'],
+  props: {
+    // blok: [],
+    path: String,
+    slug: String
+  },
    mounted() {
     // TODO: Implement {exists: params.filter}
 
@@ -60,6 +73,17 @@ export default {
     .catch((res) => {
       console.error('Failed to load resource', res)
     })
+
+    this.$storybridge.on(['input', 'published', 'change'], (event) => {
+    if (event.action == 'input') {
+      if (event.story.id === this.story.id) {
+        this.story.content = event.story.content
+      }
+    } else {
+      window.location.reload()
+    }
+  })
+
   }
 }
 </script>

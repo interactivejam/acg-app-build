@@ -10,7 +10,9 @@ import Slide from '~/components/Slide.vue'
 import Updates from '~/components/Updates.vue'
 import Charity from '~/components/Charity.vue'
 import Faq from '~/components/Faq.vue'
+// import Faqs from '~/components/Faqs.vue'
 import FaqOverview from '~/components/faq_overview.vue'
+// import FaqsOverview from '~/components/faqs_overview.vue'
 import Column from '~/components/Column.vue'
 import Row from '~/components/Row.vue'
 import Card from '~/components/Card.vue'
@@ -48,7 +50,9 @@ Vue.component('updates', Updates)
 Vue.component('highlights', Highlights)
 Vue.component('charity', Charity)
 Vue.component('faq', Faq)
+// Vue.component('faqs', Faqs)
 Vue.component('faq_overview', FaqOverview)
+// Vue.component('faqs_overview', FaqsOverview)
 Vue.component('column', Column)
 Vue.component('row', Row)
 Vue.component('card', Card)
