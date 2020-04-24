@@ -38,6 +38,7 @@ export default {
   plugins: [
     '~/plugins/components.js',
     '~/plugins/rich-text-renderer.js',
+    { mode: 'client', src: '~plugins/vue-router-back-button.js' }
     ],
   /*
   ** Nuxt.js dev-modules
@@ -52,7 +53,7 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     ['storyblok-nuxt', {
-      accessToken: 'nroV5bOcaS2CHUosOINLJgtt',
+      accessToken: process.env.NODE_ENV == "production" ? "ZkIEqD1i8FVF628krYkPhAtt" : "nroV5bOcaS2CHUosOINLJgtt",
       cacheProvider: 'memory'
     }],
     // Doc: https://github.com/nuxt-community/style-resources-module
@@ -84,7 +85,7 @@ export default {
   apollo: {
         clientConfigs: {
           default: {
-            httpEndpoint: 'http://gapi-browser.storyblok.com/?token=nroV5bOcaS2CHUosOINLJgtt&version=published'
+            httpEndpoint: 'http://gapi-browser.storyblok.com/?token=ZkIEqD1i8FVF628krYkPhAtt&version=published'
           }
         }
       },

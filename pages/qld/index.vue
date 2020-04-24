@@ -31,7 +31,7 @@ export default {
   },
   asyncData (context) {
     // Load the JSON from the API
-    return context.app.$storyapi.get('cdn/stories/qld', {
+    return context.app.$storyapi.get('cdn/stories/qld/qld-corporate-games', {
       version: context.isDev ? "draft" : "published"
     }).then((res) => {
       return res.data

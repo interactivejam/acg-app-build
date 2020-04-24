@@ -1,33 +1,27 @@
 <template>
-                <nav class="navbar navbar-expand-lg navbar-light d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                    <div class="collapse navbar-collapse" id="Navigation">
-                      <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Organise you Team
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</a>
-                                <a class="dropdown-item" href="/vic/for-entrants">For Entrants</a>
-                                <a class="dropdown-item" href="/vic/personal-insurance">Personal Insurance</a>
-                                <a class="dropdown-item" href="/vic/team-lists">Team Lists</a>
-                                <a class="dropdown-item" href="/vic/team-changes-requests">Team Changes Requests</a>
-                                <a class="dropdown-item" href="/vic/get-a-team-marquee">Get a Team Marquee</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Sport
-                            </a>
-                        </li>
-                        <li :key="index" v-for="(navitem, index) in $store.state.menu.main_navi">
-                          <nuxt-link class="top-header__link" :to="navitem.link.cached_url">
-                            {{ navitem.name }}
-                          </nuxt-link>
-                        </li>
-                    </ul>
-                </div>
-              </nav>
+<div>
+ <b-navbar type="dark" variant="dark">
+    <b-navbar-nav> 
+      <b-nav-item-dropdown split text="Organise You Team">
+        <b-dropdown-item href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</b-dropdown-item>
+        <b-dropdown-item href="/vic/for-entrants">For Entrants</b-dropdown-item>
+        <b-dropdown-item href="/vic/personal-insurance">Personal Insurance</b-dropdown-item>
+        <b-dropdown-item href="/vic/team-lists">Team Lists</b-dropdown-item>
+        <b-dropdown-item href="/vic/team-changes-requests">Team Changes Requests</b-dropdown-item>
+      </b-nav-item-dropdown>      
+      <b-nav-item-dropdown split text="Sport" class="m-2">
+        <b-dropdown-item href="#">Sub page1</b-dropdown-item>
+        <b-dropdown-item href="#">Sub page2</b-dropdown-item>
+      </b-nav-item-dropdown>
+    </b-navbar-nav>
+  
+    <b-nav-item :key="index" v-for="(navitem, index) in $store.state.menu.main_navi">
+      <nuxt-link class="top-header__link" :to="navitem.link.cached_url">
+        {{ navitem.name }}
+      </nuxt-link>
+    </b-nav-item>
+  </b-navbar>
+</div>
 </template>
 
 <script>
@@ -45,7 +39,7 @@ export default {
 }
 .menu_info .dropdown-menu {
     border-radius: 0;
-    border: none;
+    /* border: none; */
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
     padding: 0px;
     margin: 0;
@@ -60,7 +54,7 @@ export default {
     padding: 0;
     margin: 0;
 }
-.menu_info .navbar-light .navbar-nav li a {
+.menu_info .navbar-light .navbar-nav {
     margin: 0 40px 0 0;
     padding: 13px 0 13px 0;
     display: inline-block;
@@ -71,9 +65,6 @@ export default {
 }
 .menu_info .navbar-light .navbar-nav li a.nuxt-link-active, .menu_info .navbar-light .navbar-nav li a:hover {
     color: #f7e037;
-}
-.nav_sec.inner_top .navbar-nav {
-
 }
 .nav_sec .navbar-light .navbar-nav li {
     margin: 0 20px 0 0;
