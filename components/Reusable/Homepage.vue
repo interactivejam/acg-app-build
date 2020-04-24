@@ -65,7 +65,7 @@
 
          </div>
     </div>
-    <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
+    <!-- <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
         <div class="container">
 
             <div class="nav_sec">
@@ -73,7 +73,7 @@
               </div>
 
         </div>
-    </div>
+    </div> -->
     <div class="container-fluid part_sec mt-5">
       <div class="row">
           <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">

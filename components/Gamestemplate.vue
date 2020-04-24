@@ -62,11 +62,11 @@
     </div>
     <!-- Menu Sec -->
     <div class="menu_info">
-        <div class="container">
+        <!-- <div class="container">
 
            <Gamesmenu />
 
-        </div>
+        </div> -->
         <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
                 <div class="container">
 

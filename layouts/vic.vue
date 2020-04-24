@@ -1,12 +1,12 @@
 <template>
 <div>
-  <TopHeader/>
+  <!-- <TopHeader/> -->
   <section>
       <!-- Inner Baneer -->
-    <div class="vic_inner">
-        <h2>Melbourne Victoria <span>•</span> {{date}}</h2>
+    <!-- <div class="vic_inner">
+        <h2>Melbourne Victoria <span>•</span> {{date}}</h2> -->
         <!-- Menu Sec -->
-        <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
+        <!-- <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
             <div class="container col-c-xl-12">
                 <nav class="navbar navbar-expand-lg navbar-light d-none d-sm-none d-md-none d-lg-block d-xl-block">
                     <div class="collapse navbar-collapse" id="Navigation">
@@ -37,8 +37,8 @@
                 </nav>
             </div>
 
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
     <!-- Menu Sec -->
 
     </section>

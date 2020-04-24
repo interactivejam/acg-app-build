@@ -3,11 +3,13 @@
  <b-navbar type="dark" variant="dark">
     <b-navbar-nav> 
       <b-nav-item-dropdown split text="Organise You Team">
-        <b-dropdown-item href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</b-dropdown-item>
+        <!-- <b-dropdown-item href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</b-dropdown-item>
         <b-dropdown-item href="/vic/for-entrants">For Entrants</b-dropdown-item>
         <b-dropdown-item href="/vic/personal-insurance">Personal Insurance</b-dropdown-item>
         <b-dropdown-item href="/vic/team-lists">Team Lists</b-dropdown-item>
-        <b-dropdown-item href="/vic/team-changes-requests">Team Changes Requests</b-dropdown-item>
+        <b-dropdown-item href="/vic/team-changes-requests">Team Changes Requests</b-dropdown-item> -->
+        <b-dropdown-item href="#">Sub page1</b-dropdown-item>
+        <b-dropdown-item href="#">Sub page2</b-dropdown-item>
       </b-nav-item-dropdown>      
       <b-nav-item-dropdown split text="Sport" class="m-2">
         <b-dropdown-item href="#">Sub page1</b-dropdown-item>
