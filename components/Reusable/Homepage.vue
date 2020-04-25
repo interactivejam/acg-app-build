@@ -19,7 +19,7 @@
                      alt="Corporate Games" />
                      <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}</div>
                   </a>
-                  <button
+                  <!-- <button
                     class="navbar-toggler navbar-toggler-right collapsed"
                     type="button"
                     data-toggle="collapse"
@@ -31,7 +31,7 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                  </button>
+                  </button> -->
 
                   <div class="collapse navbar-collapse" id="Navigation">
                     <ul class="navbar-nav ml-auto">
@@ -51,37 +51,34 @@
         </div>
       </div>
     </header>
+    <section>
      <!-- Top Bammer -->
- 	  <div class="vic_inner" v-for="global in global">
-        <!-- Menu Sec -->
-         <div class="hero-image">
-            <img :src="global.content.banner_images" alt="Corporate Games" />
+ 	  <div class="vic_inner" v-for="global in global" :key="global.id">
+      <!-- Menu Sec -->
+      <div class="hero-image">
+        <img :src="global.content.banner_images" alt="Corporate Games" />
+      </div>
+      <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
+        <div class="container-fluid">
+          <Gamesmenu />
         </div>
-        <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
-            <div class="container-fluid">
-
-                <Gamesmenu />
-               </div>
-
-         </div>
+      </div>
     </div>
+    </section>
     <!-- <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <div class="container">
-
-            <div class="nav_sec">
-                <Gamesmenu />
-              </div>
-
+      <div class="container">
+        <div class="nav_sec">
+          <Gamesmenu />
         </div>
+      </div>
     </div> -->
-    <div class="container-fluid part_sec mt-5">
+    <div class="container-fluid part_sec">
       <div class="row">
           <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-              <component class="detail" v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-              <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+            <component class="detail" v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+            <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-
           </div>
       </div>
   </div>
@@ -133,7 +130,7 @@ export default {
 @import "~/assets/scss/components/vicnav.scss";
 
 section.header {
-  position: relative;
+  position: fixed;
 }
 .web-headline {
   padding-top: 50px;
@@ -145,6 +142,7 @@ section.header {
 }
 .date {
   font-family: 'Open Sans', sans-serif;
+   
   font-size: 0.75em;
   letter-spacing: 0.15em;
   color: #ffffff;
@@ -166,21 +164,30 @@ section.header {
     font-size: 21px;
     color: #171616;
 }
-.hero-image {
+// .hero-image {
+//   background-image: url('https://a.storyblok.com/f/76648/1920x561/b01d02b1c3/vic_banner_bg.jpg');
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-size: auto;
+// }
+
+.hero-image {                           
   position: absolute;
   top: 0;
   width: 100%;
-   justify-content: center;
+  justify-content: center;
   overflow: hidden;
   display: flex;
-}
-.hero-image  img {
-  height: 100%;
-  z-index: 20;
-  width: auto;
-  max-width: none;
+}               
+.hero-image img {
+  height: 500px;                                                                                                                    
+  z-index: 20;                
+  width: 100%                                                                                                                                                             ;
+  //max-width: 100%;
 }
 .vic_inner .menu_info {
+    position:absolute;
+    bottom: 65px;
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
     margin-top: auto;
@@ -188,7 +195,7 @@ section.header {
 .vic_inner {
   position: relative;
   overflow: hidden;
-  height: 500px;
+  height: 565px;
   display: flex;
 }
 .vic_inner h2, .menu_info {

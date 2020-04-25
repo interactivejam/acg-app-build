@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  layout: 'vic',
+  layout: 'games_following',
   data () {
     return { story: { content: {} } }
   },

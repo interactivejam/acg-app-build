@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  layout: 'vic',
+  layout: 'games_home',
   data () {
     return {
       story: { content: {} }
@@ -31,7 +31,7 @@ export default {
   },
   asyncData (context) {
     // Load the JSON from the API
-    return context.app.$storyapi.get('cdn/stories/nsw/nsw-corporate-games', {
+    return context.app.$storyapi.get('cdn/stories/nsw/', {
       version: context.isDev ? "draft" : "published"
     }).then((res) => {
       return res.data

@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  layout: 'games_following',
+  layout: 'default_following',
   data () {
     return { 
       story: { content: {} },

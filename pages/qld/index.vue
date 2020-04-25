@@ -1,5 +1,5 @@
 <template>
-  <section class="util__container container col-c-xl-12">
+  <section class="util__container">
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  layout: 'vic',
+  layout: 'games_home',
   data () {
     return {
       story: { content: {} }
@@ -31,7 +31,7 @@ export default {
   },
   asyncData (context) {
     // Load the JSON from the API
-    return context.app.$storyapi.get('cdn/stories/qld/qld-corporate-games', {
+    return context.app.$storyapi.get('cdn/stories/qld/', {
       version: context.isDev ? "draft" : "published"
     }).then((res) => {
       return res.data

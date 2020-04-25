@@ -1,24 +1,24 @@
 <template>
 <div>
- <b-navbar type="dark" variant="dark">
-    <b-navbar-nav> 
-      <b-nav-item-dropdown split text="Organise You Team">
+ <b-navbar type="dark" class="navbar-light navbar-nav">
+    <b-navbar-nav class="nav"> 
+      <b-nav-item-dropdown text="Organise You Team" class="m-2">
         <!-- <b-dropdown-item href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</b-dropdown-item>
         <b-dropdown-item href="/vic/for-entrants">For Entrants</b-dropdown-item>
         <b-dropdown-item href="/vic/personal-insurance">Personal Insurance</b-dropdown-item>
         <b-dropdown-item href="/vic/team-lists">Team Lists</b-dropdown-item>
         <b-dropdown-item href="/vic/team-changes-requests">Team Changes Requests</b-dropdown-item> -->
-        <b-dropdown-item href="#">Sub page1</b-dropdown-item>
+        <b-dropdown-item class="nuxt-link-active" href="#">Sub page1</b-dropdown-item>
         <b-dropdown-item href="#">Sub page2</b-dropdown-item>
       </b-nav-item-dropdown>      
-      <b-nav-item-dropdown split text="Sport" class="m-2">
+      <b-nav-item-dropdown text="Sport" class="m-2">
         <b-dropdown-item href="#">Sub page1</b-dropdown-item>
         <b-dropdown-item href="#">Sub page2</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
   
     <b-nav-item :key="index" v-for="(navitem, index) in $store.state.menu.main_navi">
-      <nuxt-link class="top-header__link" :to="navitem.link.cached_url">
+      <nuxt-link class="top-header__link navbar-light navbar-nav" :to="navitem.link.cached_url">
         {{ navitem.name }}
       </nuxt-link>
     </b-nav-item>
@@ -59,13 +59,13 @@ export default {
 .menu_info .navbar-light .navbar-nav {
     margin: 0 40px 0 0;
     padding: 13px 0 13px 0;
-    display: inline-block;
+    /* display: inline-block;  */
     font-family: "helvetica47regularcondensed";
     font-size: 21px;
-    color: #fff;
+    color: #fff !important;
     background: transparent;
 }
-.menu_info .navbar-light .navbar-nav li a.nuxt-link-active, .menu_info .navbar-light .navbar-nav li a:hover {
+.menu_info .navbar-light .navbar-nav .nuxt-link-active, .menu_info .navbar-light .navbar-nav li a:hover {
     color: #f7e037;
 }
 .nav_sec .navbar-light .navbar-nav li {

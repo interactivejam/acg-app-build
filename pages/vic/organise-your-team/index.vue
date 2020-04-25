@@ -8,6 +8,7 @@
 <script>
 
 export default {
+  layout: 'games_home',
   data () {
     return {
       story: { content: {} }

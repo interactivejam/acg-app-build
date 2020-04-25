@@ -4,6 +4,7 @@
       <div class="find_sec">
         <div class="container">
           <h2>What do you need to find out more about?</h2>
+          <!-- {{story.content}} -->
           <div class="row justify-content-center">
               <div class="col-xl-5 col-lg-7 col-md-8 col-sm-12">
                   <div class="input-group">
@@ -13,14 +14,14 @@
           </div>
         </div>
       </div>
-      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :path="vic" :slug="story.full_slug" :is="story.content.component"></component>
+      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :category_reference="story.content.Body[0].reference" :faq_reference="story.content.Body[0].reference" :path="vic" :slug="story.full_slug" :is="story.content.component"></component>
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  // layout: 'default_following',
+  layout: 'default_following',
   data () {
     return { 
       story: { content: {} },

@@ -1,93 +1,89 @@
 <template>
 <div>
   <header>
-      <div class="nav_sec top_part inner_top">
-        <div class="container-fluid">
-            <div class="col-12">
-              <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
+    <div class="nav_sec top_part inner_top">
+      <div class="container-fluid">
+          <div class="col-12">
+            <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
+              :href="global.content.URL">
+              <img :src="global.content.footer_logo"
+                    alt="Corporate Games" />
+            </a>
+            <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
+              <Search />
+              <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" v-for="global in global" :key="global.id"
                 :href="global.content.URL">
                 <img :src="global.content.footer_logo"
-                     alt="Corporate Games" />
-              </a>
-              <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                <Search />
-                <nav class="navbar navbar-expand-md navbar-light">
-                  <a class="navbar-brand" v-for="global in global" :key="global.id"
-                  :href="global.content.URL">
-                  <img :src="global.content.footer_logo"
-                     alt="Corporate Games" />
-                  <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}</div>
-                  </a>
+                    alt="Corporate Games" />
+                <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}</div>
+                </a>
 
-                  <button
-                    class="navbar-toggler navbar-toggler-right collapsed"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#Navigation"
-                    aria-controls="Navigation"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                  >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button>
+                <!-- <button
+                  class="navbar-toggler navbar-toggler-right collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#Navigation"
+                  aria-controls="Navigation"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button> -->
 
-                  <div class="collapse navbar-collapse" id="Navigation">
-                    <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                        <a class="nav-link" href="/Contact Us">Contact</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/">Corporate Games</a>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
+                <div class="collapse navbar-collapse" id="Navigation">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/Contact Us">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Corporate Games</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
+          </div>
 
-        </div>
       </div>
-    </header>
-    <!--Section-->
-    <section>
+    </div>
+  </header>
+  <!--Section-->
+  <section>
     <!--Inner Banner -->
     <div class="inner_banner">
-        <div class="container-fluid">
-                <div class="col-md-4 ml-md-auto" v-for="global in global" :key="global.id">
-                    <img :src="global.content.banner_following" alt="Corporate Games"  class="align-self-end" />
-                </div>
+      <div class="container-fluid">
+        <div class="col-md-4 ml-md-auto" v-for="global in global" :key="global.id">
+            <img :src="global.content.banner_following" alt="Corporate Games"  class="align-self-end" />
         </div>
+      </div>
     </div>
     <!-- Menu Sec -->
     <div class="menu_info">
-        <!-- <div class="container">
-
-           <Gamesmenu />
-
-        </div> -->
-        <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                <div class="container">
-
-                    <div class="nav_sec">
-                        <Gamesmenu />
-                      </div>
-                    </div>
-
-            </div>
+      <div class="container">
+          <Gamesmenu />
+      </div>
+      <!-- <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
+        <div class="container">
+          <div class="nav_sec">
+            <Gamesmenu />
+          </div>
+        </div>
+      </div> -->
     </div>
-    </section>
+  </section>
   <div class="container part_sec">
       <div class="row">
-          <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-              <h2 class="title">{{ blok.Title }}</h2>
-              <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-          </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-              <component v-if="blok.component === 'important-dates'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
-              <component v-if="blok.component === 'highlights'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
-          </div>
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+            <h2 class="title">{{ blok.Title }}</h2>
+            <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+          <component :v-if="blok.component === 'important-dates'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
+          <component :v-if="blok.component === 'highlights'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
+        </div>
       </div>
   </div>
 </div>

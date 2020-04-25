@@ -4,16 +4,15 @@
   <div class="row">
     <div class="col-xl-12 col-md-12">
       <div class="row">
-        <ul v-for="category in category" :key="category.id" class="col-xl-3 col-sm-6 ask_block faq_list" >
-          <li class="categories">{{category.content.Name}}
+        <div v-for="category in category" :key="category.id" class="col-xl-3 col-sm-6 ask_block faq_list" > 
+          <ul class="categories">{{func_na(category)}}
             <hr class="line">
-            <ul class="ask_block">
-              <li v-for="faq in faq" :key="faq.id" >
-                <div v-if="faq.content.Categories[0] == category.uuid" >
+              <li class="ask_block" v-for="faq in faq" :key="faq.id" >
+                <div v-if="faq.content.Categories[0] == func_uuid(category)" >
                   <div v-if="path">
                     <li v-for="publish in faq.content.Publish" :key="publish.id">
                       <div v-if="publish == path" >
-                      <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
+                       <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
                       </div>
                     </li>
                   </div>
@@ -23,8 +22,7 @@
                 </div>
               </li>
             </ul>
-          </li>
-        </ul>
+        </div>  
       </div>
     </div>
   </div>
@@ -33,15 +31,51 @@
 
 <script>
 export default {
+
   data() {
     return {
       story: {content: []},
       faq: [],
-      category: []
+      category: [],
+      newCategory: [],
      }
+  },
+  
+  methods: {
+    
+    func_na: function(na) {
+      for(let i=0; i<this.category_reference.length; i++) {
+      if(na.uuid === this.category_reference[i]){
+        return na.name;
+        }
+      }
+    },
+    func_uuid: function(ud) {
+      for(let i=0; i<this.category_reference.length; i++) {
+      if(ud.uuid === this.category_reference[i]){
+        return ud.uuid;
+        }
+      }
+    },
+    func_uuid: function(ud) {
+      for(let i=0; i<this.category_reference.length; i++) {
+      if(ud.uuid === this.category_reference[i]){
+        return ud.uuid;
+        }
+      }
+    },
+    func_uuid: function(ud) {
+      for(let i=0; i<this.category_reference.length; i++) {
+      if(ud.uuid === this.category_reference[i]){
+        return ud.uuid;
+        }
+      }
+    }
   },
   props: {
     // blok: [],
+    faq_reference: [],
+    category_reference: [],
     path: String,
     slug: String
   },
