@@ -1,32 +1,33 @@
 <template>
  <div class="container faq">
   <h1 class="detail_title">Frequently Asked Questions</h1>
-  <div class="row">
     <div class="col-xl-12 col-md-12">
       <div class="row">
-        <div v-for="category in category" :key="category.id" class="col-xl-3 col-sm-6 ask_block faq_list" > 
-          <ul class="categories">{{func_na(category)}}
+          <ul  v-for="ncategory in newCategory()" :key="ncategory.id" class="col-xl-3 col-sm-6 ask_block faq_list categories" >{{ncategory.name}}
             <hr class="line">
-              <li class="ask_block" v-for="faq in faq" :key="faq.id" >
-                <div v-if="faq.content.Categories[0] == func_uuid(category)" >
+              <li v-for="faq in newFaq()" :key="faq.id" >
+                <div v-if="faq.content.Categories[0] == ncategory.uuid" >
                   <div v-if="path">
-                    <li v-for="publish in faq.content.Publish" :key="publish.id">
-                      <div v-if="publish == path" >
+                    <!-- <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> -->
+                    <div v-for="publish in faq.content.Publish" :key="publish.id">
+                      <div v-if="publish === path" >
                        <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
                       </div>
-                    </li>
-                  </div>
+                      <!-- <div v-else>
+                        {{path}}negative{{publish}}
+                        <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
+                      </div> -->
+                    </div>
+                  </div> 
                   <div v-else>
-                    <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
+                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
                   </div>
                 </div>
               </li>
             </ul>
         </div>  
       </div>
-    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -37,45 +38,48 @@ export default {
       story: {content: []},
       faq: [],
       category: [],
-      newCategory: [],
+      // newCategory: [],
      }
   },
   
   methods: {
     
-    func_na: function(na) {
-      for(let i=0; i<this.category_reference.length; i++) {
-      if(na.uuid === this.category_reference[i]){
-        return na.name;
+    newCategory: function() {
+      console.log("category", this.category_reference)
+      let newCategory = [];
+      // this.newCategory = [];
+      for(let j=0; j<this.category_reference.length; j++) {        
+        for(let i=0; i<this.category.length; i++) {         
+          if(this.category_reference[j] === this.category[i].uuid){
+              newCategory.push(this.category[i]);
+          }
         }
-      }
+      } 
+      // console.log("fds32432fs", this.newCategory)
+      return newCategory;
+      
     },
-    func_uuid: function(ud) {
-      for(let i=0; i<this.category_reference.length; i++) {
-      if(ud.uuid === this.category_reference[i]){
-        return ud.uuid;
+
+    newFaq: function() {
+      let newFaq = [];
+      // this.newCategory = [];
+      for(let j=0; j<this.faq_reference.length; j++) {        
+        for(let i=0; i<this.faq.length; i++) {         
+          if(this.faq_reference[j] === this.faq[i].uuid){
+                console.log("faq_referecne", this.faq[i].uuid)
+              newFaq.push(this.faq[i]);
+              
+          }
         }
-      }
+      } 
+      console.log("faq", this.newFaq)
+      return newFaq;    
     },
-    func_uuid: function(ud) {
-      for(let i=0; i<this.category_reference.length; i++) {
-      if(ud.uuid === this.category_reference[i]){
-        return ud.uuid;
-        }
-      }
-    },
-    func_uuid: function(ud) {
-      for(let i=0; i<this.category_reference.length; i++) {
-      if(ud.uuid === this.category_reference[i]){
-        return ud.uuid;
-        }
-      }
-    }
   },
   props: {
     // blok: [],
-    faq_reference: [],
-    category_reference: [],
+    faq_reference: {},
+    category_reference: {},
     path: String,
     slug: String
   },

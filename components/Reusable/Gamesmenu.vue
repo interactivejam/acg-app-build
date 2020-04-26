@@ -2,13 +2,13 @@
 <div>
  <b-navbar type="dark" class="navbar-light navbar-nav">
     <b-navbar-nav class="nav"> 
-      <b-nav-item-dropdown text="Organise You Team" class="m-2">
+      <b-nav-item-dropdown text="Organise You Team" class="m-2 navbar-dropdown">
         <!-- <b-dropdown-item href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</b-dropdown-item>
         <b-dropdown-item href="/vic/for-entrants">For Entrants</b-dropdown-item>
         <b-dropdown-item href="/vic/personal-insurance">Personal Insurance</b-dropdown-item>
         <b-dropdown-item href="/vic/team-lists">Team Lists</b-dropdown-item>
         <b-dropdown-item href="/vic/team-changes-requests">Team Changes Requests</b-dropdown-item> -->
-        <b-dropdown-item class="nuxt-link-active" href="#">Sub page1</b-dropdown-item>
+        <b-dropdown-item href="#">Sub page1</b-dropdown-item>
         <b-dropdown-item href="#">Sub page2</b-dropdown-item>
       </b-nav-item-dropdown>      
       <b-nav-item-dropdown text="Sport" class="m-2">
@@ -48,8 +48,11 @@ export default {
     background: rgba(0, 0, 0, 0.8);
     min-width: 12em;
 }
+.navbar-dropdown {
+  color: rgba(255, 255, 255) !important;
+}
 .dropdown-toggle::after {
-   opacity: 0.5;
+   /* opacity: 0.5; */
 
 }
 .menu_info .navbar {
