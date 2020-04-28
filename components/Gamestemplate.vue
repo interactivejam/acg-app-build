@@ -58,14 +58,13 @@
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
             <h2 class="title">{{ blok.Title }}</h2>
             <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-            <!-- <div>{{blok.body[2].reference}}</div> -->
-            <div>
-              <ul v-for="faq in newFaq()" :key="faq.id" >
-                <li><h3 class="title">{{ faq.name }}</h3>
-                <p class="content">
-                {{ faq.content.text.content[0].content[0].text}}
-                </p> </li>
-              </ul>
+            <div v-for="faq in refFaq()" :key="faq.id">
+                <ul><h3 class="title">{{ faq.name }}</h3>
+                  <li>
+                  <p class="content">
+                  {{ faq.content.text.content[0].content[0].text}}
+                  </p> </li>
+                </ul>
             </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
@@ -139,41 +138,39 @@ export default {
     },
 
   methods: {
-
     newFaq: function() {
       var newFaq = [];
-      // this.newCategory = [];
       for(let j=0; j<this.blok.body[1].reference.length; j++) {        
         for(let i=0; i<this.faq.length; i++) {         
           if(this.blok.body[1].reference[j] === this.faq[i].uuid){
-                // console.log("faq_referecne", this.faq[i].uuid)
-              newFaq.push(this.faq[i]);             
+            newFaq.push(this.faq[i]);             
           }
         }
       } 
-      // console.log("faq", this.newFaq)
       return newFaq;    
     },
 
-    // newCategory: function() {
-    //   console.log("category", this.blok.body[2].reference)
-      
-    //   let newCategory = [];
-    //   let newfaqs = this.newFaq();
-    //   // console.log("faq", this.newfaqs)
-    //   // this.newCategory = [];
-    //   for(let j=0; j<this.blok.body[2].reference.length; j++) {        
-    //     for(let i=0; i<this.faq.length; i++) {         
-    //       if(this.blok.body[2].reference[j] === this.newfaqs[i].content.Categories){
-    //         console.log("faq--1", this.newfaqs[i].content.Categories)
-    //           newCategory.push(this.newfaqs[i]);
-    //       }
-    //     }
-    //   } 
-    //   console.log("fds32432fs", this.newCategory)
-    //   return newCategory;
-      
-    // },
+    newCategory: function() {
+      let newCategory = [];
+      for(let j=0; j<this.blok.body[2].reference.length; j++) {      
+        for(let i=0; i<this.faq.length; i++) {        
+          if(this.blok.body[2].reference[j] === this.faq[i].content.Categories[0]){
+            newCategory.push(this.faq[i]);
+          }
+        }
+      } 
+      return newCategory;
+    },
+
+    refFaq: function() {
+      let array1 = this.newFaq();
+      let array2 = this.newCategory();
+      let array3 = array1.concat(array2);
+  
+      const uniqueArray = a => [...new Set(a.map(o => JSON.stringify(o)))].map(s => JSON.parse(s));
+      const unique = uniqueArray(array3);
+      return unique;
+    },
 
     openSearchBox :  (event) => {
       let searchElement = document.getElementById('searchbox');

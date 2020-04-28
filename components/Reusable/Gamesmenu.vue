@@ -90,11 +90,11 @@ export default {
     })
   },
 
-  methods: {
-    // menulinks: function {
+  // methods: {
+  //   Faqs: function {
 
-    // }
-  }
+  //   }
+  // }
 };
 
 </script>
