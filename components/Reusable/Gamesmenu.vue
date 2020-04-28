@@ -1,35 +1,102 @@
 <template>
 <div>
- <b-navbar type="dark" class="navbar-light navbar-nav">
-    <b-navbar-nav class="nav"> 
-      <b-nav-item-dropdown text="Organise You Team" class="m-2 navbar-dropdown">
-        <!-- <b-dropdown-item href="/vic/Brochure-Poster-Handbook">Brochure Poster Handbook</b-dropdown-item>
-        <b-dropdown-item href="/vic/for-entrants">For Entrants</b-dropdown-item>
-        <b-dropdown-item href="/vic/personal-insurance">Personal Insurance</b-dropdown-item>
-        <b-dropdown-item href="/vic/team-lists">Team Lists</b-dropdown-item>
-        <b-dropdown-item href="/vic/team-changes-requests">Team Changes Requests</b-dropdown-item> -->
-        <b-dropdown-item href="#">Sub page1</b-dropdown-item>
+ <!-- <b-navbar type="dark" class="navbar-light navbar-nav"> -->
+    <!-- <b-navbar-nav class="nav"> 
+      <b-nav-item-dropdown text="Organise You Team" class="m-2 navbar-dropdown"> -->
+        <!-- <b-dropdown-item
+          :key="index" 
+          v-for="(navitem, index) in $store.state.menu.main_navi">
+          {{ navitem.name }}
+        </b-dropdown-item> -->
+        <!-- <b-dropdown-item href="/vic/organise-your-team/after-entry">After Entry</b-dropdown-item>
+        <b-dropdown-item href="/vic/organise-your-team/get-a-team-marquee">Get A Team Marquee</b-dropdown-item>
+        <b-dropdown-item href="/vic/organise-your-team/team-lists">Team Lists</b-dropdown-item>
+        <b-dropdown-item href="/vic/organise-your-team/personal-insurance">Personal Insurance</b-dropdown-item> -->
+        <!-- <b-dropdown-item href="/vic/organise-your-team/team-changes-requests">Team Changes Requests</b-dropdown-item> -->
+        <!-- <b-dropdown-item href="#">Sub page1</b-dropdown-item> -->
+        <!-- <b-dropdown-item href="#">Sub page2</b-dropdown-item> -->
+      <!-- </b-nav-item-dropdown>       -->
+      <!-- <b-nav-item-dropdown text="Sport" class="m-2">
+        <b-dropdown-item href="#">{{$store.state}}</b-dropdown-item>
         <b-dropdown-item href="#">Sub page2</b-dropdown-item>
-      </b-nav-item-dropdown>      
-      <b-nav-item-dropdown text="Sport" class="m-2">
-        <b-dropdown-item href="#">Sub page1</b-dropdown-item>
-        <b-dropdown-item href="#">Sub page2</b-dropdown-item>
-      </b-nav-item-dropdown>
-    </b-navbar-nav>
-  
+      </b-nav-item-dropdown>-->
+  <!-- </b-navbar-nav> -->
+  <!-- :to="navitem.link.cached_url
     <b-nav-item :key="index" v-for="(navitem, index) in $store.state.menu.main_navi">
-      <nuxt-link class="top-header__link navbar-light navbar-nav" :to="navitem.link.cached_url">
+      <nuxt-link class="top-header__link navbar-light navbar-nav">
         {{ navitem.name }}
       </nuxt-link>
-    </b-nav-item>
-  </b-navbar>
+    </b-nav-item> -->
+  <!-- </b-navbar> -->
+
+  <b-nav>
+    <b-nav-item-dropdown
+      id="my-nav-dropdown"
+      text="Organise Your Team"
+      toggle-class="nav-link-custom"
+      right
+    >
+      <b-dropdown-item>One</b-dropdown-item>
+    </b-nav-item-dropdown>
+
+    <b-nav-item-dropdown
+      id="my-nav-dropdown"
+      text="Sport"
+      toggle-class="nav-link-custom"
+      right
+    >
+      <b-dropdown-item>One</b-dropdown-item>
+    </b-nav-item-dropdown>
+
+    <b-nav-item>Faqs</b-nav-item>
+    <b-nav-item>Game Awards</b-nav-item>
+    <b-nav-item>Results</b-nav-item>
+  </b-nav>
 </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      story: {content: []},
+      faq: [],
+      category: [],
+      links: []
+     }
+  },
 
+   mounted() {
+
+    this.$storyapi.get('cdn/links', {
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.links = res.data.links
+      console.log("links", this.links)
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
+
+    this.$storybridge.on(['input', 'published', 'change'], (event) => {
+      if (event.action == 'input') {
+        if (event.story.id === this.story.id) {
+          this.story.content = event.story.content
+        }
+      } else {
+        window.location.reload()
+      }
+    })
+  },
+
+  methods: {
+    // menulinks: function {
+
+    // }
+  }
 };
+
 </script>
 <style scoped>
   .menu_info {

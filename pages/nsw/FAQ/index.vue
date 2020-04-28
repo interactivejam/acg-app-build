@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :path="nsw" :category_reference="story.content.Body[0].reference" :faq_reference="story.content.Body[1].reference" :slug="story.full_slug" :is="story.content.component"></component>
+      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :path="nsw" :slug="story.full_slug" :is="story.content.component"></component>
     </section>
   </div>
 </template>

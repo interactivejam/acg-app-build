@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :category_reference="story.content.Body[0].reference" :faq_reference="story.content.Body[1].reference" :path="vic" :slug="story.full_slug" :is="story.content.component"></component>
+      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :path="vic" :slug="story.full_slug" :is="story.content.component"></component>
     </section>
   </div>
 </template>

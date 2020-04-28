@@ -7,7 +7,7 @@
             <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
               :href="global.content.URL">
               <img :src="global.content.footer_logo"
-                    alt="Corporate Games" />
+                alt="Corporate Games" />
             </a>
             <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
               <Search />
@@ -18,20 +18,6 @@
                     alt="Corporate Games" />
                 <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}</div>
                 </a>
-
-                <!-- <button
-                  class="navbar-toggler navbar-toggler-right collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#Navigation"
-                  aria-controls="Navigation"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button> -->
 
                 <div class="collapse navbar-collapse" id="Navigation">
                   <ul class="navbar-nav ml-auto">
@@ -56,22 +42,15 @@
     <div class="inner_banner">
       <div class="container-fluid">
         <div class="col-md-4 ml-md-auto" v-for="global in global" :key="global.id">
-            <img :src="global.content.banner_following" alt="Corporate Games"  class="align-self-end" />
+          <img :src="global.content.banner_following" alt="Corporate Games"  class="align-self-end" />
         </div>
       </div>
     </div>
     <!-- Menu Sec -->
     <div class="menu_info">
       <div class="container">
-          <Gamesmenu />
+        <Gamesmenu />
       </div>
-      <!-- <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
-        <div class="container">
-          <div class="nav_sec">
-            <Gamesmenu />
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
   <div class="container part_sec">
@@ -79,6 +58,15 @@
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
             <h2 class="title">{{ blok.Title }}</h2>
             <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+            <!-- <div>{{blok.body[2].reference}}</div> -->
+            <div>
+              <ul v-for="faq in newFaq()" :key="faq.id" >
+                <li><h3 class="title">{{ faq.name }}</h3>
+                <p class="content">
+                {{ faq.content.text.content[0].content[0].text}}
+                </p> </li>
+              </ul>
+            </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
           <component :v-if="blok.component === 'important-dates'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
@@ -94,18 +82,23 @@ import Search from '~/components/Search.vue';
 import Gamesmenu from '~/components/Reusable/Gamesmenu.vue';
 import Global from '~/components/Global/global.vue';
 
-  export default {
-    data () {
-    return {
-      global: []
-      }
-    },
+export default {
+  data () {
+  return {
+    global: [],
+    faq: [],
+    category: [],
+    }
+  },
+
   components: {
     Search,
     Gamesmenu,
     Global
   },
+  
   props: ['blok'],
+
   mounted() {
      this.$storyapi.get('cdn/stories', {
         starts_with: 'global/vic-corporate-games',
@@ -117,17 +110,80 @@ import Global from '~/components/Global/global.vue';
       .catch((res) => {
         console.error('Failed to load resource', res)
       })
-  },
-    methods: {
-      openSearchBox :  (event) => {
-        let searchElement = document.getElementById('searchbox');
-        if (searchElement.classList.contains('searchbox-open')) {
-          searchElement.classList.remove('searchbox-open')
-        } else {
-          searchElement.classList.add('searchbox-open')
+
+      this.$storyapi.get
+      ('cdn/stories',
+        {
+          starts_with: 'faq/',
+          is_startpage: '0',
+          cv: this.$store.state.cacheVersion
         }
+      )
+      .then((res) => {
+        this.faq = res.data.stories
+      })
+      .catch((res) => {
+        console.error('Failed to load resource', res)
+      })
+
+      this.$storyapi.get('cdn/stories', {
+        starts_with: 'category/',
+        cv: this.$store.state.cacheVersion
+      })
+      .then((res) => {
+        this.category = res.data.stories
+      })
+      .catch((res) => {
+        console.error('Failed to load resource', res)
+      })
+    },
+
+  methods: {
+
+    newFaq: function() {
+      var newFaq = [];
+      // this.newCategory = [];
+      for(let j=0; j<this.blok.body[1].reference.length; j++) {        
+        for(let i=0; i<this.faq.length; i++) {         
+          if(this.blok.body[1].reference[j] === this.faq[i].uuid){
+                // console.log("faq_referecne", this.faq[i].uuid)
+              newFaq.push(this.faq[i]);             
+          }
+        }
+      } 
+      // console.log("faq", this.newFaq)
+      return newFaq;    
+    },
+
+    // newCategory: function() {
+    //   console.log("category", this.blok.body[2].reference)
+      
+    //   let newCategory = [];
+    //   let newfaqs = this.newFaq();
+    //   // console.log("faq", this.newfaqs)
+    //   // this.newCategory = [];
+    //   for(let j=0; j<this.blok.body[2].reference.length; j++) {        
+    //     for(let i=0; i<this.faq.length; i++) {         
+    //       if(this.blok.body[2].reference[j] === this.newfaqs[i].content.Categories){
+    //         console.log("faq--1", this.newfaqs[i].content.Categories)
+    //           newCategory.push(this.newfaqs[i]);
+    //       }
+    //     }
+    //   } 
+    //   console.log("fds32432fs", this.newCategory)
+    //   return newCategory;
+      
+    // },
+
+    openSearchBox :  (event) => {
+      let searchElement = document.getElementById('searchbox');
+      if (searchElement.classList.contains('searchbox-open')) {
+        searchElement.classList.remove('searchbox-open')
+      } else {
+        searchElement.classList.add('searchbox-open')
       }
     }
+  }
 };
 </script>
 

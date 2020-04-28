@@ -14,7 +14,7 @@
             </div>
             <div class="col-xl-3 col-md-3 back">
               <!-- <nuxt-link :to="to" class="back_btn">
-                &#8592; Go Back
+                &#8592; Go Back 
               </nuxt-link> -->
               <a @click="$router.go(-1)" class="back_btn">
               <fa :icon="['fas', 'long-arrow-alt-left']" /> Go Back</a>

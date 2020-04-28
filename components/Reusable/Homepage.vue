@@ -8,7 +8,7 @@
               <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
                 :href="global.content.URL">
                 <img :src="global.content.hero_logo"
-                     alt="Corporate Games" />
+                  alt="Corporate Games" />
               </a>
               <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
                 <Search />

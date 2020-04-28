@@ -18,7 +18,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   layout: 'default_following',

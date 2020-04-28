@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="richtext" v-html="richtext"></div>
+    <div></div>
   </div>
 </template>
 

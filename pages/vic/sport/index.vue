@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!-- <p>{{story.content.component}}--JJJ</p> -->
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
@@ -7,7 +8,8 @@
 <script>
 
 export default {
-  // layout: 'games_home',
+ layout: 'games_following',
+ 
   data () {
     return {
       story: { content: {} }

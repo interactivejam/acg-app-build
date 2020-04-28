@@ -1,33 +1,35 @@
 <template>
  <div class="container faq">
   <h1 class="detail_title">Frequently Asked Questions</h1>
-    <div class="col-xl-12 col-md-12">
-      <div class="row">
-          <ul  v-for="ncategory in newCategory()" :key="ncategory.id" class="col-xl-3 col-sm-6 ask_block faq_list categories" >{{ncategory.name}}
-            <hr class="line">
-              <li v-for="faq in newFaq()" :key="faq.id" >
-                <div v-if="faq.content.Categories[0] == ncategory.uuid" >
-                  <div v-if="path">
-                    <!-- <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> -->
-                    <div v-for="publish in faq.content.Publish" :key="publish.id">
-                      <div v-if="publish === path" >
-                       <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
-                      </div>
-                      <!-- <div v-else>
-                        {{path}}negative{{publish}}
-                        <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
-                      </div> -->
+  <hr>
+  <div class="col-xl-12 col-md-12">
+    <div class="row">
+      <ul v-for="category in category" :key="category.id" class="col-xl-3 col-sm-6 ask_block faq_list" >
+        <li class="categories"> {{category.content.Name}}
+          <hr class="line">
+          <ul class="ask_block">
+            <li v-for="faq in faq" :key="faq.id" >
+              <!-- <div v-if="faq.content.Categories[0] == category.uuid">
+              <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> -->
+              <div v-if="faq.content.Categories[0] == category.uuid" >
+                <div v-if="path">
+                  <li v-for="publish in faq.content.Publish" :key="publish.id">
+                    <div v-if="publish == path" >
+                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
                     </div>
-                  </div> 
-                  <div v-else>
-                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
-                  </div>
+                  </li>
                 </div>
-              </li>
-            </ul>
-        </div>  
-      </div>
+                <div v-else>
+                  <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>  
   </div>
+ </div>
 </template>
 
 <script>
@@ -38,48 +40,49 @@ export default {
       story: {content: []},
       faq: [],
       category: [],
+      links: []
       // newCategory: [],
      }
   },
   
-  methods: {
+  // methods: {
     
-    newCategory: function() {
-      console.log("category", this.category_reference)
-      let newCategory = [];
-      // this.newCategory = [];
-      for(let j=0; j<this.category_reference.length; j++) {        
-        for(let i=0; i<this.category.length; i++) {         
-          if(this.category_reference[j] === this.category[i].uuid){
-              newCategory.push(this.category[i]);
-          }
-        }
-      } 
-      // console.log("fds32432fs", this.newCategory)
-      return newCategory;
+  //   newCategory: function() {
+  //     console.log("category", this.category_reference)
+  //     let newCategory = [];
+  //     // this.newCategory = [];
+  //     for(let j=0; j<this.category_reference.length; j++) {        
+  //       for(let i=0; i<this.category.length; i++) {         
+  //         if(this.category_reference[j] === this.category[i].uuid){
+  //             newCategory.push(this.category[i]);
+  //         }
+  //       }
+  //     } 
+  //     // console.log("fds32432fs", this.newCategory)
+  //     return newCategory;
       
-    },
+  //   },
 
-    newFaq: function() {
-      let newFaq = [];
-      // this.newCategory = [];
-      for(let j=0; j<this.faq_reference.length; j++) {        
-        for(let i=0; i<this.faq.length; i++) {         
-          if(this.faq_reference[j] === this.faq[i].uuid){
-                console.log("faq_referecne", this.faq[i].uuid)
-              newFaq.push(this.faq[i]);
+  //   newFaq: function() {
+  //     let newFaq = [];
+  //     // this.newCategory = [];
+  //     for(let j=0; j<this.faq_reference.length; j++) {        
+  //       for(let i=0; i<this.faq.length; i++) {         
+  //         if(this.faq_reference[j] === this.faq[i].uuid){
+  //               console.log("faq_referecne", this.faq[i].uuid)
+  //             newFaq.push(this.faq[i]);
               
-          }
-        }
-      } 
-      console.log("faq", this.newFaq)
-      return newFaq;    
-    },
-  },
+  //         }
+  //       }
+  //     } 
+  //     console.log("faq", this.newFaq)
+  //     return newFaq;    
+  //   },
+  // },
   props: {
     // blok: [],
-    faq_reference: {},
-    category_reference: {},
+    // faq_reference: {},
+    // category_reference: {},
     path: String,
     slug: String
   },
@@ -107,6 +110,17 @@ export default {
     })
     .then((res) => {
       this.category = res.data.stories
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
+
+    this.$storyapi.get('cdn/links', {
+      // starts_with: 'category/',
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.links = res.data.links
     })
     .catch((res) => {
       console.error('Failed to load resource', res)
