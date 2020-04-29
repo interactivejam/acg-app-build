@@ -19,20 +19,6 @@
                       alt="Corporate Games" />
                       <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}</div>
                   </a>
-                  <!-- <button
-                    class="navbar-toggler navbar-toggler-right collapsed"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#Navigation"
-                    aria-controls="Navigation"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                  >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button> -->
-
                   <div class="collapse navbar-collapse" id="Navigation">
                     <ul class="navbar-nav ml-auto">
 
@@ -47,7 +33,6 @@
                 </nav>
               </div>
             </div>
-
         </div>
       </div>
     </header>
@@ -65,13 +50,6 @@
         </div>
       </div>
     </section>
-    <!-- <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
-      <div class="container">
-        <div class="nav_sec">
-          <Gamesmenu />
-        </div>
-      </div>
-    </div> -->
     <div class="container-fluid part_sec">
       <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
@@ -79,6 +57,29 @@
           <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+          <div class="container-fluid">
+            <div class="rem_info" v-for="global in global" :key="global.id">
+              <div class="">
+                <div v-for="dates in global.content.important_dates" :key="dates.id">
+                  <Importantdates v-bind:blok="dates"/>
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
+                    <Highlights v-bind:blok="highlights"/>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
+                    <Supporter v-bind:blok="sponsor"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -88,14 +89,17 @@
 <script>
 import Search from '~/components/Search.vue';
 import Gamesmenu from '~/components/Reusable/Gamesmenu.vue';
+import Importantdates from '~/components/Reusable/Importantdates.vue';
+import Highlights from '~/components/Reusable/Highlights.vue';
+import Supporter from '~/components/Reusable/Supporter.vue';
 
 export default {
-    data () {
-    return {
-      page: {story: {content: []}},
-      global: []
-      }
-    },
+  data () {
+  return {
+    page: {story: {content: []}},
+    global: []
+    }
+  },
   props: ['blok'],
   mounted() {
      this.$storyapi.get('cdn/stories', {
@@ -111,7 +115,10 @@ export default {
   },
   components: {
     Search,
-    Gamesmenu
+    Gamesmenu,
+    Importantdates,
+    Highlights,
+    Supporter
   },
     methods: {
       openSearchBox :  (event) => {
@@ -207,6 +214,13 @@ section.header {
 }
 .navbar {
   align-items: flex-start;
+}
+.date_info .row {
+    margin: 0 -5px;
+}
+.date_info {
+    margin: 0;
+    padding: 5px 0 0 0;
 }
 
 @media (min-width: 768px) {

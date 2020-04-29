@@ -69,8 +69,31 @@
             </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-          <component :v-if="blok.component === 'important-dates'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
-          <component :v-if="blok.component === 'highlights'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
+          <div class="container-fluid">
+            <div class="rem_info" v-for="global in global" :key="global.id">
+              <div class="">
+                <div v-for="dates in global.content.important_dates" :key="dates.id">
+                  <Importantdates v-bind:blok="dates"/>
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
+                    <Highlights v-bind:blok="highlights"/>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
+                    <Supporter v-bind:blok="sponsor"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <component :v-if="blok.component === 'important-dates'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
+          <component :v-if="blok.component === 'highlights'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component> -->
         </div>
       </div>
   </div>
@@ -81,6 +104,9 @@
 import Search from '~/components/Search.vue';
 import Gamesmenu from '~/components/Reusable/Gamesmenu.vue';
 import Global from '~/components/Global/global.vue';
+import Importantdates from '~/components/Reusable/Importantdates.vue';
+import Highlights from '~/components/Reusable/Highlights.vue';
+import Supporter from '~/components/Reusable/Supporter.vue';
 
 export default {
   data () {
@@ -94,7 +120,10 @@ export default {
   components: {
     Search,
     Gamesmenu,
-    Global
+    Global,
+    Importantdates,
+    Highlights,
+    Supporter
   },
   
   props: ['blok'],

@@ -1,5 +1,6 @@
 <template>
   <div class="part_sec import">
+    <h3>Important Dates to Remember</h3>
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" v-editable="blok">
         <div class="impo_block">

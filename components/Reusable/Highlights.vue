@@ -1,12 +1,12 @@
 <template>
-  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 mb-3" v-editable="blok">
+  
     <a href="#" class="date_block">
         <figure>
             <img :src="blok.Icon" alt>
         </figure>
         <h3><fa class="icon" :icon="['fas', 'angle-right']" />{{blok.Name}}</h3>
     </a>
-  </div>
+   
 </template>
 
 <script>
@@ -15,6 +15,10 @@ export default {
 };
 </script>
 <style scoped>
+.date_info {
+    margin: 0;
+    padding: 5px 0 0 0;
+}
 .date_block {
     margin: 0 0 10px 0;
     padding: 25px 30px;

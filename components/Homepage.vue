@@ -43,6 +43,7 @@
             </div>
         </div>
         <div class="container" v-editable="blok">
+          {{global}}
             <div class="row">
                 <div class="col-xl-6 col-md-6 col-sm-12">
                     <component v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>

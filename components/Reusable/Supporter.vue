@@ -3,6 +3,7 @@
     <figure>
       <img :src="blok.image" />
     </figure>
+    <p>this is sponer</p>
   </div>
 </template>
 
