@@ -49,7 +49,7 @@
     <!-- Menu Sec -->
     <div class="menu_info">
       <div class="container">
-        <Gamesmenu />
+        <Gamesmenu v-bind:blok="blok"/>
       </div>
     </div>
   </section>
@@ -57,6 +57,7 @@
       <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
             <h2 class="title">{{ blok.Title }}</h2>
+            <!-- {{global}} -->
             <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
             <div v-for="faq in refFaq()" :key="faq.id">
                 <ul><h3 class="title">{{ faq.name }}</h3>
@@ -159,7 +160,7 @@ export default {
           }
         }
       } 
-      return newCategory;
+      return newCategory; 
     },
 
     refFaq: function() {

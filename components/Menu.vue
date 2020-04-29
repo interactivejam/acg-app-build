@@ -1,8 +1,9 @@
 <template>
 <div>
+   <p>{{global}}</p>
   <div class="menu-items" v-for="global in global" :key="global.id">
       <a class="corpo_block" :href="global.content.main_navi.link" :key="blok" v-for="blok in blok.main_navi">
-        {{ global.content.main_navi.name }}
+        <!-- {{ global.content.main_navi.name }} -->
         <fa class="menu-items-icon" :icon="['fas', 'angle-right']" />
       </a>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- Header -->
-  <header>
+    <header>
       <div class="nav_sec top_part inner_top">
         <div class="container-fluid">
             <div class="col-12">
@@ -16,8 +16,8 @@
                   <a class="navbar-brand" v-for="global in global" :key="global.id"
                   :href="global.content.URL">
                   <img :src="global.content.hero_logo"
-                     alt="Corporate Games" />
-                     <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}</div>
+                      alt="Corporate Games" />
+                      <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}</div>
                   </a>
                   <!-- <button
                     class="navbar-toggler navbar-toggler-right collapsed"
@@ -52,18 +52,18 @@
       </div>
     </header>
     <section>
-     <!-- Top Bammer -->
- 	  <div class="vic_inner" v-for="global in global" :key="global.id">
-      <!-- Menu Sec -->
-      <div class="hero-image">
-        <img :src="global.content.banner_images" alt="Corporate Games" />
-      </div>
-      <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
-        <div class="container-fluid">
-          <Gamesmenu />
+      <!-- Top Bammer -->
+      <div class="vic_inner" v-for="global in global" :key="global.id">
+        <!-- Menu Sec -->
+        <div class="hero-image">
+          <img :src="global.content.banner_images" alt="Corporate Games" />
+        </div>
+        <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
+          <div class="container-fluid">
+            <Gamesmenu v-bind:blok="blok" />
+          </div>
         </div>
       </div>
-    </div>
     </section>
     <!-- <div class="search_box d-block d-sm-block d-md-block d-lg-none d-xl-none">
       <div class="container">
@@ -74,15 +74,15 @@
     </div> -->
     <div class="container-fluid part_sec">
       <div class="row">
-          <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-            <component class="detail" v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-            <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-          </div>
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+          <component class="detail" v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+          <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        </div>
       </div>
-  </div>
-</section>
+    </div>
+  </section>
 </template>
 
 <script>

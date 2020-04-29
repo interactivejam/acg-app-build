@@ -9,8 +9,6 @@
           <hr class="line">
           <ul class="ask_block">
             <li v-for="faq in faq" :key="faq.id" >
-              <!-- <div v-if="faq.content.Categories[0] == category.uuid">
-              <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> -->
               <div v-if="faq.content.Categories[0] == category.uuid" >
                 <div v-if="path">
                   <li v-for="publish in faq.content.Publish" :key="publish.id">
@@ -41,48 +39,10 @@ export default {
       faq: [],
       category: [],
       links: []
-      // newCategory: [],
      }
   },
-  
-  // methods: {
-    
-  //   newCategory: function() {
-  //     console.log("category", this.category_reference)
-  //     let newCategory = [];
-  //     // this.newCategory = [];
-  //     for(let j=0; j<this.category_reference.length; j++) {        
-  //       for(let i=0; i<this.category.length; i++) {         
-  //         if(this.category_reference[j] === this.category[i].uuid){
-  //             newCategory.push(this.category[i]);
-  //         }
-  //       }
-  //     } 
-  //     // console.log("fds32432fs", this.newCategory)
-  //     return newCategory;
-      
-  //   },
 
-  //   newFaq: function() {
-  //     let newFaq = [];
-  //     // this.newCategory = [];
-  //     for(let j=0; j<this.faq_reference.length; j++) {        
-  //       for(let i=0; i<this.faq.length; i++) {         
-  //         if(this.faq_reference[j] === this.faq[i].uuid){
-  //               console.log("faq_referecne", this.faq[i].uuid)
-  //             newFaq.push(this.faq[i]);
-              
-  //         }
-  //       }
-  //     } 
-  //     console.log("faq", this.newFaq)
-  //     return newFaq;    
-  //   },
-  // },
   props: {
-    // blok: [],
-    // faq_reference: {},
-    // category_reference: {},
     path: String,
     slug: String
   },
