@@ -6,9 +6,9 @@ export default function ({ app, isServer, route, store, isDev }) {
     store.commit('setCacheVersion', app.$storyapi.cacheVersion)
   }
 
-  if (!store.state.menu._uid || games !== store.state.games) {
-    store.commit('setgames', games)
+  // if (!store.state.menu._uid || games !== store.state.games) {
+  //   store.commit('setgames', games)
 
-    return store.dispatch('loadMenu', {version: version, games: games})
-  }
+  //   return store.dispatch('loadMenu', {version: version, games: games})
+  // }
 }

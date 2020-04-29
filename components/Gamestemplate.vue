@@ -173,7 +173,7 @@ export default {
       return unique;
     },
 
-    openSearchBox :  (event) => {
+    openSearchBox : (event) => {
       let searchElement = document.getElementById('searchbox');
       if (searchElement.classList.contains('searchbox-open')) {
         searchElement.classList.remove('searchbox-open')
