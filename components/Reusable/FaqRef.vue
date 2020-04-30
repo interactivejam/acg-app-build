@@ -12,7 +12,7 @@ export default {
   components: {
     Search
   },
-
+  
   props: ["blok"]
 };
 </script>

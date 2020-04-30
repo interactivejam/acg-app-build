@@ -26,6 +26,9 @@ import VICHomepage from '~/components/Reusable/Homepage.vue'
 import Partner from '~/components/Reusable/Partner.vue'
 import Importantdates from '~/components/Reusable/Importantdates.vue'
 import Highlights from '~/components/Reusable/Highlights.vue'
+import HighlightsRef from '~/components/Reusable/HighlightsRef.vue'
+import FaqRef from '~/components/Reusable/FaqRef.vue'
+import CategoryRef from '~/components/Reusable/CategoryRef.vue'
 import Singleimage from '~/components/Reusable/SingleImage.vue'
 import Supporter from '~/components/Reusable/Supporter.vue'
 import Gamestemplate from '~/components/Gamestemplate.vue'
@@ -48,6 +51,9 @@ Vue.component('toggle', Toggle)
 Vue.component('slide', Slide)
 Vue.component('updates', Updates)
 Vue.component('highlights', Highlights)
+Vue.component('highlight_reference', HighlightsRef)
+Vue.component('faq_reference', FaqRef)
+Vue.component('category_reference', CategoryRef)
 Vue.component('charity', Charity)
 Vue.component('faq', Faq)
 // Vue.component('faqs', Faqs)

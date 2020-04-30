@@ -59,19 +59,19 @@
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
           <div class="container-fluid">
             <div class="rem_info" v-for="global in global" :key="global.id">
-              <div class="">
+              <div class="" v-if="importDate_blok">
                 <div v-for="dates in global.content.important_dates" :key="dates.id">
                   <Importantdates v-bind:blok="dates"/>
                 </div>
               </div>
-              <div class="">
+              <div class="date_info" v-if="highlights_blok">
                 <div class="row">
                   <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
                     <Highlights v-bind:blok="highlights"/>
                   </div>
                 </div>
               </div>
-              <div class="">
+              <div class="" v-if="sponsor_blok">
                 <div class="row">
                   <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
                     <Supporter v-bind:blok="sponsor"/>
@@ -120,16 +120,32 @@ export default {
     Highlights,
     Supporter
   },
-    methods: {
-      openSearchBox :  (event) => {
-        let searchElement = document.getElementById('searchbox');
-        if (searchElement.classList.contains('searchbox-open')) {
-          searchElement.classList.remove('searchbox-open')
-        } else {
-          searchElement.classList.add('searchbox-open')
-        }
+
+  computed: {
+    importDate_blok: function() { 
+      var date_temp = this.blok.body[3].reference;
+      return date_temp.includes('important_date')
+    },
+    highlights_blok: function() { 
+      var highlights_temp = this.blok.body[3].reference;
+      return highlights_temp.includes('highlights')
+    },
+    sponsor_blok: function() { 
+      var sponor_temp = this.blok.body[3].reference;
+      return sponor_temp.includes('sponor')
+    }
+  },
+
+  methods: {
+    openSearchBox :  (event) => {
+      let searchElement = document.getElementById('searchbox');
+      if (searchElement.classList.contains('searchbox-open')) {
+        searchElement.classList.remove('searchbox-open')
+      } else {
+        searchElement.classList.add('searchbox-open')
       }
     }
+  }
 };
 </script>
 
@@ -149,7 +165,6 @@ section.header {
 }
 .date {
   font-family: 'Open Sans', sans-serif;
-   
   font-size: 0.75em;
   letter-spacing: 0.15em;
   color: #ffffff;
@@ -160,17 +175,7 @@ section.header {
 .date span {
   padding: 0 0.5em;
 }
-.import {
-    margin: 0 0 5px 0;
-    padding: 30px 30px 15px 30px;
-    background: #f6f5f5;
-}
-.import h2 {
-    margin: 0 0 15px 0;
-    padding: 0;
-    font-size: 21px;
-    color: #171616;
-}
+
 // .hero-image {
 //   background-image: url('https://a.storyblok.com/f/76648/1920x561/b01d02b1c3/vic_banner_bg.jpg');
 //   background-repeat: no-repeat;
@@ -214,13 +219,6 @@ section.header {
 }
 .navbar {
   align-items: flex-start;
-}
-.date_info .row {
-    margin: 0 -5px;
-}
-.date_info {
-    margin: 0;
-    padding: 5px 0 0 0;
 }
 
 @media (min-width: 768px) {

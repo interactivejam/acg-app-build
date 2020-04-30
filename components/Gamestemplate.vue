@@ -54,48 +54,45 @@
     </div>
   </section>
   <div class="container part_sec">
-      <div class="row">
-        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-            <h2 class="title">{{ blok.Title }}</h2>
-            <!-- {{global}} -->
-            <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-            <div v-for="faq in refFaq()" :key="faq.id">
-                <ul><h3 class="title">{{ faq.name }}</h3>
-                  <li>
-                  <p class="content">
-                  {{ faq.content.text.content[0].content[0].text}}
-                  </p> </li>
-                </ul>
+    <div class="row">
+      <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+          <h2 class="title">{{ blok.Title }}</h2>
+          <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+          <div v-for="faq in refFaq()" :key="faq.id">
+              <ul><h3 class="title">{{ faq.name }}</h3>
+                <li>
+                <p class="content">
+                {{ faq.content.text.content[0].content[0].text}}
+                </p> </li>
+              </ul>
+          </div>
+      </div>
+      <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+        <div class="container-fluid">
+          <div class="rem_info" v-for="global in global" :key="global.id">
+            <div class="" v-if="importDate_blok">
+              <div v-for="dates in global.content.important_dates" :key="dates.id">
+                <Importantdates v-bind:blok="dates"/>
+              </div>
             </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-          <div class="container-fluid">
-            <div class="rem_info" v-for="global in global" :key="global.id">
-              <div class="">
-                <div v-for="dates in global.content.important_dates" :key="dates.id">
-                  <Importantdates v-bind:blok="dates"/>
+            <div class="" v-if="highlights_blok">
+              <div class="row">
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
+                  <Highlights v-bind:blok="highlights"/>
                 </div>
               </div>
-              <div class="">
-                <div class="row">
-                  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
-                    <Highlights v-bind:blok="highlights"/>
-                  </div>
-                </div>
-              </div>
-              <div class="">
-                <div class="row">
-                  <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
-                    <Supporter v-bind:blok="sponsor"/>
-                  </div>
+            </div>
+            <div class="" v-if="sponsor_blok">
+              <div class="row">
+                <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
+                  <Supporter v-bind:blok="sponsor"/>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <component :v-if="blok.component === 'important-dates'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component>
-          <component :v-if="blok.component === 'highlights'" :key="blok._uid" v-for="blok in blok.highlights" :blok="blok" :is="blok.component"></component> -->
         </div>
       </div>
+    </div>
   </div>
 </div>
 </template>
@@ -129,43 +126,58 @@ export default {
   props: ['blok'],
 
   mounted() {
-     this.$storyapi.get('cdn/stories', {
-        starts_with: 'global/vic-corporate-games',
-        cv: this.$store.state.cacheVersion
-      })
-      .then((res) => {
-        this.global = res.data.stories
-      })
-      .catch((res) => {
-        console.error('Failed to load resource', res)
-      })
+    this.$storyapi.get('cdn/stories', {
+      starts_with: 'global/vic-corporate-games',
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.global = res.data.stories
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
 
-      this.$storyapi.get
-      ('cdn/stories',
-        {
-          starts_with: 'faq/',
-          is_startpage: '0',
-          cv: this.$store.state.cacheVersion
-        }
-      )
-      .then((res) => {
-        this.faq = res.data.stories
-      })
-      .catch((res) => {
-        console.error('Failed to load resource', res)
-      })
-
-      this.$storyapi.get('cdn/stories', {
-        starts_with: 'category/',
+    this.$storyapi.get
+    ('cdn/stories',
+      {
+        starts_with: 'faq/',
+        is_startpage: '0',
         cv: this.$store.state.cacheVersion
-      })
-      .then((res) => {
-        this.category = res.data.stories
-      })
-      .catch((res) => {
-        console.error('Failed to load resource', res)
-      })
+      }
+    )
+    .then((res) => {
+      this.faq = res.data.stories
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
+
+    this.$storyapi.get('cdn/stories', {
+      starts_with: 'category/',
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.category = res.data.stories
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
+  },
+
+  computed: {
+    importDate_blok: function() { 
+      var date_temp = this.blok.body[3].reference;
+      return date_temp.includes('important_date')
     },
+    highlights_blok: function() { 
+      var highlights_temp = this.blok.body[3].reference;
+      return highlights_temp.includes('highlights')
+    },
+    sponsor_blok: function() { 
+      var sponor_temp = this.blok.body[3].reference;
+      return sponor_temp.includes('sponor')
+    }
+  },
 
   methods: {
     newFaq: function() {
@@ -241,17 +253,7 @@ h4.title {
   opacity: 0.5;
   padding: 0 0.75em;
 }
-.date {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.75em;
-  letter-spacing: 0.15em;
-  color: #3f3f3f;
-  margin: 1.5em 0 1em 1em;
-  opacity: 0.85;
-}
-.date span {
-  padding: 0 0.5em;
-}
+
 .menu_info {
   top: -57px;
 }
@@ -260,6 +262,24 @@ h4.title {
   opacity: 0.75;
   margin-left: 1em;
 }
+.rem_info {
+    margin: 0;
+    padding: 0;
+}
+.date {
+  font-family: 'Open Sans', sans-serif;
+   
+  font-size: 0.75em;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(51,51,51,0.5);
+  margin: 1.5em 0 1em 1em;
+  opacity: 0.85;
+}
+.date span {
+  padding: 0 0.5em;
+}
+
 @media (min-width: 768px) {
 .navbar-expand-md .navbar-collapse {
     margin: 1em 1em 0 0;

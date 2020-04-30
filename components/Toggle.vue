@@ -5,11 +5,12 @@
       <h4>{{ blok.title }}</h4>
       <fa :icon="['fa', 'plus']"/>
     </div>
+    <div>
       <!-- Element to collapse -->
-        <b-collapse :id="blok._uid">
-          <b-card>{{ blok.richtext }}</b-card>
-        </b-collapse>
-      </div>
+      <b-collapse :id="blok._uid">
+        <b-card class="richtext" v-html="richtext"></b-card>
+      </b-collapse>
+    </div>  
   </div>
 </template>
 
@@ -18,8 +19,8 @@
   props: ["blok"],
   computed: {
     richtext() {
-      return this.blok.content
-        ? this.$storyapi.richTextResolver.render(this.blok.content)
+      return this.blok.richtext
+        ? this.$storyapi.richTextResolver.render(this.blok.richtext)
         : "";
     }
   }
@@ -38,5 +39,11 @@
   .toggle .card-header svg {
       opacity: 0.5;
       font-size: 14px;
+  }
+  .richtext a {
+    color: #171616;
+  }
+  .richtext a:hover {
+      color: #ed1c24;
   }
 </style>

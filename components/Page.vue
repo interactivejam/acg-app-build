@@ -44,36 +44,32 @@
       <div class="col-xl-8 col-md-8 col-sm-12" v-editable="blok">
         <h2 class="title">{{ blok.title }}</h2>
           <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-
           <markdown v-if="blok.text"
-                      :text="blok.text">
+           :text="blok.text">
           </markdown>
-
       </div>
       <div class="col-xl-4 col-md-4 col-sm-12">
-
-
       <h4 class="title">Find out more</h4>
-         <div class="menu-items storyblok__outline">
-                              <nuxt-link to="about-the-games" class="corpo_block">
-                                About the Games<fa :icon="['fas', 'angle-right']"/>
-                              </nuxt-link>
-                              <nuxt-link to="awards" class="corpo_block">
-                                Games Awards<fa :icon="['fas', 'angle-right']"/>
-                              </nuxt-link>
-                              <nuxt-link to="history" class="corpo_block">
-                                History<fa :icon="['fas', 'angle-right']"/>
-                              </nuxt-link>
-                              <nuxt-link to="results" class="corpo_block">
-                                Results<fa :icon="['fas', 'angle-right']"/>
-                              </nuxt-link>
-                              <nuxt-link to="participating-organisations" class="corpo_block">
-                                Participating Organisations<fa :icon="['fas', 'angle-right']"/>
-                              </nuxt-link>
-                              <nuxt-link to="Contact Us" class="corpo_block">
-                                Contact Us<fa :icon="['fas', 'angle-right']"/>
-                              </nuxt-link>
-                          </div>
+        <div class="menu-items storyblok__outline">
+          <nuxt-link to="about-the-games" class="corpo_block">
+            About the Games<fa :icon="['fas', 'angle-right']"/>
+          </nuxt-link>
+          <nuxt-link to="awards" class="corpo_block">
+            Games Awards<fa :icon="['fas', 'angle-right']"/>
+          </nuxt-link>
+          <nuxt-link to="history" class="corpo_block">
+            History<fa :icon="['fas', 'angle-right']"/>
+          </nuxt-link>
+          <nuxt-link to="results" class="corpo_block">
+            Results<fa :icon="['fas', 'angle-right']"/>
+          </nuxt-link>
+          <nuxt-link to="participating-organisations" class="corpo_block">
+            Participating Organisations<fa :icon="['fas', 'angle-right']"/>
+          </nuxt-link>
+          <nuxt-link to="Contact Us" class="corpo_block">
+            Contact Us<fa :icon="['fas', 'angle-right']"/>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>

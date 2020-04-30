@@ -1,12 +1,10 @@
 <template>
-  
     <a href="#" class="date_block">
         <figure>
             <img :src="blok.Icon" alt>
         </figure>
         <h3><fa class="icon" :icon="['fas', 'angle-right']" />{{blok.Name}}</h3>
     </a>
-   
 </template>
 
 <script>
@@ -15,10 +13,7 @@ export default {
 };
 </script>
 <style scoped>
-.date_info {
-    margin: 0;
-    padding: 5px 0 0 0;
-}
+
 .date_block {
     margin: 0 0 10px 0;
     padding: 25px 30px;
