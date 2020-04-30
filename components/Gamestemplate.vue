@@ -46,7 +46,7 @@
     </div>
     <!-- Menu Sec -->
     <div class="menu_info">
-      <div class="container">
+      <div class="container col-c-xl-12">
         <Gamesmenu v-bind:blok="blok"/>
       </div>
     </div>

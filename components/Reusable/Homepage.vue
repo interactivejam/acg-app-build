@@ -36,25 +36,35 @@
         </div>
       </div>
     </header>
-    <section>
+    <section> 
       <!-- Top Bammer -->
-      <div class="vic_inner" v-for="global in global" :key="global.id">
-        <!-- Menu Sec -->
-        <div class="hero-image">
-          <img :src="global.content.banner_images" alt="Corporate Games" />
-        </div>
-        <div class="menu_info d-none d-sm-none d-md-none d-lg-block d-xl-block">
+      <div class="teaser"  v-for="global in global" :key="global.id">
+        <!-- Menu Sec -->      
+          <div v-editable="blok" class="teaser">
+            <component v-if="slide" :blok="slide" :is="slide.component">
+            </component>
+            <div class="teaser__pag">
+              <button @click="handleDotClick(index)"
+                      :key="index"
+                      v-for="(slide_blok, index) in slide_blok"
+                      :class="{'teaser__pag-dot--current': index == currentSlide}"
+                      class="teaser__pag-dot">Next</button>
+              </div>
+            </div>
+         </div>
+        <div class="menu_info">
           <div class="container-fluid">
             <Gamesmenu v-bind:blok="blok" />
           </div>
         </div>
-      </div>
     </section>
     <div class="container-fluid part_sec">
+      <div></div>
+      <!-- {{blok}} -->
       <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
           <component class="detail" v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-          <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+          <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>       
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
           <div class="container-fluid">
@@ -97,21 +107,23 @@ export default {
   data () {
   return {
     page: {story: {content: []}},
-    global: []
+    global: [],
+    currentSlide: 0,
+    // arrays:[]
     }
   },
   props: ['blok'],
   mounted() {
-     this.$storyapi.get('cdn/stories', {
-        starts_with: 'global/vic-corporate-games',
-        cv: this.$store.state.cacheVersion
-      })
-      .then((res) => {
-        this.global = res.data.stories
-      })
-      .catch((res) => {
-        console.error('Failed to load resource', res)
-      })
+    this.$storyapi.get('cdn/stories', {
+      starts_with: 'global/vic-corporate-games',
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.global = res.data.stories
+    })
+    .catch((res) => {
+      console.error('Failed to load resource', res)
+    })
   },
   components: {
     Search,
@@ -133,10 +145,34 @@ export default {
     sponsor_blok: function() { 
       var sponor_temp = this.blok.body[3].reference;
       return sponor_temp.includes('sponor')
+    },
+    slide_blok () {
+      var arrays = this.blok.body.filter(function(el) {
+        return el.component == "slide"
+      });
+      return arrays;
+    },
+    slide () {
+      console.log("this.blok.body", this.blok.body)
+      var array = this.blok.body.filter(function(el) {
+        return el.component == "slide"
+      });
+      console.log("array", array)
+      let slides = array.filter((slide, index) => {
+        return this.currentSlide === index
+      })
+      console.log("slides", slides)
+      if (slides.length) {
+        return slides[0]
+      }
+      return null
     }
   },
 
   methods: {
+    handleDotClick (index) {
+      this.currentSlide = index
+    },
     openSearchBox :  (event) => {
       let searchElement = document.getElementById('searchbox');
       if (searchElement.classList.contains('searchbox-open')) {
@@ -176,27 +212,40 @@ section.header {
   padding: 0 0.5em;
 }
 
-// .hero-image {
-//   background-image: url('https://a.storyblok.com/f/76648/1920x561/b01d02b1c3/vic_banner_bg.jpg');
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background-size: auto;
+// .hero-image {                           
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   justify-content: center;
+//   overflow: hidden;
+//   display: flex;
+// }               
+// .hero-image img {
+//   height: 500px;                                                                                                                    
+//   z-index: 20;                
+//   width: 100%;
 // }
 
-.hero-image {                           
-  position: absolute;
-  top: 0;
-  width: 100%;
-  justify-content: center;
-  overflow: hidden;
-  display: flex;
-}               
-.hero-image img {
-  height: 500px;                                                                                                                    
-  z-index: 20;                
-  width: 100%                                                                                                                                                             ;
-  //max-width: 100%;
+.menu_info {
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.4);
+  // position: relative;
+  top: -30px;
 }
+.menu_info .dropdown-menu {
+  border-radius: 0;
+  /* border: none; */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.8);
+  min-width: 12em;
+}
+// .navbar-dropdown {
+//   color: rgba(255, 255, 255) !important;
+// }
+
 .vic_inner .menu_info {
     position:absolute;
     bottom: 65px;
@@ -215,12 +264,32 @@ section.header {
   position: relative;
 }
 .menu_info .navbar-light .navbar-nav .nav-link:hover {
-    color: #ed1c24;
+  color: #ed1c24;
 }
 .navbar {
   align-items: flex-start;
 }
+.teaser__pag {
+  width: 100%;
+  text-align: center;
+  margin-top: -100px;
+}
+.teaser__pag-dot {
+  text-indent: -9999px;
+  border: 0;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  margin: 5px 6px;
+  background-color: #ccc;
+  -webkit-appearance: none;
+  cursor: pointer;
 
+  &--current {
+    background-color: #000;
+  }
+  }
 @media (min-width: 768px) {
 .navbar-expand-md .navbar-collapse {
     margin: 1em 1em 0 0;

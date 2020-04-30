@@ -1,12 +1,18 @@
 <template>
-  <div v-editable="blok" class="slide col-xl-12 col-lg-12 p-0">
-    <img :src="blok.image" alt class="pb-5" />
+  <div class="slide" v-editable="blok">
+    <img :src="blok.image">
   </div>
 </template>
 
 <script>
 export default {
-  props: ["blok"]
-};
+  props: ['blok']
+}
 </script>
 
+<style lang="scss">
+.slide img {
+  width: 100%;
+  height: 550px;
+}
+</style>

@@ -1,24 +1,68 @@
 <template>
-  <div class="col-xl-12 col-md-12 col-sm-12 web-headline" v-editable="blok">
-    <h1>{{ blok.headline }}</h1>
+  <div v-editable="blok" class="teaser">
+    <component v-if="slide" :blok="slide" :is="slide.component"></component>
+    <div class="teaser__pag">
+      <button @click="handleDotClick(index)"
+              :key="index"
+              v-for="(blok, index) in blok.body"
+              :class="{'teaser__pag-dot--current': index == currentSlide}"
+              class="teaser__pag-dot">Next</button>
+    </div>
+    <p>fsdfdsfdsafdsuafosduifods</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['blok']
+  props: ['blok'],
+
+  data () {
+    return {
+      currentSlide: 0
+    }
+  },
+
+  computed: {
+    slide () {
+      let slides = this.blok.body.filter((partner, index) => {
+        return this.currentSlide === index
+      })
+      if (slides.length) {
+        return slides[0]
+      }
+      return null
+    }
+  },
+
+  methods: {
+    handleDotClick (index) {
+      this.currentSlide = index
+    }
+  }
 }
 </script>
 
-<style scoped>
-  .web-headline {
-    padding-top: 50px;
-    padding-bottom: 30px;
+<style lang="scss">
+.teaser__pag {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.teaser__pag-dot {
+  text-indent: -9999px;
+  border: 0;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  margin: 5px 6px;
+  background-color: #ccc;
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &--current {
+    background-color: #000;
   }
-  .banner_sec h1 {
-    margin: 0 0 40px 0;
-    padding: 0;
-    font-size: 45px;
-    color: #333333;
 }
 </style>
