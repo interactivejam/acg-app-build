@@ -18,7 +18,6 @@
                     alt="Corporate Games" />
                 <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}</div>
                 </a>
-
                 <div class="collapse navbar-collapse" id="Navigation">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -32,7 +31,6 @@
               </nav>
             </div>
           </div>
-
       </div>
     </div>
   </header>
@@ -59,12 +57,12 @@
           <h2 class="title">{{ blok.Title }}</h2>
           <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
           <div v-for="faq in refFaq()" :key="faq.id">
-              <ul><h3 class="title">{{ faq.name }}</h3>
-                <li>
-                <p class="content">
-                {{ faq.content.text.content[0].content[0].text}}
-                </p> </li>
-              </ul>
+            <ul><h3 class="title">{{ faq.name }}</h3>
+              <li>
+              <p class="content">
+              {{ faq.content.text.content[0].content[0].text}}
+              </p> </li>
+            </ul>
           </div>
       </div>
       <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">

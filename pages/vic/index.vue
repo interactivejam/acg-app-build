@@ -1,6 +1,5 @@
 <template>
   <section class="util__container">
-    <!-- <p>{{story.content}}</p> -->
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>

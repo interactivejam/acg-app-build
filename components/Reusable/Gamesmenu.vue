@@ -28,16 +28,11 @@
       </nuxt-link>
     </b-nav-item>-->
     <!-- </b-navbar> -->
-
+   
     <b-nav>
-      <b-nav-item-dropdown
-        id="my-nav-dropdown"
-        text="Organise Your Team"
-        toggle-class="nav-link-custom"
-        right
-      >
+      <b-nav-item-dropdown id="my-nav-dropdown" text="Organise Your Team" toggle-class="nav-link-custom" right>
         <b-dropdown-item
-          v-for="item in get_organiseSlug()"
+          v-for="item in get_organiseSlug"
           :key="item.id"
           :to="{ path: item.real_path}"
         >{{ item.name }}</b-dropdown-item>
@@ -45,18 +40,16 @@
 
       <b-nav-item-dropdown id="my-nav-dropdown" text="Sport" toggle-class="nav-link-custom" right>
         <b-dropdown-item 
-          v-for="item in get_sportSlug()"
+          v-for="item in get_sportSlug"
           :key="item.id"
           :to="{ path: item.real_path}" 
         >{{ item.name }}</b-dropdown-item>
       </b-nav-item-dropdown>
 
-      <b-nav-item :to="{ path: get_faqsSlug()}">FAQ</b-nav-item>
-      <b-nav-item :to="{ path: get_awardsSlug()}">Game Awards</b-nav-item>
-      <b-nav-item :to="{ path: get_resultSlug()}">Results</b-nav-item>
-      <!-- <div>{{blok}}</div> -->
+      <b-nav-item v-for="slug in get_Slug" :key="slug.id" :to="slug.real_path">
+      {{ slug.name }}
+      </b-nav-item>
     </b-nav>
-    
   </div>
 </template>
 
@@ -75,35 +68,18 @@ export default {
   props: ["blok"],
 
   mounted() {
-    // if (this.blok.component === "games_homepage") {
-      this.$storyapi
-      .get("cdn/links", {
-        starts_with: `vic/`,
-        cv: this.$store.state.cacheVersion
-      })
-      .then((res) => {
-        this.links = res.data.links
-        console.log("links", this.links)
-      })
-      .catch(res => {
-        console.error("Failed to load resource", res);
-      });
-    // }
-    // else 
-    // {
-    //   this.$storyapi
-    //   .get("cdn/links", {
-    //     starts_with: `${this.fetchHSlug}/`,
-    //     cv: this.$store.state.cacheVersion
-    //   })
-    //   .then((res) => {
-    //     this.links = res.data.links
-    //     console.log("links", this.links)
-    //   })
-    //   .catch(res => {
-    //     console.error("Failed to load resource", res);
-    //   });
-    // }
+    this.$storyapi
+    .get("cdn/links", {
+      starts_with: `vic/`,
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.links = res.data.links
+      console.log("links", this.links)
+    })
+    .catch(res => {
+      console.error("Failed to load resource", res);
+    });
 
     this.$storybridge.on(["input", "published", "change"], event => {
       if (event.action == "input") {
@@ -116,53 +92,31 @@ export default {
     });
   },
 
-  methods: {
-    get_faqsSlug: function() {
-      var arraylinks = Object.values(this.links)
-      for(let i=0; i<arraylinks.length; i++) {
-        if(arraylinks[i].name === "FAQ")
-        return arraylinks[i].real_path;
-      }
-    },
-
-    get_awardsSlug: function() {
-      var arraylinks = Object.values(this.links)
-      for(let i=0; i<arraylinks.length; i++) {
-        if(arraylinks[i].name === "Games Awards")
-        return arraylinks[i].real_path;
-      }
-    },
-
-    get_resultSlug: function() {
-      var arraylinks = Object.values(this.links)
-      for(let i=0; i<arraylinks.length; i++) {
-        if(arraylinks[i].name === "Results")
-        return arraylinks[i].real_path;
-      }
+  computed: {
+    get_Slug: function() {
+      var arraylinks = Object.values(this.links).filter(function (el) {
+        return el.published === true &&
+         el.name === "FAQ" || el.name ==="Results" || el.name === "Games Award";
+      });
+      return arraylinks
     },
 
     get_organiseSlug: function() {
-      let organiseItems = [];
-
-      var arraylinks = Object.values(this.links)
-      for(let i=0; i<arraylinks.length; i++) {
-        if(arraylinks[i].real_path.includes("organise-your-team/"))
-        organiseItems.push(arraylinks[i]);
-      }
-      return organiseItems
+      var arraylinks = Object.values(this.links).filter(function (el) {
+        return el.published === true &&
+        el.real_path.includes("organise-your-team/") === true;
+      });
+      return arraylinks;
     },
 
     get_sportSlug: function() {
-      let sportItems = [];
-
-      var arraylinks = Object.values(this.links)
-      for(let i=0; i<arraylinks.length; i++) {
-        if(arraylinks[i].real_path.includes("sport/"))
-        sportItems.push(arraylinks[i]);
-      }
-      return sportItems
+      var arraylinks = Object.values(this.links).filter(function (el) {
+        return el.published === true &&
+        el.real_path.includes("sport/") === true;
+      });
+      return arraylinks;
     }
-  }
+  },
 };
 </script>
 <style scoped>
