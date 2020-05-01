@@ -20,7 +20,7 @@
               >{{ item.name }}</b-dropdown-item>
             </b-nav-item-dropdown>
           </div>
-          <div class="nav-item">
+          <div class="row">
             <b-nav-item class="nav-link" v-for="slug in get_Slug" :key="slug.id" :to="slug.real_path">
             {{ slug.name }}
             </b-nav-item>
@@ -69,7 +69,7 @@ export default {
     get_Slug: function() {
       var arraylinks = Object.values(this.links).filter(function (el) {
         return el.published === true &&
-         el.name === "FAQ" || el.name ==="Results" || el.name === "Games Award";
+         el.name === "FAQ" || el.name ==="Results" || el.name === "Games Awards";
       });
       return arraylinks
     },

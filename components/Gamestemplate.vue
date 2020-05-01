@@ -40,7 +40,8 @@
     <div class="inner_banner">
       <div class="container-fluid">
         <div class="col-md-4 ml-md-auto" v-for="global in global" :key="global.id">
-          <img :src="global.content.banner_following" alt="Corporate Games"  class="align-self-end" />
+          <!-- <P>{{ get_bannerimage }}</P> -->
+          <img :src="get_bannerimage.filename" alt="Corporate Games"  class="align-self-end" />
         </div>
       </div>
     </div>
@@ -161,7 +162,6 @@ export default {
       console.error('Failed to load resource', res)
     })
   },
-
   computed: {
     importDate_blok: function() { 
       var date_temp = this.blok.body[3].reference;
@@ -174,10 +174,18 @@ export default {
     sponsor_blok: function() { 
       var sponor_temp = this.blok.body[3].reference;
       return sponor_temp.includes('sponor')
+    },
+    get_bannerimage () {
+      // console.log("fdsafdds", this.global.content.banner_following);
+      // var bannerimage = this.global.map(el => el.content.banner_following[Math.floor(Math.random() * el.content.banner_following.length)])
+      var imagesrc = this.global[0].content.banner_following;
+      imagesrc = imagesrc[Math.floor(Math.random() * imagesrc.length)]
+      return imagesrc;
     }
   },
 
   methods: {
+
     newFaq: function() {
       var newFaq = [];
       for(let j=0; j<this.blok.body[1].reference.length; j++) {        

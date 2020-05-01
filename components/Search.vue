@@ -9,7 +9,7 @@
       required
       ref="inputbox"
       v-on:blur="handleBlur"
-      v-on:keyup="handleKeyup"
+      v-on:keyup.enter="handleKeyup($event.target.value)"
     />
     <input type="submit"  class="searchbox-submit d-none" id="searchbox-submit" value="GO" />
     <span v-on:click="openSearchBox"  class="searchbox-icon" id="searchbox-icon">
@@ -22,9 +22,26 @@ import Vue from 'vue';
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      searchlinks: []
     };
   },
+
+  mounted () {
+    this.$storyapi
+    .get("cdn/links", {
+      // starts_with: `vic/`,
+      cv: this.$store.state.cacheVersion
+    })
+    .then((res) => {
+      this.searchlinks = res.data.links
+      console.log("links", this.searchlinks)
+    })
+    .catch(res => {
+      console.error("Failed to load resource", res);
+    });
+  }, 
+
   methods: {
     openSearchBox() {
       if (this.isOpen === false) {
@@ -39,7 +56,18 @@ export default {
       this.$refs.inputbox.blur();
       this.isOpen = false;
     },
-    handleKeyup(event) {
+    handleKeyup(value) {
+      var arraylinks = Object.values(this.searchlinks).filter(function (el) {
+        return el.name.toLowerCase() === value.toLowerCase() && el.published == true
+      });
+      console.log("arraus", arraylinks)
+      alert("arrays")
+      var searchsrc = arraylinks.find(function(el) { 
+        return el.name.toLowerCase() === value.toLowerCase(); 
+      });    
+      console.log("slug", searchsrc)
+      alert(searchsrc.real_path)
+      location.href = searchsrc.real_path;      
     }
   }
 };
