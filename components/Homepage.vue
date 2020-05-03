@@ -23,7 +23,7 @@
                                         <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-6 align-self-center">
                                           <div class="row justify-content-between align-items-center">
                                                 <div class="col-sm-11 date">{{ global.content.Dates }}
-                                                    <br>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}
+                                                  <br>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}
                                                 </div>
                                                  <div class="col-sm-1">
                                                   <fa :icon="['fas', 'angle-right']"/>
@@ -38,8 +38,6 @@
 
                     </div>
                 </div>
-
-
             </div>
         </div>
         <div class="container" v-editable="blok">
@@ -120,10 +118,10 @@ export default {
 }
 
 .banner_sec {
-    margin: 0 0 10em 0;
-    padding: 0;
-    background: #f6f5f5;
-    position: relative;
+  margin: 0 0 10em 0;
+  padding: 0;
+  background: #f6f5f5;
+  position: relative;
 }
 .web-headline {
   padding: 0px;

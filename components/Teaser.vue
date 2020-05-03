@@ -8,7 +8,6 @@
               :class="{'teaser__pag-dot--current': index == currentSlide}"
               class="teaser__pag-dot">Next</button>
     </div>
-    <p>fsdfdsfdsafdsuafosduifods</p>
   </div>
 </template>
 

@@ -48,7 +48,6 @@ export default {
     })
     .then((res) => {
       this.links = res.data.links
-      console.log("links", this.links)
     })
     .catch(res => {
       console.error("Failed to load resource", res);

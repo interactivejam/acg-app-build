@@ -153,15 +153,14 @@ export default {
       return arrays;
     },
     slide () {
-      console.log("this.blok.body", this.blok.body)
       var array = this.blok.body.filter(function(el) {
         return el.component == "slide"
       });
-      console.log("array", array)
+
       let slides = array.filter((slide, index) => {
         return this.currentSlide === index
       })
-      console.log("slides", slides)
+  
       if (slides.length) {
         return slides[0]
       }

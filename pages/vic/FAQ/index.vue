@@ -1,19 +1,6 @@
 <template>
   <div>
     <section>
-      <div class="find_sec">
-        <div class="container">
-          <h2>What do you need to find out more about?</h2>
-          <!-- {{story.content.Body[1].reference}} -->
-          <div class="row justify-content-center">
-              <div class="col-xl-5 col-lg-7 col-md-8 col-sm-12">
-                  <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Type keywords to find answers">
-                  </div>
-              </div>
-          </div>
-        </div>
-      </div>
       <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :path="vic" :slug="story.full_slug" :is="story.content.component"></component>
     </section>
   </div>

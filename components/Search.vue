@@ -60,13 +60,10 @@ export default {
       var arraylinks = Object.values(this.searchlinks).filter(function (el) {
         return el.name.toLowerCase() === value.toLowerCase() && el.published == true
       });
-      console.log("arraus", arraylinks)
-      alert("arrays")
       var searchsrc = arraylinks.find(function(el) { 
         return el.name.toLowerCase() === value.toLowerCase(); 
       });    
-      console.log("slug", searchsrc)
-      alert(searchsrc.real_path)
+
       location.href = searchsrc.real_path;      
     }
   }
