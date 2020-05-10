@@ -92,13 +92,13 @@ export default {
      this.$storyapi.get
       ('cdn/stories',
         {
-        starts_with: 'global/',
-        is_startpage: '0',
-        cv: this.$store.state.cacheVersion
+          starts_with: 'global/',
+          is_startpage: '0',
+          cv: this.$store.state.cacheVersion
         },
         {
-        starts_with: 'menu/',
-        by_uuids: 'b9fbfb91-4631-4950-9578-5075991db9d7',
+          starts_with: 'menu/',
+          by_uuids: 'b9fbfb91-4631-4950-9578-5075991db9d7',
         }
       )
       .then((res) => {
