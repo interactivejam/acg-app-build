@@ -71,7 +71,7 @@ export default {
 
 @import "../assets/scss/elements/colors.scss";
 
-footer{ margin:0px; padding:0px; bottom:0; left:0; right:0; margin-top: -300px;}
+footer{ margin:0px; padding:0px; bottom:0; left:0; right:0; margin-top: -300px; position: absolute; }
 
 .footer_detail{ margin:0; padding:1.250em 0 0 0; background:#454545;}
 .footer_detail {

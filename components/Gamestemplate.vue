@@ -67,28 +67,28 @@
           </div>
       </div>
       <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
-        <div class="container-fluid">
+
           <div class="rem_info" v-for="global in global" :key="global.id">
             <div class="" v-if="importDate_blok">
               <div v-for="dates in global.content.important_dates" :key="dates.id">
                 <Importantdates v-bind:blok="dates"/>
               </div>
             </div>
-            <div class="" v-if="highlights_blok">
-              <div class="row">
-                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
-                  <Highlights v-bind:blok="highlights"/>
+             <div class="date_info" v-if="highlights_blok">
+                <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+                  <div class="highlight" v-for="highlights in global.content.highlights" :key="highlights.id">
+                    <Highlights v-bind:blok="highlights"/>
+                  </div>
+                </div>
+              </divs
+            <div class="sponsor" v-if="sponsor_blok">
+                <h2>Corporate Games Supporter</h2>
+                  <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+                    <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+                      <Supporter v-bind:blok="sponsor"/>
+                    </div>
                 </div>
               </div>
-            </div>
-            <div class="" v-if="sponsor_blok">
-              <div class="row">
-                <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
-                  <Supporter v-bind:blok="sponsor"/>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@ export default {
     Highlights,
     Supporter
   },
-  
+
   props: ['blok'],
 
   mounted() {
@@ -163,15 +163,15 @@ export default {
     })
   },
   computed: {
-    importDate_blok: function() { 
+    importDate_blok: function() {
       var date_temp = this.blok.body[3].reference;
       return date_temp.includes('important_date')
     },
-    highlights_blok: function() { 
+    highlights_blok: function() {
       var highlights_temp = this.blok.body[3].reference;
       return highlights_temp.includes('highlights')
     },
-    sponsor_blok: function() { 
+    sponsor_blok: function() {
       var sponor_temp = this.blok.body[3].reference;
       return sponor_temp.includes('sponor')
     },
@@ -188,33 +188,33 @@ export default {
 
     newFaq: function() {
       var newFaq = [];
-      for(let j=0; j<this.blok.body[1].reference.length; j++) {        
-        for(let i=0; i<this.faq.length; i++) {         
+      for(let j=0; j<this.blok.body[1].reference.length; j++) {
+        for(let i=0; i<this.faq.length; i++) {
           if(this.blok.body[1].reference[j] === this.faq[i].uuid){
-            newFaq.push(this.faq[i]);             
+            newFaq.push(this.faq[i]);
           }
         }
-      } 
-      return newFaq;    
+      }
+      return newFaq;
     },
 
     newCategory: function() {
       let newCategory = [];
-      for(let j=0; j<this.blok.body[2].reference.length; j++) {      
-        for(let i=0; i<this.faq.length; i++) {        
+      for(let j=0; j<this.blok.body[2].reference.length; j++) {
+        for(let i=0; i<this.faq.length; i++) {
           if(this.blok.body[2].reference[j] === this.faq[i].content.Categories[0]){
             newCategory.push(this.faq[i]);
           }
         }
-      } 
-      return newCategory; 
+      }
+      return newCategory;
     },
 
     refFaq: function() {
       let array1 = this.newFaq();
       let array2 = this.newCategory();
       let array3 = array1.concat(array2);
-  
+
       const uniqueArray = a => [...new Set(a.map(o => JSON.stringify(o)))].map(s => JSON.parse(s));
       const unique = uniqueArray(array3);
       return unique;
@@ -237,6 +237,15 @@ export default {
 @import "../assets/scss/elements/colors.scss";
 @import "../assets/scss/components/games_following.scss";
 
+.date_info [class^="col-"]:nth-child(odd), .date_info > [class*=" col-"]:nth-child(odd) {
+    padding: 5px 5px 5px 15px;
+    height: 100%;
+}
+.date_info [class^="col-"]:nth-child(even), .date_info > [class*=" col-"]:nth-child(even) {
+    padding: 5px 15px 5px 5px;
+    height: 100%;
+}
+
 h2.title {
   margin-bottom: 0.75em;
   padding-bottom: 0.75em;
@@ -245,7 +254,7 @@ h2.title {
 h4.title {
   margin-bottom: 0.25em;
   padding-bottom: 0.5em;
-  padding-top: 0.65em;
+  padding-top: 0em;
   border-bottom: 2px solid #ffffff;
 }
 .menu_info .navbar-light .navbar-nav .nav-link:hover {
@@ -261,7 +270,7 @@ h4.title {
 }
 
 .menu_info {
-  top: -57px;
+  top: -63px;
 }
 .part_sec li {
   list-style: disc;
@@ -274,7 +283,7 @@ h4.title {
 }
 .date {
   font-family: 'Open Sans', sans-serif;
-   
+
   font-size: 0.75em;
   letter-spacing: 0.15em;
   color: #ffffff;
@@ -284,6 +293,15 @@ h4.title {
 }
 .date span {
   padding: 0 0.5em;
+}
+.sponsor {
+    margin: 0 0 5px 0;
+    padding: 30px 30px 15px 30px;
+    background: #f6f5f5;
+}
+
+.highlight, .sponsor .flex-fill {
+  width: calc(50% - 5px);
 }
 
 @media (min-width: 768px) {
