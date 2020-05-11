@@ -11,8 +11,17 @@ export default {
 </script>
 
 <style lang="scss">
-.slide img {
-  width: 100%;
-  height: 550px;
+.slide {
+  text-align: center;
+  margin: auto;
+  position: relative;
 }
+.slide img {
+  min-height: 500px;
+  z-index: 20;
+  width: auto;
+  opacity: 0.75;
+  max-width: none;
+}
+
 </style>

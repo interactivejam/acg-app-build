@@ -10,7 +10,7 @@
         <component :key="blok._uid"
                    v-for="blok in blok.logos"
                    :blok="blok"
-                   :is="blok.component | dashify"></component>
+                   :is="blok.component"></component>
       </div>
     </div>
   </div>

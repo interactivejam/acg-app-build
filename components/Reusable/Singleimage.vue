@@ -21,6 +21,6 @@ figure {
 img {
   border: none;
   vertical-align: middle;
-  max-width: 100%;
+  width: 100%;
 }
 </style>

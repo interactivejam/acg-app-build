@@ -2,24 +2,20 @@
   <div>
     <b-nav class="navbar navbar-expand-lg navbar-light d-none d-sm-none d-md-none d-lg-block d-xl-block">
       <div class="collapse navbar-collapse" id="Navigation">
-          <div class="nav-item">
-            <b-nav-item-dropdown id="my-nav-dropdown" text="Organise Your Team" toggle-class="nav-link-custom" right>
+            <b-nav-item-dropdown id="my-nav-dropdown" text="Organise Your Team" toggle-class="nav-link">
               <b-dropdown-item
                 v-for="item in get_organiseSlug"
                 :key="item.id"
                 :to="{ path: item.real_path}"
               >{{ item.name }}</b-dropdown-item>
             </b-nav-item-dropdown>
-          </div>
-          <div class="nav-item dropdown">
-            <b-nav-item-dropdown id="my-nav-dropdown" text="Sport" toggle-class="nav-link-custom" right>
+            <b-nav-item-dropdown id="my-nav-dropdown" text="Sport" toggle-class="nav-link">
               <b-dropdown-item
                 v-for="item in get_sportSlug"
                 :key="item.id"
-                :to="{ path: item.real_path}" 
+                :to="{ path: item.real_path}"
               >{{ item.name }}</b-dropdown-item>
             </b-nav-item-dropdown>
-          </div>
           <div class="row">
             <b-nav-item class="nav-link" v-for="slug in get_Slug" :key="slug.id" :to="slug.real_path">
             {{ slug.name }}
@@ -91,53 +87,16 @@ export default {
   },
 };
 </script>
-<style scoped>
-/* .menu_info {
-  margin: 0;
-  padding: 0;
-  background: rgba(0, 0, 0, 0.4);
-  position: relative;
-  top: -57px;
-}
-.menu_info .dropdown-menu {
-  border-radius: 0;
-  border: none;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  padding: 0px;
-  margin: 0;
-  background: rgba(0, 0, 0, 0.8);
-  min-width: 12em;
-} */
+<style>
 
-/* .dropdown-toggle::after { */
-  /* opacity: 0.5; */
-/* } */
-/* .menu_info .navbar {
-  padding: 0;
-  margin: 0;
-} */
-/* .menu_info .navbar-light .navbar-nav {
-  margin: 0 40px 0 0;
-  padding: 13px 0 13px 0;
-  display: inline-block; 
+li.nav-item .nav-link {
+  display: block;
+    padding: 0 1.25rem 0 0;
+     font-size: 21px;
+  color: #ffffff;
   font-family: "helvetica47regularcondensed";
-  font-size: 21px;
-  color: #fff !important;
-  background: transparent;
-} */
-.menu_info .navbar-light .navbar-nav .nuxt-link-active,
-.menu_info .navbar-light .navbar-nav li a:hover {
-  color: #f7e037;
 }
-.nav_sec .navbar-light .navbar-nav li {
-  margin: 0 20px 0 0;
-}
-.nav_sec .navbar-light .navbar-nav .nav-link {
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  color: #171616;
-}
+
 a:hover{
   color: #f7e037;
 }
@@ -150,13 +109,41 @@ a:hover{
   margin-top: 20px;
 }
 
-#my-nav-dropdown > text {
-  color: #fff;
+.dropdown-toggle::after {
+    opacity: 0.5;
 }
 
-#my-nav-dropdown a:hover, #my-nav-dropdown a:active {
-  color: #f7e037;
+.dropdown-menu.dropdown-menu.show {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.9);
+  min-width: 12em;
+  left: -30px !important;
 }
+.dropdown-menu.dropdown-menu.show .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    font-size: 18px;
+  color: #ffffff;
+  font-family: "helvetica47regularcondensed";
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.dropdown-menu.dropdown-menu.show .dropdown-item:hover, .dropdown-menu.dropdown-menu.show .dropdown-item:active {
+  background-color: #f7e037;
+  color:#171616 !important;
+}
+
+
 </style>
 
 
