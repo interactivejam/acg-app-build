@@ -5,7 +5,7 @@
     <component :key="blok._uid"
                v-for="blok in blok.body"
                :blok="blok"
-               :is="blok.component"></component>
+               :is="blok.component | dashify"></component>
   </div>
 </template>
 

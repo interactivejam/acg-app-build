@@ -33,9 +33,6 @@ export default {
     background: #f6f5f5;
     margin: 0 1em 1em 0;
   }
-  .btn.download:hover {
-    background: #f7e037;
-  }
    .btn.download svg {
       margin-right: 0.5em;
       margin-top: 0.35em;

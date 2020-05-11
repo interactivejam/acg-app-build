@@ -36,13 +36,20 @@
         </div>
       </div>
     </header>
-    <section>
+    <section> 
       <!-- Top Bammer -->
       <div class="teaser"  v-for="global in global" :key="global.id">
-        <!-- Menu Sec -->
-          <div v-editable="blok">
+        <!-- Menu Sec -->      
+          <div v-editable="blok" class="teaser">
             <component v-if="slide" :blok="slide" :is="slide.component">
             </component>
+            <div class="teaser__pag">
+              <button @click="handleDotClick(index)"
+                      :key="index"
+                      v-for="(slide_blok, index) in slide_blok"
+                      :class="{'teaser__pag-dot--current': index == currentSlide}"
+                      class="teaser__pag-dot">Next</button>
+              </div>
             </div>
          </div>
         <div class="menu_info">
@@ -57,7 +64,7 @@
       <div class="row">
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
           <component class="detail" v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-          <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+          <component class="detail" v-if="blok.component === 'partner'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>       
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
           <div class="container-fluid">
@@ -68,18 +75,17 @@
                 </div>
               </div>
               <div class="date_info" v-if="highlights_blok">
-                <div class="d-flex flex-wrap justify-content-between align-items-stretch">
-                  <div class="highlight" v-for="highlights in global.content.highlights" :key="highlights.id">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12" v-for="highlights in global.content.highlights" :key="highlights.id">  
                     <Highlights v-bind:blok="highlights"/>
                   </div>
                 </div>
               </div>
-              <div class="sponsor" v-if="sponsor_blok">
-                <h2>Corporate Games Supporter</h2>
-                  <div class="d-flex align-items-stretch">
-                    <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
-                      <Supporter v-bind:blok="sponsor"/>
-                    </div>
+              <div class="" v-if="sponsor_blok">
+                <div class="row">
+                  <div v-for="sponsor in global.content.sponsor" :key="sponsor.id">  
+                    <Supporter v-bind:blok="sponsor"/>
+                  </div>
                 </div>
               </div>
             </div>
@@ -128,15 +134,15 @@ export default {
   },
 
   computed: {
-    importDate_blok: function() {
+    importDate_blok: function() { 
       var date_temp = this.blok.body[3].reference;
       return date_temp.includes('important_date')
     },
-    highlights_blok: function() {
+    highlights_blok: function() { 
       var highlights_temp = this.blok.body[3].reference;
       return highlights_temp.includes('highlights')
     },
-    sponsor_blok: function() {
+    sponsor_blok: function() { 
       var sponor_temp = this.blok.body[3].reference;
       return sponor_temp.includes('sponor')
     },
@@ -154,7 +160,7 @@ export default {
       let slides = array.filter((slide, index) => {
         return this.currentSlide === index
       })
-
+  
       if (slides.length) {
         return slides[0]
       }
@@ -181,23 +187,6 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/scss/components/vicnav.scss";
 
-
-.date_info [class^="col-"]:nth-child(odd), .date_info > [class*=" col-"]:nth-child(odd) {
-    padding: 5px 5px 5px 15px;
-    height: 100%;
-}
-.date_info [class^="col-"]:nth-child(even), .date_info > [class*=" col-"]:nth-child(even) {
-    padding: 5px 15px 5px 5px;
-    height: 100%;
-}
-
-.teaser {
-  background: #000000;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
 section.header {
   position: fixed;
 }
@@ -222,11 +211,26 @@ section.header {
   padding: 0 0.5em;
 }
 
+// .hero-image {                           
+//   position: absolute;
+//   top: 0;
+//   width: 100%;
+//   justify-content: center;
+//   overflow: hidden;
+//   display: flex;
+// }               
+// .hero-image img {
+//   height: 500px;                                                                                                                    
+//   z-index: 20;                
+//   width: 100%;
+// }
+
 .menu_info {
   margin: 0;
   padding: 0;
   background: rgba(0, 0, 0, 0.4);
-  top: -62px;
+  // position: relative;
+  top: -30px;
 }
 .menu_info .dropdown-menu {
   border-radius: 0;
@@ -237,6 +241,9 @@ section.header {
   background: rgba(0, 0, 0, 0.8);
   min-width: 12em;
 }
+// .navbar-dropdown {
+//   color: rgba(255, 255, 255) !important;
+// }
 
 .vic_inner .menu_info {
     position:absolute;
@@ -260,14 +267,6 @@ section.header {
 }
 .navbar {
   align-items: flex-start;
-}
-.sponsor {
-    margin: 0 0 5px 0;
-    padding: 30px 30px 15px 30px;
-    background: #f6f5f5;
-}
-.highlight {
-  width: calc(50% - 5px);
 }
 .teaser__pag {
   width: 100%;

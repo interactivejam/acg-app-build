@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 .part_sec.import {
-    margin: 0 0 15px 0;
+    margin: 0 0 5px 0;
     padding: 30px 30px 15px 30px;
     background: #f6f5f5;
 }

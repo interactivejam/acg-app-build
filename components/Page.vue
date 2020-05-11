@@ -110,7 +110,7 @@ h2.title {
 h4.title {
   margin-bottom: 0.25em;
   padding-bottom: 0.5em;
-  padding-top: 0em;
+  padding-top: 0.65em;
   border-bottom: 2px solid #ffffff;
 }
 

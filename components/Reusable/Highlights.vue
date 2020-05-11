@@ -1,7 +1,7 @@
 <template>
-    <a :href="blok.URL" class="date_block">
+    <a href="#" class="date_block">
         <figure>
-            <img :src="blok.Icon" :alt="blok.Name">
+            <img :src="blok.Icon" alt>
         </figure>
         <h3><fa class="icon" :icon="['fas', 'angle-right']" />{{blok.Name}}</h3>
     </a>
@@ -15,27 +15,25 @@ export default {
 <style scoped>
 
 .date_block {
-    margin: 0 0 5px 0;
+    margin: 0 0 10px 0;
     padding: 25px 30px;
     background: #f6f5f5;
     display: block;
-    border-bottom: 5px solid #ffffff;
 }
 .date_block:hover {
-    background: #ffe800;
+    background: #ed1c24;
 }
-
+.date_block:hover .icon {
+    color: #fff;
+}
 .date_block figure {
     width: 140px;
     height: 40px;
+}
+.date_block figure {
     margin: 0 0 15px 0;
     padding: 0;
 }
-.date_block figure img {
-  height: 2em;
-  max-width: 100%;
-}
-
 .date_block h3 {
     margin: 0;
     padding: 0 0 0 20px;
@@ -51,7 +49,13 @@ export default {
     outline: none !important;
     font-family: "helvetica47lightcondensed";
 }
+.date_block:hover h3 {
+    color: #fff;
+}
 
+.date_block:hover i {
+    color: #fff;
+}
 .icon {
     font-size: 21px;
     color: #171616;
@@ -64,6 +68,7 @@ export default {
     -ms-transition: all .6s ease-in-out;
     transition: all .6s ease-in-out;
 }
+
 
 @media (max-width: 1599px) {
     .date_block h3 {
