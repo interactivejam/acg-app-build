@@ -2,7 +2,7 @@
  <section class="following">
     <div class="position-relative banner_sec">
             <div class="hero-image">
-                <img alt="Image" class="img-fluid" :src="blok.image" />
+              <img alt="Image" class="img-fluid" :src="blok.image" />
             </div>
             <div class="container">
               <div class="row justify-content-center">

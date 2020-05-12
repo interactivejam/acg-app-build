@@ -80,7 +80,7 @@
                     <Highlights v-bind:blok="highlights"/>
                   </div>
                 </div>
-              </divs
+              </div>
             <div class="sponsor" v-if="sponsor_blok">
                 <h2>Corporate Games Supporter</h2>
                   <div class="d-flex flex-wrap justify-content-between align-items-stretch">

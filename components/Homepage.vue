@@ -1,4 +1,5 @@
 <template>
+<!-- <nuxt-link :to="'/home/'"> -->
     <section>
         <div class="position-relative banner_sec">
             <div class="hero-image">
@@ -74,7 +75,7 @@
             </div>
         </div>
     </section>
-
+<!-- </nuxt-link> -->
 </template>
 
 <script>
