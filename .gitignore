@@ -1,0 +1,4 @@
+node_modules/
+nuxt/apollo-modules.js
+nuxt/index.js
+nuxt/router.js

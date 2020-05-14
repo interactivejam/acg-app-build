@@ -304,6 +304,33 @@ h4.title {
   width: calc(50% - 5px);
 }
 
+.inner_banner {
+    margin: 0;
+    padding: 0 0 0;
+    background: rgb(219,224,230);
+    background: linear-gradient(90deg, rgba(219,224,230,1) 0%, rgba(197,197,197,1) 35%, rgba(167,164,159,1) 100%);
+    position: relative;
+}
+
+.inner_banner h3 {
+    font-size: 20px;
+    color: #505153;
+    letter-spacing: 5px;
+    outline: none !important;
+    font-family: "helvetica47lightcondensed";
+}
+.inner_banner h3 span {
+    font-size: 14px;
+}
+
+.inner_banner img {
+    position: relative;
+    z-index: 50;
+    height: 400px;
+    width: auto;
+    max-width: none;
+}
+
 @media (min-width: 768px) {
 .navbar-expand-md .navbar-collapse {
     margin: 1em 1em 0 0;
