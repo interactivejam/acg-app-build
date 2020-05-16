@@ -1,5 +1,5 @@
 <template>
-    <a :href="blok.URL" class="date_block">
+    <a :href="blok.URL" class="date_block" v-editable="blok">
         <figure>
             <img :src="blok.Icon" :alt="blok.Name">
         </figure>

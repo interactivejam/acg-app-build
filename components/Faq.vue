@@ -1,5 +1,5 @@
 <template>
-<div class="container faq">
+<div class="container faq" v-editable="blok">
     <div class="during_info">
         <h1 class="detail_title">Frequently Asked Questions</h1>
         <div class="row">

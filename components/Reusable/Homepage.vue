@@ -1,4 +1,5 @@
 <template>
+<!-- <div v-editable="blok"> -->
   <section>
     <!-- Header -->
     <header>
@@ -88,6 +89,7 @@
       </div>
     </div>
   </section>
+<!-- </div> -->
 </template>
 
 <script>

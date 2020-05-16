@@ -1,7 +1,7 @@
 <template>
-<!-- <nuxt-link :to="'/home/'"> -->
+  <!-- <div v-editable="blok"> -->
     <section>
-        <div class="position-relative banner_sec">
+        <div class="position-relative banner_sec" v-editable="blok">
             <div class="hero-image">
                 <img alt="Image" class="img-fluid" :src="blok.image" />
             </div>
@@ -41,16 +41,17 @@
                 </div>
             </div>
         </div>
-        <div class="container" v-editable="blok">
+
+        <div class="container">
             <div class="row">
-                <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="col-xl-6 col-md-6 col-sm-12" v-editable="blok">
                     <component v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12">
                     <h3 class="middle_sec">About Corporate Games</h3>
                       <div class="gameinfo">
                         <div class="menu-items storyblok__outline">
-                           <nuxt-link to="about-the-games" class="corpo_block">
+                              <nuxt-link to="about-the-games" class="corpo_block">
                                 About the Games<fa :icon="['fas', 'angle-right']"/>
                               </nuxt-link>
                               <nuxt-link to="awards" class="corpo_block">
@@ -75,7 +76,7 @@
             </div>
         </div>
     </section>
-<!-- </nuxt-link> -->
+    <!-- </div> -->
 </template>
 
 <script>
@@ -93,14 +94,14 @@ export default {
      this.$storyapi.get
       ('cdn/stories',
         {
-        starts_with: 'global/',
-        is_startpage: '0',
-        cv: this.$store.state.cacheVersion
-        },
-        {
-        starts_with: 'menu/',
-        by_uuids: 'b9fbfb91-4631-4950-9578-5075991db9d7',
-        }
+          starts_with: 'global/',
+          is_startpage: '0',
+          cv: this.$store.state.cacheVersion
+          },
+          {
+          starts_with: 'menu/',
+          by_uuids: 'b9fbfb91-4631-4950-9578-5075991db9d7',
+          }
       )
       .then((res) => {
         this.global = res.data.stories

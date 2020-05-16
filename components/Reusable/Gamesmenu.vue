@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-editable="blok">
     <b-nav class="navbar navbar-expand-lg navbar-light d-none d-sm-none d-md-none d-lg-block d-xl-block">
       <div class="collapse navbar-collapse" id="Navigation">
             <b-nav-item-dropdown id="my-nav-dropdown" text="Organise Your Team" toggle-class="nav-link">

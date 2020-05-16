@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-editable="blok">
   <div class="menu-items" v-for="global in global" :key="global.id">
       <a class="corpo_block" :href="global.content.main_navi.link" :key="blok" v-for="blok in blok.main_navi">
         <!-- {{ global.content.main_navi.name }} -->

@@ -17,16 +17,17 @@
 </template>
 
 <script>
-  let preview_token = 'nroV5bOcaS2CHUosOINLJgtt'
+  let preview_token = 'ZkIEqD1i8FVF628krYkPhAtt'
 
   axios.get(`https://api.storyblok.com/v1/cdn/links?token=${preview_token}`)
   .then((result) => {
+    console.log("sitemap----", result)
     document.querySelector('#linksresponse').innerHTML = JSON.stringify(result.data, null, 2)
   })
 
 
   // view JSfiddle: https://jsfiddle.net/dominikangerer/ud2ydfah/8
-let preview_token = 'nroV5bOcaS2CHUosOINLJgtt'
+let preview_token = 'ZkIEqD1i8FVF628krYkPhAtt'
 let per_page = 100
 let page = 1
 let all_links = []

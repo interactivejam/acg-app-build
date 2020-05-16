@@ -1,5 +1,5 @@
 <template>
-  <div v-html="markdownText">
+  <div v-editable="text" v-html="markdownText">
   </div>
 </template>
 

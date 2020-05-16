@@ -1,16 +1,21 @@
 <template>
- <section>
-    <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
-</section>
+  <section>
+    <div v-editable="story.content">
+      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
+    </div>
+  </section>
 </template>
 
 <script>
+
+// import { isEditMode } from '@/plugins/helper'
+
 export default {
   layout: 'default_following',
   data () {
     return {
-    story: { content: {} },
-    global: {data: {stories: []}},
+      story: { content: {} },
+      global: {data: {stories: []}},
     }
   },
 
@@ -27,16 +32,28 @@ export default {
     })
   },
   mounted () {
-  this.$storybridge.on(['input', 'published', 'change'], (event) => {
-    if (event.action == 'input') {
-      if (event.story.id === this.story.id) {
-        this.story.content = event.story.content
+    // use the bridge to listen to events
+    this.$storybridge.on(['input', 'published', 'change'], (event) => {
+      if (event.action == 'input') {
+        console.log("_event action--------", event.story.content)
+        if (event.story.id === this.story.id) {
+          this.story.content = event.story.content
+           console.log("_this.story.content", this.story.content)
+        }
+      } else if (!event.slugChanged) {
+        console.log("_!event.slugChanged--------", !event.slugChanged)
+        window.location.reload()
+        
+        // this.$nuxt.$router.go({
+        //   path: this.$nuxt.$router.currentRoute,
+        //   force: true,
+        // })
       }
-    } else {
-      window.location.reload()
-    }
-  })
-  }
+    })
+  },
+  // mounted () {
+  //   isEditMode(this)
+  // },
 }
 
 

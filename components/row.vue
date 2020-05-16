@@ -1,7 +1,6 @@
 <template>
   <div v-editable="blok"
-       class="row"
-       :class="">
+       class="row">
     <component :key="blok._uid"
                v-for="blok in blok.body"
                :blok="blok"

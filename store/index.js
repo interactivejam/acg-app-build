@@ -1,18 +1,18 @@
 export const state = () => ({
   cacheVersion: '',
-  games: 'vic',
-  menu: {
-    main_navi: []
-  },
+  // games: 'vic',
+  // menu: {
+  //   main_navi: []
+  // },
 })
 
 export const mutations = {
   // setMenu(state, menu) {
   //   state.menu = menu
   // },
-  setgames(state, games) {
-    state.games = games
-  },
+  // setgames(state, games) {
+  //   state.games = games
+  // },
   setCacheVersion(state, version) {
     state.cacheVersion = version
   }

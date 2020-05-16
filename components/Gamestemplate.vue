@@ -1,5 +1,5 @@
 <template>
-<div>
+<div v-editable="blok">
   <header>
     <div class="nav_sec top_part inner_top">
       <div class="container-fluid">

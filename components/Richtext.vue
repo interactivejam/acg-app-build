@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="richtext" v-html="richtext"></div>
+    <div v-editable="blok" class="richtext" v-html="richtext"></div>
   </div>
 </template>
 

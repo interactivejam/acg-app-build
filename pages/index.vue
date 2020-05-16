@@ -1,11 +1,12 @@
 <template>
   <section class="util__container">
+    <div v-editable="story.content">
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
+    </div>
   </section>
 </template>
 
 <script>
-
 export default {
   data () {
     return {
@@ -19,7 +20,7 @@ export default {
         if (event.story.id === this.story.id) {
           this.story.content = event.story.content
         }
-      } else {
+      } else if (!event.slugChanged) {
         // window.location.reload()
         this.$nuxt.$router.go({
           path: this.$nuxt.$router.currentRoute,
@@ -28,6 +29,7 @@ export default {
       }
     })
   },
+
   asyncData (context) {
     // Load the JSON from the API
       return context.app.$storyapi.get('cdn/stories/home', {

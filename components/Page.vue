@@ -1,4 +1,5 @@
 <template>
+  <div v-editable="blok">
  <section class="following">
     <div class="position-relative banner_sec">
             <div class="hero-image">
@@ -40,7 +41,7 @@
         </div>
   <div class="container">
     <div class="row my-5">
-      <div class="col-xl-8 col-md-8 col-sm-12" v-editable="blok">
+      <div class="col-xl-8 col-md-8 col-sm-12">
         <h2 class="title">{{ blok.title }}</h2>
           <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
           <markdown v-if="blok.text"
@@ -73,6 +74,7 @@
     </div>
   </div>
   </section>
+  </div>
 </template>
 
 <script>
