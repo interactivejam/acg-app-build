@@ -317,7 +317,7 @@ h4.title {
     color: #505153;
     letter-spacing: 5px;
     outline: none !important;
-    font-family: "helvetica47lightcondensed";
+    font-family: "helvetica47regularcondensed";
 }
 .inner_banner h3 span {
     font-size: 14px;

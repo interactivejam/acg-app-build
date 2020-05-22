@@ -18,7 +18,7 @@
                   :href="global.content.URL">
                   <img :src="global.content.hero_logo"
                       alt="Corporate Games" />
-                      <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}</div>
+                      <div class="date">{{ global.content.Location }}<span>•</span>{{ global.content.Dates }}<span>•</span>{{ global.content.Year }}</div>
                   </a>
                   <div class="collapse navbar-collapse" id="Navigation">
                     <ul class="navbar-nav ml-auto">
@@ -78,10 +78,10 @@
               <div class="sponsor" v-if="sponsor_blok">
                 <h2>Corporate Games Supporter</h2>
                   <div class="d-flex align-items-stretch">
-                    <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+                    <div class="flex-fill align-items-center frame" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
                       <Supporter v-bind:blok="sponsor"/>
                     </div>
-                </div>
+                  </div>
               </div>
             </div>
           </div>
@@ -212,13 +212,13 @@ section.header {
     padding: 0;
 }
 .date {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.75em;
+  font-family: 'MYRIADPRO-CONDIT', sans-serif;
+  font-size: 0.85em;
   letter-spacing: 0.15em;
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(51,51,51,0.5);
   margin: 1.5em 0 1em 1em;
-  opacity: 0.85;
+  opacity: 1
 }
 .date span {
   padding: 0 0.5em;
@@ -239,7 +239,13 @@ section.header {
   background: rgba(0, 0, 0, 0.8);
   min-width: 12em;
 }
-
+.frame {
+  background: yellow;
+    padding: 5px;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #f6f5f5;
+}
 .vic_inner .menu_info {
     position:absolute;
     bottom: 65px;

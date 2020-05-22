@@ -26,25 +26,30 @@ $breakpoint-large-max: ($breakpoint-xlarge - 1);
       format("svg");
 }
 @font-face {
-  font-family: "helvetica47boldcondensed";
-  src: url("~assets/fonts/helvetica47boldcondensed.woff2") format("woff2"),
-    url("~assets/fonts/helvetica47boldcondensed.woff") format("woff"),
-    url("~assets/fonts/helvetica47boldcondensed.ttf") format("truetype");
+  font-family: "helvetica47regularcondensed";
+  src: url("~assets/fonts/helvetica47regularcondensed.woff2") format("woff2"),
+    url("~assets/fonts/helvetica47regularcondensed.woff") format("woff"),
+    url("~assets/fonts/helvetica47regularcondensed.ttf") format("truetype");
 }
 @font-face {
-  font-family: "helvetica47lightcondensed";
-  src: url("~assets/fonts/helvetica47lightcondensed.woff2") format("woff2"),
-    url("~assets/fonts/helvetica47lightcondensed.woff") format("woff"),
-    url("~assets/fonts/helvetica47lightcondensed.ttf") format("truetype");
+  font-family: "helvetica47regularcondensed";
+  src: url("~assets/fonts/helvetica47regularcondensed.woff2") format("woff2"),
+    url("~assets/fonts/helvetica47regularcondensed.woff") format("woff"),
+    url("~assets/fonts/helvetica47regularcondensed.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MYRIADPRO-CONDIT";
+  src: url("~assets/fonts/MYRIADPRO-CONDIT.woff") format("woff");
 }
 
 
 h1, .h1 {
-  font-size: 1.75rem !important;font-family: "helvetica47lightcondensed" !important; }
+  font-size: 1.75rem !important;font-family: "helvetica47regularcondensed" !important; }
 h2, .h2 {
-  font-size: 1.5rem !important;font-family: "helvetica47lightcondensed" !important; }
+  font-size: 1.5rem !important;font-family: "helvetica47regularcondensed" !important;  }
 h3, .h3 {
-  font-size: 1.35rem !important;font-family: "helvetica47lightcondensed" !important; }
+  font-size: 1.35rem !important;font-family: "helvetica47regularcondensed" !important; }
 h4, .h4 {
   font-size: 1.15rem !important; }
 h5, .h5 {
@@ -74,15 +79,28 @@ a:hover {
   padding: 0;
 }
 .richtext p {
-  margin: 0 0 1em 0;
+  margin: 0 0 2em 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 1em;
   color: #171616;
 }
 .richtext li p {
-  margin: 0;
+  margin: 0 !important;
 }
-
+.richtext a, .red {
+    color: #171616;
+  }
+  .richtext a:hover, .yellow {
+      color: #ed1c24;
+  }
+  .yellowBackground {
+    background: #ed1c24;
+    padding: 0 0.75em;
+  }
+  .redBackground {
+    background: #171616;
+    padding: 0 0.75em;
+  }
 .corpo_block {
   margin: 0 0 10px 0;
   padding: 0.5em 1em;
@@ -91,7 +109,7 @@ a:hover {
   font-size: 19px;
   color: #ed1c24;
   position: relative;
-  font-family: "helvetica47lightcondensed";
+  font-family: "helvetica47regularcondensed";
 }
 .corpo_block.nuxt-link-active {
   background: #f7e037;
@@ -147,10 +165,10 @@ body:after {
 }
 
 
-.detail .richtext p {
-  margin: 0 0 15px 0!important;
+.richtext p, .richtext ul {
+  margin: 0 0 2em 0!important;
   padding: 0!important;
-  font-size: 16px!important;
+  font-size: 1em!important;
   color: #171616!important;
 }
 

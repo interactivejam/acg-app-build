@@ -28,18 +28,18 @@ export default {
 .date_block figure {
     width: 140px;
     height: 40px;
-    margin: 0 0 15px 0;
+    margin: 0 0 25px 0;
     padding: 0;
 }
 .date_block figure img {
-  height: 2em;
+  height: 3.5em;
   max-width: 100%;
 }
 
 .date_block h3 {
     margin: 0;
     padding: 0 0 0 20px;
-    font-size: 16px;
+    font-size: 1em;
     color: #171616;
     position: relative;
     clear: both;
@@ -49,7 +49,7 @@ export default {
     -ms-transition: all .6s ease-in-out;
     transition: all .6s ease-in-out;
     outline: none !important;
-    font-family: "helvetica47lightcondensed";
+    font-family: "helvetica47regularcondensed";
 }
 
 .icon {

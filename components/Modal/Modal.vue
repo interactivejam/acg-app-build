@@ -110,7 +110,7 @@ export default {
 .modal-body h2 {
     margin: 0 0 25px 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 1em;
     color: #8b8a8a;
     text-transform: uppercase;
 }
@@ -120,7 +120,7 @@ export default {
     font-size: 24px;
     color: #171616;
     outline: none !important;
-    font-family: "helvetica47lightcondensed";
+    font-family: "helvetica47regularcondensed";
 }
 
 .modal-body p a {

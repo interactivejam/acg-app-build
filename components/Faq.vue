@@ -179,7 +179,7 @@ ul.faq_list li a {
     color: #ed1c24;
     font-size: 24px;
     margin-bottom: 40px;
-    font-family: "helvetica47lightcondensed"
+    font-family: "helvetica47regularcondensed"
 }
 
 @media (min-width: 1200px) {

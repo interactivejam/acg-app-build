@@ -76,7 +76,7 @@ export default {
 .part_inn span {
   margin: 0 0 10px 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 1em;
   color: #8e8d8d;
   text-transform: uppercase;
   display: block;
@@ -84,7 +84,7 @@ export default {
 .part_inn p {
   margin: 0 0 15px 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 1em;
   color: #171616;
   font-family: "Roboto", sans-serif;
 }
@@ -94,7 +94,7 @@ export default {
     display: inline-block;
     border: 1px solid #ed1c24;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 1em;
     color: #ed1c24;
 }
 .read_btn:hover {
@@ -113,7 +113,7 @@ figure {
 .part_sec .detail p {
     margin: 0 0 15px 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 1em;
     color: #171616;
 }
 .part_sec .detail h3 {
@@ -121,7 +121,7 @@ figure {
     padding: 0;
     font-size: 28px;
     color: #171616;
-    font-family: "helvetica47lightcondensed";
+    font-family: "helvetica47regularcondensed";
 }
 .part_sec .detail p a {
     color: #171616;

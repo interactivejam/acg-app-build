@@ -196,7 +196,7 @@ $breakpoint-tablet: 600px;
     height: 45px;
     margin: 0;
     padding: 0px 55px 0px 20px;
-    font-size: 16px;
+    font-size: 1em;
     color: #171616;
     border-radius: 50px;
 }

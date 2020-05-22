@@ -17,10 +17,19 @@ export default {
 
 <style lang="scss">
 
-  .richtext a {
+  .richtext a, .red {
     color: #171616;
   }
-  .richtext a:hover {
+  .richtext a:hover, .yellow {
       color: #ed1c24;
   }
+  .yellowBackground {
+    background: #ed1c24;
+    padding: 0 0.75em;
+  }
+  .redBackground {
+    background: #171616;
+    padding: 0 0.75em;
+  }
+
 </style>

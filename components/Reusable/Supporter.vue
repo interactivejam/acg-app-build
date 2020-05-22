@@ -1,9 +1,7 @@
 <template>
-  <div v-editable="blok">
-    <figure>
+  <figure v-editable="blok">
       <img :src="blok.image" />
     </figure>
-  </div>
 </template>
 
 <script>
@@ -14,10 +12,6 @@ export default {
 <style scoped>
 figure {
   margin: 0 0 10px 0;
-  padding: 15px;
-  background: #fff;
-  text-align: center;
-  border: 1px solid #f6f5f5;
 }
 img {
   border: none;

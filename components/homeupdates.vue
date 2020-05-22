@@ -34,7 +34,7 @@ export default {
     padding: 0;
     display: inline-block;
     color: #ed1c24;
-    font-family: "helvetica47lightcondensed";
+    font-family: "helvetica47regularcondensed";
 }
 .game_block .dated {
     margin: 0;

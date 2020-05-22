@@ -48,7 +48,7 @@ export default {
     margin: 0 0 10px 0;
     display: flex;
     padding: 0;
-    font-size: 16px;
+    font-size: 1em;
     color: #171616;
     line-height: 1em;
     align-items: center;

@@ -190,7 +190,7 @@ h3.middle_sec {
   margin: 0;
   padding: 0;
   display: block;
-  font-family: "helvetica47lightcondensed";
+  font-family: "helvetica47regularcondensed";
   color: #fabbbe;
 }
 .banner_sec .b_block svg {
@@ -203,7 +203,7 @@ h3.middle_sec {
   font-size: 40px;
   color: #fff;
   font-style: italic;
-  font-family: "helvetica47boldcondensed";
+  font-family: "helvetica47regularcondensed";
   line-height: 35px;
 }
 .banner_sec .b_block .date {
@@ -212,7 +212,7 @@ h3.middle_sec {
   font-size: 19px;
   color: #fff;
   line-height: 22px;
-  font-family: "helvetica47lightcondensed";
+  font-family: "helvetica47regularcondensed";
 }
 .banner_sec .b_block img {
   max-width: 90%;

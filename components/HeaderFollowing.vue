@@ -52,7 +52,7 @@ export default {
 
 <style>
   .nav_sec {
-    font-size: 16px;
+    font-size: 1em;
     color: #171616;
     font-family: "helvetica47regularcondensed";
     padding: 10px 0;

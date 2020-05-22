@@ -23,8 +23,9 @@
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-6 align-self-center">
                                           <div class="row justify-content-between align-items-center">
-                                                <div class="col-sm-11 date">{{ global.content.Dates }}
-                                                  <br>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}
+                                                <div class="col-sm-10 date">
+                                                  {{ global.content.Location }}
+                                                  <br>{{ global.content.Dates }} {{ global.content.Year }}
                                                 </div>
                                                  <div class="col-sm-1">
                                                   <fa :icon="['fas', 'angle-right']"/>
@@ -133,7 +134,7 @@ export default {
   z-index: 60;
 }
 .web-headline h1  {
-    font-size: 2.65em !important;
+    font-size: 3.25em !important;
     margin: 4em 1em 1em 1em;
     z-index: 50;
     color: #ffffff;
@@ -201,7 +202,7 @@ h3.middle_sec {
   margin: 0;
   padding: 0;
   display: block;
-  font-family: "helvetica47lightcondensed";
+  font-family: "helvetica47regularcondensed";
   color: #fabbbe;
 }
 .banner_sec .b_block svg {
@@ -214,16 +215,16 @@ h3.middle_sec {
   font-size: 40px;
   color: #fff;
   font-style: italic;
-  font-family: "helvetica47boldcondensed";
+  font-family: "helvetica47regularcondensed";
   line-height: 35px;
 }
 .banner_sec .b_block .date {
-  margin: 1em 0;
+  margin: 0.5em 0 1em 0.25em;
   padding: 0;
-  font-size: 19px;
+  font-size: 24px;
   color: #fff;
-  line-height: 22px;
-  font-family: "helvetica47lightcondensed";
+  line-height: 26px;
+  font-family: "helvetica47regularcondensed";
 }
 .banner_sec .b_block img {
   max-width: 90%;
