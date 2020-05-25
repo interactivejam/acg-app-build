@@ -176,7 +176,6 @@ export default {
       return sponor_temp.includes('sponor')
     },
     get_bannerimage () {
-      // console.log("fdsafdds", this.global.content.banner_following);
       // var bannerimage = this.global.map(el => el.content.banner_following[Math.floor(Math.random() * el.content.banner_following.length)])
       var imagesrc = this.global[0].content.banner_following;
       imagesrc = imagesrc[Math.floor(Math.random() * imagesrc.length)]

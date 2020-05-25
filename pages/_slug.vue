@@ -8,8 +8,6 @@
 
 <script>
 
-// import { isEditMode } from '@/plugins/helper'
-
 export default {
   layout: 'default_following',
   data () {
@@ -35,13 +33,10 @@ export default {
     // use the bridge to listen to events
     this.$storybridge.on(['input', 'published', 'change'], (event) => {
       if (event.action == 'input') {
-        console.log("_event action--------", event.story.content)
         if (event.story.id === this.story.id) {
           this.story.content = event.story.content
-           console.log("_this.story.content", this.story.content)
         }
       } else if (!event.slugChanged) {
-        console.log("_!event.slugChanged--------", !event.slugChanged)
         window.location.reload()
         
         // this.$nuxt.$router.go({

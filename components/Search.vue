@@ -35,7 +35,6 @@ export default {
     })
     .then((res) => {
       this.searchlinks = res.data.links
-      console.log("links", this.searchlinks)
     })
     .catch(res => {
       console.error("Failed to load resource", res);
