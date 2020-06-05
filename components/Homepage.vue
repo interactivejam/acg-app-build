@@ -8,14 +8,14 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10 col-sm-12 web-headline">
-                    <h1>{{ blok.Teaser }}</h1>
+                    <h1>{{ blok.TeaserLineOne }}<br />{{ blok.TeaserLineTwo }}</h1>
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12"  v-for="global in global"
                                 :key="global.id">
                             <article class="b_block">
                                 <a :href="global.content.URL">
                                     <div class="row">
-                                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-6 align-self-center">
+                                        <div class="col-xl-12 col-lg-12 col-md-4 col-sm-4 col-4 align-self-center" style="max-width: 300px">
                                            <img v-if="global.content.Logo"
                                               class="tile-logo"
                                               :src="global.content.Logo"
@@ -121,7 +121,7 @@ export default {
 }
 
 .banner_sec {
-  margin: 0 0 10em 0;
+  margin: 0;
   padding: 0;
   background: #f6f5f5;
   position: relative;
@@ -129,24 +129,24 @@ export default {
 .web-headline {
   padding: 0px;
   margin-top: 8em;
-  margin-bottom: -8em;
+  margin-bottom: 0em;
   position: relative;
   z-index: 60;
 }
 .web-headline h1  {
     font-size: 3.25em !important;
-    margin: 4em 1em 1em 1em;
+    margin: 0em 1em 1em 1em;
     z-index: 50;
     color: #ffffff;
     text-align: center;
     text-shadow: 4px 4px 8px rgba(51, 51, 51, 0.75);
-    font-family: "helvetica47regularcondensed";
+    font-family: "helvetica47lightcondensed";
 }
 .hero-image {
   position: absolute;
-  width: 100%;
   overflow: hidden;
-  height: 100%;
+  height: 40em;
+  width: 100%;
 }
 .hero-image:before {
   position: absolute;
@@ -154,18 +154,18 @@ export default {
   overflow: hidden;
   height: 100%;
   background: rgba(51, 51, 51, 1);
-  content: 'x';
+  content: '';
   text-align: center;
 }
 .hero-image  img {
-  height: 100%;
+  height: auto;
   z-index: 20;
-  width: auto;
+  width: 100%;
   max-width: none;
-  transform: translatex(-50%);
-  left: 50%;
-  opacity: 0.65;
+  transform: translate(0);
+  opacity: 0.75;
   position: relative;
+  z-index: 20;
 }
 
 h3.middle_sec {
@@ -189,6 +189,8 @@ h3.middle_sec {
 
 .banner_sec .web-headline .row {
     margin: 0 -5px;
+    position: relative;
+    z-index: 50;
 }
 
 .banner_sec .b_block {
@@ -219,16 +221,16 @@ h3.middle_sec {
   line-height: 35px;
 }
 .banner_sec .b_block .date {
-  margin: 0.5em 0 1em 0.25em;
+  margin: 1em 0;
   padding: 0;
-  font-size: 24px;
+  font-size: 19px;
   color: #fff;
-  line-height: 26px;
+  line-height: 22px;
   font-family: "helvetica47regularcondensed";
 }
 .banner_sec .b_block img {
   max-width: 90%;
-  height: 8.5em;
+  height: 5.5em;
 }
 
 .banner_sec .b_block:hover { transform: scale(1.025); }

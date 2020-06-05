@@ -8,6 +8,7 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10 col-sm-12 web-headline">
+                 <h1>{{ blok.title }}</h1>
                     <div class="row">
                         <div class="col-4" v-for="global in global"
                                 :key="global.id">
@@ -42,7 +43,7 @@
   <div class="container">
     <div class="row my-5">
       <div class="col-xl-8 col-md-8 col-sm-12">
-        <h2 class="title">{{ blok.title }}</h2>
+
           <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
           <markdown v-if="blok.text"
            :text="blok.text">

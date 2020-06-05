@@ -55,7 +55,7 @@
   <div class="container part_sec">
     <div class="row">
       <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
-          <h2 class="title">{{ blok.Title }}</h2>
+          <h1 class="title">{{ blok.Title }}</h1>
           <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
           <div v-for="faq in refFaq()" :key="faq.id">
             <ul><h3 class="title">{{ faq.name }}</h3>
@@ -246,7 +246,7 @@ export default {
     height: 100%;
 }
 
-h2.title {
+h1.title {
   margin-bottom: 0.75em;
   padding-bottom: 0.75em;
   border-bottom: 2px solid #f6f5f5;

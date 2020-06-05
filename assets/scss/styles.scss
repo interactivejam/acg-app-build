@@ -26,10 +26,10 @@ $breakpoint-large-max: ($breakpoint-xlarge - 1);
       format("svg");
 }
 @font-face {
-  font-family: "helvetica47regularcondensed";
-  src: url("~assets/fonts/helvetica47regularcondensed.woff2") format("woff2"),
-    url("~assets/fonts/helvetica47regularcondensed.woff") format("woff"),
-    url("~assets/fonts/helvetica47regularcondensed.ttf") format("truetype");
+  font-family: "helvetica47lightcondensed";
+  src: url("~assets/fonts/helvetica47lightcondensed.woff2") format("woff2"),
+    url("~assets/fonts/helvetica47lightcondensed.woff") format("woff"),
+    url("~assets/fonts/helvetica47lightcondensed.ttf") format("truetype");
 }
 @font-face {
   font-family: "helvetica47regularcondensed";
@@ -88,7 +88,7 @@ a:hover {
   margin: 0 !important;
 }
 .richtext a, .red {
-    color: #171616;
+    color: #ed1c24;
   }
   .richtext a:hover, .yellow {
       color: #ed1c24;
@@ -170,6 +170,9 @@ body:after {
   padding: 0!important;
   font-size: 1em!important;
   color: #171616!important;
+}
+.richtext p ~ .richtext ul {
+  margin-bottom:  0em !important;
 }
 
 .col-custom-list .col-lg-12 {

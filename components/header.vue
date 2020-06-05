@@ -61,6 +61,6 @@ export default {
   .navbar img { width: 60%;}
 
   @media (min-width: 768px) {
-    .navbar img { width: 100%; }
+    .navbar img { width: 100%;}
   }
 </style>
