@@ -74,7 +74,6 @@ export default {
     )
     .then((res) => {
       this.faq = res.data.stories
-      console.log("faq", this.faq)
     })
     .catch((res) => {
       console.error('Failed to load resource', res)
@@ -86,7 +85,6 @@ export default {
     })
     .then((res) => {
       this.category = res.data.stories
-      console.log("category", this.category)
     })
     .catch((res) => {
       console.error('Failed to load resource', res)
@@ -97,7 +95,6 @@ export default {
     })
     .then((res) => {
       this.links = res.data.links
-      console.log("links", this.links)
     })
     .catch((res) => {
       console.error('Failed to load resource', res)

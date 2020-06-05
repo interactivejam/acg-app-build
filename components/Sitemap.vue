@@ -21,7 +21,6 @@
 
   axios.get(`https://api.storyblok.com/v1/cdn/links?token=${preview_token}`)
   .then((result) => {
-    console.log("sitemap----", result)
     document.querySelector('#linksresponse').innerHTML = JSON.stringify(result.data, null, 2)
   })
 
