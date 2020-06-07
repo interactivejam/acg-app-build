@@ -39,6 +39,7 @@ import QLDMenu from '~/components/Reusable/QLDMenu.vue'
 import Global from '~/components/Global/global.vue'
 import Markdown from '~/components/Markdown.vue'
 import imageblock from '~/components/imageblock.vue'
+import Schedule from '~/components/Reusable/Schedule.vue'
 
 
 Vue.component('accordian_group', AccordianGroup)
@@ -81,3 +82,5 @@ Vue.component('qld_games_homepage', QLDMenu)
 Vue.component('global', Global)
 Vue.component('markdown', Markdown)
 Vue.component('imageblock', imageblock)
+Vue.component('schedule', Schedule)
+
