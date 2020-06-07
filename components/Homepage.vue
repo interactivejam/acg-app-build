@@ -1,33 +1,32 @@
 <template>
   <!-- <div v-editable="blok"> -->
-    <section>
-        <div class="position-relative banner_sec" v-editable="blok">
+<section class="following" v-editable="blok">
+    <div class="position-relative banner_sec">
             <div class="hero-image">
-                <img alt="Image" class="img-fluid" :src="blok.image" />
+              <img alt="Image" class="img-fluid" :src="blok.image" />
             </div>
             <div class="container">
               <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10 col-sm-12 web-headline">
-                    <h1>{{ blok.TeaserLineOne }}<br />{{ blok.TeaserLineTwo }}</h1>
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12"  v-for="global in global"
+                <div class="col-lg-6 col-md-8 col-sm-12 web-headline">
+                 <h1>{{ blok.TeaserLineOne }}<br />{{ blok.TeaserLineTwo }}</h1>
+                    <div class="row tile-block-row">
+                        <div class="col-4" v-for="global in global"
                                 :key="global.id">
                             <article class="b_block">
                                 <a :href="global.content.URL">
                                     <div class="row">
-                                        <div class="col-xl-12 col-lg-12 col-md-4 col-sm-4 col-4 align-self-center" style="max-width: 300px">
+                                        <div class="col-12 align-self-center">
                                            <img v-if="global.content.Logo"
                                               class="tile-logo"
                                               :src="global.content.Logo"
                                               alt="image" />
                                         </div>
-                                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6 col-6 align-self-center">
+                                        <div class="col-12 align-self-center">
                                           <div class="row justify-content-between align-items-center">
-                                                <div class="col-sm-10 date">
-                                                  {{ global.content.Location }}
-                                                  <br>{{ global.content.Dates }} {{ global.content.Year }}
+                                                <div class="col-md-11 col-sm-12 date">{{ global.content.Dates }}
+                                                    <br>{{ global.content.Location }}
                                                 </div>
-                                                 <div class="col-sm-1">
+                                                 <div class="col-sm-1 d-none d-sm-block">
                                                   <fa :icon="['fas', 'angle-right']"/>
                                                  </div>
                                             </div>
@@ -37,7 +36,6 @@
                             </article>
                         </div>
                       </div>
-
                     </div>
                 </div>
             </div>
@@ -86,8 +84,7 @@ export default {
   data () {
     return {
       page: {story: {content: []}},
-      global: [],
-      menu: []
+      global: []
     }
   },
   props: ['blok'],
@@ -98,10 +95,6 @@ export default {
           starts_with: 'global/',
           is_startpage: '0',
           cv: this.$store.state.cacheVersion
-          },
-          {
-          starts_with: 'menu/',
-          by_uuids: 'b9fbfb91-4631-4950-9578-5075991db9d7',
           }
       )
       .then((res) => {
@@ -114,168 +107,35 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/scss/components/corporate.scss";
 
-.searchbox.searchbox-open .searchbox-input {
-  background: #f6f5f5 !important;
-}
 
 .banner_sec {
-  margin: 0;
-  padding: 0;
-  background: #f6f5f5;
-  position: relative;
+    margin: 0 0 16em 0;
 }
 .web-headline {
-  padding: 0px;
-  margin-top: 8em;
-  margin-bottom: 0em;
-  position: relative;
-  z-index: 60;
+  margin-top: 14em;
+  margin-bottom: -14em;
 }
-.web-headline h1  {
-    font-size: 3.25em !important;
-    margin: 0em 1em 1em 1em;
-    z-index: 50;
-    color: #ffffff;
-    text-align: center;
-    text-shadow: 4px 4px 8px rgba(51, 51, 51, 0.75);
-    font-family: "helvetica47lightcondensed";
-}
-.hero-image {
-  position: absolute;
-  overflow: hidden;
-  height: 40em;
-  width: 100%;
-}
-.hero-image:before {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  height: 100%;
-  background: rgba(51, 51, 51, 1);
-  content: '';
+.web-headline h1 {
   text-align: center;
-}
-.hero-image  img {
-  height: auto;
-  z-index: 20;
-  width: 100%;
-  max-width: none;
-  transform: translate(0);
-  opacity: 0.75;
-  position: relative;
-  z-index: 20;
-}
-
-h3.middle_sec {
-  margin: 0 0 1em 0;
-  padding: 0;
-  font-size: 28px;
-  color: #171616;
-  font-weight: 500;
-}
-
-.gameinfo {
-  display: flex;
-}
-.banner_sec .web-headline [class^="col-"], .banner_sec .web-headline > [class*=" col-"] {
-    padding: 0 5px;
-}
-
-.menu_info .navbar-light .navbar-nav .nav-link:hover {
-    color: #ed1c24;
-}
-
-.banner_sec .web-headline .row {
-    margin: 0 -5px;
-    position: relative;
-    z-index: 50;
-}
-
-.banner_sec .b_block {
-  margin: 0 0 30px 0;
-  padding: 20px;
-  background: #ed1c24;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all .2s ease-in-out;
-}
-.banner_sec .b_block h2 small {
-  margin: 0;
-  padding: 0;
-  display: block;
-  font-family: "helvetica47regularcondensed";
-  color: #fabbbe;
-}
-.banner_sec .b_block svg {
   color: #ffffff;
+  font-size: 3em !important;
 }
-
-.banner_sec .b_block h2 {
-  margin: 0 0 30px 0;
-  padding: 0;
-  font-size: 40px;
-  color: #fff;
-  font-style: italic;
-  font-family: "helvetica47regularcondensed";
-  line-height: 35px;
-}
-.banner_sec .b_block .date {
-  margin: 1em 0;
-  padding: 0;
-  font-size: 19px;
-  color: #fff;
-  line-height: 22px;
-  font-family: "helvetica47regularcondensed";
-}
-.banner_sec .b_block img {
-  max-width: 90%;
-  height: 5.5em;
-}
-
-.banner_sec .b_block:hover { transform: scale(1.025); }
 .menu-items {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-between; }
-
+  width: 100%;
+}
 .menu-items a {
-  width: 48%;
+  display: inline-block;
+  width: calc( 50% - 5px );
+}
+.menu-items a:nth-child(even) {
+  margin-left: 5px;
+}
+.menu-items a:nth-child(odd) {
+  margin-right: -5px;
 }
 
-.date span {
-    padding: 0 0.35em;
-    opacity: 0.65;
-    font-size: 0.85em;
-}
-
-
-
-@media (max-width: 1200px) {
-  .go_btn span {
-      display: none;
-  }
-  .banner_sec h1 {
-    font-size: 35px;
-    margin-bottom: 20px; }
-
-}
-@media (max-width: 991px) {
-  .banner_sec h1 {
-    text-align: center;
-  }
-}
-@media (max-width: 768px ) {
-
-  .hero-image {
-    height: 460px;
-  }
-  .hero-image:before {
-    width: auto;
-    left: 35%;
-    transform: translateX(-35%);
-    height: 460px;
-  }
-}
 
 </style>

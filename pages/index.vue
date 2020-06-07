@@ -1,9 +1,10 @@
 <template>
-  <section class="util__container">
+  <section>
     <div v-editable="story.content">
-    <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
+      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
     </div>
   </section>
+
 </template>
 
 <script>

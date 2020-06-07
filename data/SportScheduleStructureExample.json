@@ -1,0 +1,53 @@
+{
+    "Sports": [
+        {
+            "SportCode": "BDM",
+            "SportTitle": "Badminton",
+            "Venues": [
+                {
+                    "VenueID": 1,
+                    "VenueName": "Albert Park  Melbourne"
+                },
+                {
+                    "VenueID": 11,
+                    "VenueName": "McIvor Reserve Yarraville"
+                },
+                {
+                    "VenueID": 16,
+                    "VenueName": "South Melbourne Beach"
+                }
+            ],
+            "FridayScheduleCode": "EC",
+            "SaturdayScheduleCode": "Y",
+            "SundayScheduleCode": "DE"
+        },
+        {
+            "SportCode": "BIA",
+            "SportTitle": "Biathlon",
+            "Venues": [
+                {
+                    "VenueID": 9,
+                    "VenueName": "Fawkner Park South Yarra"
+                }
+            ],
+            "SaturdayScheduleCode": "DE",
+            "SundayScheduleCode": "AE"
+        },
+        {
+            "SportCode": "BKT",
+            "SportTitle": "Basketball",
+            "Venues": [
+                {
+                    "VenueID": 15,
+                    "VenueName": "Port Phillip Bay"
+                }
+            ],
+            "SaturdayScheduleCode": "Y",
+            "SundayScheduleCode": "Y"
+        },
+        {
+            "SportCode": "BVL",
+            "SportTitle": "Beach Volleyball"
+        }
+    ]
+}

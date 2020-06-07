@@ -58,9 +58,7 @@ export default {
     font-family: "helvetica47regularcondensed";
     padding: 10px 0;
   }
-  .navbar img { width: 60%;}
+  .navbar img { height: 3em;}
 
-  @media (min-width: 768px) {
-    .navbar img { width: 100%;}
-  }
+
 </style>

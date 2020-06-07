@@ -87,15 +87,19 @@ export default {
   },
 };
 </script>
-<style>
-
+<style lang="scss">
+.navbar {
+  padding: 0.5em 0;
+}
 li.nav-item .nav-link {
   display: block;
-    padding: 0 1.25rem 0 0;
+    padding: 0 2.5rem 0 0;
      font-size: 21px;
   color: #ffffff;
   font-family: "helvetica47regularcondensed";
 }
+
+
 
 a:hover{
   color: #f7e037;
@@ -118,15 +122,16 @@ a:hover{
   border: none;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   padding: 0px;
+  top:15px;
   margin: 0;
   background: rgba(0, 0, 0, 0.9);
   min-width: 12em;
-  left: -30px !important;
+  left: 0px !important;
 }
 .dropdown-menu.dropdown-menu.show .dropdown-item {
     display: block;
     width: 100%;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     clear: both;
     font-weight: 400;
     font-size: 18px;

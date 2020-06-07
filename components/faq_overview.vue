@@ -12,13 +12,14 @@
     </div>
   </div>
 </div>
- <div class="container faq">
-  <h1 class="detail_title">Frequently Asked Questions</h1>
+ <div class="container">
+  <h1 class="detail_title faq">Frequently Asked Questions</h1>
   <hr>
-  <div class="col-xl-12 col-md-12">
-    <div class="row">
-      <ul v-for="category in category" :key="category.id" class="col-xl-3 col-sm-6 ask_block faq_list" >
-        <li class="categories"> {{category.content.Name}}
+  <div class="row">
+    <div class="col-md-9">
+
+      <ul v-for="category in category" :key="category.id" class="ask_block faq_list" >
+        <li class="categories"><span>{{category.content.Name}}</span>
           <hr class="line">
           <ul class="ask_block">
             <li v-for="faq in filteredList" :key="faq.id" >
@@ -26,7 +27,7 @@
                 <div v-if="path">
                   <li v-for="publish in faq.content.Publish" :key="publish.id">
                     <div v-if="publish == path" >
-                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a> 
+                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
                     </div>
                   </li>
                 </div>
@@ -38,7 +39,10 @@
           </ul>
         </li>
       </ul>
-    </div>  
+    </div>
+    <div class="col-md-3">
+
+    </div>
   </div>
  </div>
  </div>
@@ -160,26 +164,34 @@ export default {
   .detail_title {
     color: #000;
     margin-bottom: 40px !important;
-    margin-top: 80px; 
+    margin-top: 80px;
   }
 
   .line {
     border: none;
   }
+  .ask_block li {
+    margin-bottom: 0.5em;
+  }
+
   .ask_block li a {
     color: #000;
-    margin-bottom: 40px;
-    font-size: 24px
+    font-family: "Roboto", sans-serif;
   }
   .ask_block li a:hover {
     color: #ed1c24;
   }
   .categories {
-    color: #ed1c24;
-    font-size: 24px;
+
     margin-bottom: 40px;
-    font-family: "helvetica47regularcondensed"
+
+    span {
+      color: #ed1c24;
+      font-size: 21px;
+      font-family: "helvetica47regularcondensed";
+    }
   }
+
   @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1500px;

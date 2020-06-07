@@ -17,7 +17,7 @@ export default {
   position: relative;
 }
 .slide img {
-  min-height: 500px;
+  height: 30em;
   z-index: 20;
   width: auto;
   opacity: 0.75;

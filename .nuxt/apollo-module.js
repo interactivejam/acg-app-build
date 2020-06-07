@@ -28,7 +28,7 @@ export default (ctx, inject) => {
       let defaultClientConfig
 
         defaultClientConfig = {
-  "httpEndpoint": "http://gapi-browser.storyblok.com/?token=nroV5bOcaS2CHUosOINLJgtt&version=published"
+  "httpEndpoint": "http://gapi-browser.storyblok.com/?token=ZkIEqD1i8FVF628krYkPhAtt&version=published"
 }
 
       if (process.server) {

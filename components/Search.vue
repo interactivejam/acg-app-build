@@ -39,7 +39,7 @@ export default {
     .catch(res => {
       console.error("Failed to load resource", res);
     });
-  }, 
+  },
 
   methods: {
     openSearchBox() {
@@ -59,11 +59,11 @@ export default {
       var arraylinks = Object.values(this.searchlinks).filter(function (el) {
         return el.name.toLowerCase() === value.toLowerCase() && el.published == true
       });
-      var searchsrc = arraylinks.find(function(el) { 
-        return el.name.toLowerCase() === value.toLowerCase(); 
-      });    
+      var searchsrc = arraylinks.find(function(el) {
+        return el.name.toLowerCase() === value.toLowerCase();
+      });
 
-      location.href = searchsrc.real_path;      
+      location.href = searchsrc.real_path;
     }
   }
 };
@@ -124,7 +124,7 @@ export default {
     margin: 0;
     border: 0;
     outline: 0;
-    line-height: 43px;
+    line-height: 45px;
     text-align: center;
     cursor: pointer;
     color: #171616;

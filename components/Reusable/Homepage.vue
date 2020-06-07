@@ -223,7 +223,9 @@ section.header {
 .date span {
   padding: 0 0.5em;
 }
-
+.navbar img {
+  height: 6em;
+}
 .menu_info {
   margin: 0;
   padding: 0;

@@ -12,7 +12,6 @@ $breakpoint-large-max: ($breakpoint-xlarge - 1);
 @import "elements/body.scss";
 @import "components/util.scss";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400");
 
 @font-face {
   font-family: "helvetica47regularcondensed";
@@ -57,12 +56,20 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1rem !important; }
 
+@media (min-width: 1600px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1500px;
+}
+}
+
+
 @media (min-width: 1200px) {
   .container-fluid {
     padding-right: 45px !important;
     padding-left: 45px !important;
   }
 }
+
 
 
 @media (max-width: 1599px) {

@@ -6,7 +6,7 @@
           <div class="col-12">
             <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
               :href="global.content.URL">
-              <img :src="global.content.footer_logo"
+              <img :src="global.content.hero_logo"
                 alt="Corporate Games" />
             </a>
             <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
@@ -14,7 +14,7 @@
               <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" v-for="global in global" :key="global.id"
                 :href="global.content.URL">
-                <img :src="global.content.footer_logo"
+                <img :src="global.content.hero_logo"
                     alt="Corporate Games" />
                 <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}</div>
                 </a>
@@ -39,7 +39,7 @@
     <!--Inner Banner -->
     <div class="inner_banner">
       <div class="container-fluid">
-        <div class="col-md-4 ml-md-auto" v-for="global in global" :key="global.id">
+        <div class="col-md-6 ml-md-auto" v-for="global in global" :key="global.id">
           <!-- <P>{{ get_bannerimage }}</P> -->
           <img :src="get_bannerimage.filename" alt="Corporate Games"  class="align-self-end" />
         </div>
@@ -47,7 +47,7 @@
     </div>
     <!-- Menu Sec -->
     <div class="menu_info">
-      <div class="container col-c-xl-12">
+      <div class="container-fluid">
         <Gamesmenu v-bind:blok="blok"/>
       </div>
     </div>
@@ -281,14 +281,12 @@ h4.title {
     padding: 0;
 }
 .date {
-  font-family: 'Open Sans', sans-serif;
-
-  font-size: 0.75em;
+  font-family: 'MYRIADPRO-CONDIT', sans-serif;
   letter-spacing: 0.15em;
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(51,51,51,0.5);
+  color:#3f3f40;
   margin: 1.5em 0 1em 1em;
-  opacity: 0.85;
+  opacity: 1;
+  font-size: 0.85em;
 }
 .date span {
   padding: 0 0.5em;
@@ -307,10 +305,12 @@ h4.title {
     margin: 0;
     padding: 0 0 0;
     background: rgb(219,224,230);
-    background: linear-gradient(90deg, rgba(219,224,230,1) 0%, rgba(197,197,197,1) 35%, rgba(167,164,159,1) 100%);
+    background: linear-gradient(90deg, rgba(167,164,159,1) 100%) rgba(197,197,197,1) 35%, rgba(219,224,230,1) 0%,;
     position: relative;
 }
-
+.navbar img {
+  height: 6em;
+}
 .inner_banner h3 {
     font-size: 20px;
     color: #505153;
@@ -335,7 +335,7 @@ h4.title {
     margin: 1em 1em 0 0;
   }
   .nav_sec.inner_top .navbar-brand {
-    width: 300px;
+    width: 350px;
   }
 }
 </style>

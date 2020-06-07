@@ -14,8 +14,8 @@
                 <ul class="ft_list">
                     <li v-for="global in global" :key="global.id">
                       <a :href="global.content.URL">
-                      <img v-if="global.content.footer_logo"
-                      :src="global.content.footer_logo"
+                      <img v-if="global.content.hero_logo"
+                      :src="global.content.hero_logo"
                       alt="global.name" /></a>
                     </li>
                 </ul>
