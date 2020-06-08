@@ -47,7 +47,13 @@
         },
         {
             "SportCode": "BVL",
-            "SportTitle": "Beach Volleyball"
+            "SportTitle": "Beach Volleyball",
+            "Venues": [
+                {
+                    "VenueID": 15,
+                    "VenueName": "Port Phillip Bay"
+                }
+            ]
         }
     ]
 }

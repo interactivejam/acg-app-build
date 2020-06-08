@@ -54,19 +54,23 @@
   </section>
   <div class="container part_sec">
     <div class="row">
-      <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
-          <h1 class="title">{{ blok.Title }}</h1>
-          <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-          <div v-for="faq in refFaq()" :key="faq.id">
-            <ul><h3 class="title">{{ faq.name }}</h3>
-              <li>
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <!-- <p>{{blok}}</p> -->
+        <h1 class="title">{{ blok.Title }}</h1>
+        <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+        <schedule v-bind:blok="blok"/>
+        <div v-for="faq in refFaq()" :key="faq.id">
+          <ul>
+            <h3 class="title">{{ faq.name }}</h3>
+            <li>
               <p class="content">
-              {{ faq.content.text.content[0].content[0].text}}
-              </p> </li>
-            </ul>
-          </div>
+                {{ faq.content.text.content[0].content[0].text}}
+              </p> 
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
 
           <div class="rem_info" v-for="global in global" :key="global.id">
             <div class="" v-if="importDate_blok">
@@ -82,13 +86,13 @@
                 </div>
               </div>
             <div class="sponsor" v-if="sponsor_blok">
-                <h2>Corporate Games Supporter</h2>
-                  <div class="d-flex flex-wrap justify-content-between align-items-stretch">
-                    <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
-                      <Supporter v-bind:blok="sponsor"/>
-                    </div>
-                </div>
+              <h2>Corporate Games Supporter</h2>
+                <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+                  <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+                    <Supporter v-bind:blok="sponsor"/>
+                  </div>
               </div>
+            </div>
         </div>
       </div>
     </div>
@@ -103,6 +107,7 @@ import Global from '~/components/Global/global.vue';
 import Importantdates from '~/components/Reusable/Importantdates.vue';
 import Highlights from '~/components/Reusable/Highlights.vue';
 import Supporter from '~/components/Reusable/Supporter.vue';
+import Schedule from '~/components/Reusable/Schedule.vue';
 
 export default {
   data () {
@@ -119,7 +124,8 @@ export default {
     Global,
     Importantdates,
     Highlights,
-    Supporter
+    Supporter,
+    Schedule
   },
 
   props: ['blok'],
@@ -271,10 +277,15 @@ h4.title {
 .menu_info {
   top: -63px;
 }
-.part_sec li {
+
+.part_sec {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0;
+  li {
   list-style: disc;
   opacity: 0.75;
-  margin-left: 1em;
+  margin-left: 1em;}
 }
 .rem_info {
     margin: 0;
