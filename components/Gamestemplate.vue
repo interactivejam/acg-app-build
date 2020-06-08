@@ -58,7 +58,9 @@
         <!-- <p>{{blok}}</p> -->
         <h1 class="title">{{ blok.Title }}</h1>
         <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
-        <schedule v-bind:blok="blok"/>
+        <div v-if="showschedule(blok.Title)">
+          <schedule v-bind:blok="blok"/>
+        </div>
         <div v-for="faq in refFaq()" :key="faq.id">
           <ul>
             <h3 class="title">{{ faq.name }}</h3>
@@ -108,6 +110,7 @@ import Importantdates from '~/components/Reusable/Importantdates.vue';
 import Highlights from '~/components/Reusable/Highlights.vue';
 import Supporter from '~/components/Reusable/Supporter.vue';
 import Schedule from '~/components/Reusable/Schedule.vue';
+// import func from '../vue-temp/vue-editor-bridge';
 
 export default {
   data () {
@@ -190,7 +193,7 @@ export default {
   },
 
   methods: {
-
+    
     newFaq: function() {
       var newFaq = [];
       for(let j=0; j<this.blok.body[1].reference.length; j++) {
@@ -232,6 +235,11 @@ export default {
       } else {
         searchElement.classList.add('searchbox-open')
       }
+    },
+
+    showschedule: function(title) {
+      if (title.toLowerCase().includes("event")) 
+      return true
     }
   }
 };

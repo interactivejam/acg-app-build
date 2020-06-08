@@ -29,9 +29,9 @@
 
 <style scoped>
   .toggle .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .toggle .card-header h4 {
       margin: 0;

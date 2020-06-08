@@ -17,13 +17,16 @@
   <hr>
   <div class="row">
     <div class="col-md-9">
-      <ul v-b-toggle.:key="category.id" v-for="category in category" :key="category.id" class="ask_block faq_list" >
-        <li class="categories"><span>{{category.content.Name}}</span>
-          <hr class="line">
-          <b-collapse :id="category.id">
-            <ul class="ask_block">
-            <li v-for="faq in filteredList" :key="faq.id" >
-              <div v-if="faq.content.Categories[0] == category.uuid" >
+      <!-- <p>{{category}}</p> -->
+       <!-- <p>{{filteredList}}</p> -->
+      <div v-b-toggle:key="category.id" v-for="category in categories" :key="category.id" class="ask_block faq_list toggle card mt-3" >
+        <div class="categories card-header"><span>{{category.name}}</span><fa :icon="['fa', 'plus']"/></div>
+        <b-collapse :id="category.id">
+          <b-card class="ask_block">
+            <!-- <p>{{filteredFaq(category)}}</p> -->
+            <li v-for="faq in filteredFaq(category)" :key="faq.id" >
+               <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
+              <!-- <div v-if="faq.content.Categories[0] == category.uuid" >
                 <div v-if="path">
                   <li v-for="publish in faq.content.Publish" :key="publish.id">
                     <div v-if="publish == path" >
@@ -34,28 +37,11 @@
                 <div v-else>
                   <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
                 </div>
-              </div>
+              </div> -->
             </li>
-          </ul>
-          </b-collapse>
-          <!-- <ul class="ask_block">
-            <li v-for="faq in filteredList" :key="faq.id" >
-              <div v-if="faq.content.Categories[0] == category.uuid" >
-                <div v-if="path">
-                  <li v-for="publish in faq.content.Publish" :key="publish.id">
-                    <div v-if="publish == path" >
-                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
-                    </div>
-                  </li>
-                </div>
-                <div v-else>
-                  <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
-                </div>
-              </div>
-            </li>
-          </ul> -->
-        </li>
-      </ul>
+          </b-card>
+        </b-collapse>
+      </div>
     </div>
     <div class="col-md-3">
     </div>
@@ -70,8 +56,8 @@ export default {
   data() {
     return {
       story: {content: []},
-      faq: [],
-      category: [],
+      faqs: [],
+      categories: [],
       links: [],
       search: '',
      }
@@ -93,7 +79,7 @@ export default {
       }
     )
     .then((res) => {
-      this.faq = res.data.stories
+      this.faqs = res.data.stories
     })
     .catch((res) => {
       console.error('Failed to load resource', res)
@@ -104,7 +90,7 @@ export default {
       cv: this.$store.state.cacheVersion
     })
     .then((res) => {
-      this.category = res.data.stories
+      this.categories = res.data.stories
     })
     .catch((res) => {
       console.error('Failed to load resource', res)
@@ -131,14 +117,34 @@ export default {
     })
   },
 
-  computed: {
-    filteredList() {
-      return Object.values(this.faq).filter(el => {
+  methods: {
+    filteredList: function () {
+      console.log("filterlist...", this.faqs)
+      return Object.values(this.faqs).filter(el => {
         return el.content.Title.toLowerCase().includes(this.search.toLowerCase())
       })
+    },
+
+    filteredFaq: function (category) {
+      let faqarray = [];
+      let filterlist = this.filteredList();
+      for(let i=0; i<filterlist.length; i++) {
+        if(filterlist[i].content.Categories[0] == category.uuid) {
+          if (this.path) {
+            for (let j=0; j<filterlist[i].content.Publish.length; j++) {
+              if (filterlist[i].content.Publish[j] == this.path) {
+                faqarray.push(filterlist[i]);
+              }
+            }
+          } 
+          else {
+            faqarray.push(filterlist[i]);
+          }
+        }
+      }
+      return faqarray;
     }
   },
-
 }
 </script>
 
@@ -186,7 +192,10 @@ export default {
   .line {
     border: none;
   }
-  .ask_block li {
+  .ask_block span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5em;
     cursor: pointer;
   }
@@ -195,12 +204,26 @@ export default {
     color: #000;
     font-family: "Roboto", sans-serif;
   }
+  .toggle .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .toggle .card-header span {
+      margin: 0;
+  }
+  .toggle .card-header svg {
+      opacity: 0.5;
+      font-size: 14px;
+  }
+ 
   .ask_block li a:hover {
     color: #ed1c24;
   }
+  
   .categories {
 
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
 
     span {
       color: #ed1c24;
