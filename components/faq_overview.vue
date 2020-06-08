@@ -17,27 +17,12 @@
   <hr>
   <div class="row">
     <div class="col-md-9">
-      <!-- <p>{{category}}</p> -->
-       <!-- <p>{{filteredList}}</p> -->
-      <div v-b-toggle:key="category.id" v-for="category in categories" :key="category.id" class="ask_block faq_list toggle card mt-3" >
+      <div v-b-toggle:key="category.uuid" v-for="category in categories" :key="category.id" class="ask_block toggle card mt-3" >
         <div class="categories card-header"><span>{{category.name}}</span><fa :icon="['fa', 'plus']"/></div>
-        <b-collapse :id="category.id">
-          <b-card class="ask_block">
-            <!-- <p>{{filteredFaq(category)}}</p> -->
+        <b-collapse :id="category.uuid">
+          <b-card>
             <li v-for="faq in filteredFaq(category)" :key="faq.id" >
                <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
-              <!-- <div v-if="faq.content.Categories[0] == category.uuid" >
-                <div v-if="path">
-                  <li v-for="publish in faq.content.Publish" :key="publish.id">
-                    <div v-if="publish == path" >
-                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
-                    </div>
-                  </li>
-                </div>
-                <div v-else>
-                  <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
-                </div>
-              </div> -->
             </li>
           </b-card>
         </b-collapse>
@@ -60,6 +45,7 @@ export default {
       categories: [],
       links: [],
       search: '',
+      id: Number
      }
   },
 
@@ -125,11 +111,11 @@ export default {
       })
     },
 
-    filteredFaq: function (category) {
+    filteredFaq: function (el) {
       let faqarray = [];
       let filterlist = this.filteredList();
       for(let i=0; i<filterlist.length; i++) {
-        if(filterlist[i].content.Categories[0] == category.uuid) {
+        if(filterlist[i].content.Categories[0] == el.uuid) {
           if (this.path) {
             for (let j=0; j<filterlist[i].content.Publish.length; j++) {
               if (filterlist[i].content.Publish[j] == this.path) {
