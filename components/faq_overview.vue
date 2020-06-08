@@ -17,11 +17,11 @@
   <hr>
   <div class="row">
     <div class="col-md-9">
-
-      <ul v-for="category in category" :key="category.id" class="ask_block faq_list" >
+      <ul v-b-toggle.:key="category.id" v-for="category in category" :key="category.id" class="ask_block faq_list" >
         <li class="categories"><span>{{category.content.Name}}</span>
           <hr class="line">
-          <ul class="ask_block">
+          <b-collapse :id="category.id">
+            <ul class="ask_block">
             <li v-for="faq in filteredList" :key="faq.id" >
               <div v-if="faq.content.Categories[0] == category.uuid" >
                 <div v-if="path">
@@ -37,11 +37,27 @@
               </div>
             </li>
           </ul>
+          </b-collapse>
+          <!-- <ul class="ask_block">
+            <li v-for="faq in filteredList" :key="faq.id" >
+              <div v-if="faq.content.Categories[0] == category.uuid" >
+                <div v-if="path">
+                  <li v-for="publish in faq.content.Publish" :key="publish.id">
+                    <div v-if="publish == path" >
+                    <a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a>
+                    </div>
+                  </li>
+                </div>
+                <div v-else>
+                  <li><a :href="`/${faq.full_slug}`">{{ faq.content.Title }}</a></li>
+                </div>
+              </div>
+            </li>
+          </ul> -->
         </li>
       </ul>
     </div>
     <div class="col-md-3">
-
     </div>
   </div>
  </div>
