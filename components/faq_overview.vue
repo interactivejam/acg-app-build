@@ -122,7 +122,7 @@ export default {
                 faqarray.push(filterlist[i]);
               }
             }
-          } 
+          }
           else {
             faqarray.push(filterlist[i]);
           }
@@ -185,7 +185,10 @@ export default {
     margin-bottom: 0.5em;
     cursor: pointer;
   }
-
+.ask_block li {
+   list-style: disc !important;
+    margin: 0.5em 0;
+  }
   .ask_block li a {
     color: #000;
     font-family: "Roboto", sans-serif;
@@ -202,11 +205,11 @@ export default {
       opacity: 0.5;
       font-size: 14px;
   }
- 
+
   .ask_block li a:hover {
     color: #ed1c24;
   }
-  
+
   .categories {
 
     // margin-bottom: 40px;

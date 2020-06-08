@@ -67,7 +67,7 @@
             <li>
               <p class="content">
                 {{ faq.content.text.content[0].content[0].text}}
-              </p> 
+              </p>
             </li>
           </ul>
         </div>
@@ -193,7 +193,7 @@ export default {
   },
 
   methods: {
-    
+
     newFaq: function() {
       var newFaq = [];
       for(let j=0; j<this.blok.body[1].reference.length; j++) {
@@ -238,7 +238,7 @@ export default {
     },
 
     showschedule: function(title) {
-      if (title.toLowerCase().includes("event")) 
+      if (title.toLowerCase().includes("event"))
       return true
     }
   }
@@ -323,8 +323,8 @@ h4.title {
 .inner_banner {
     margin: 0;
     padding: 0 0 0;
-    background: rgb(219,224,230);
-    background: linear-gradient(90deg, rgba(167,164,159,1) 100%) rgba(197,197,197,1) 35%, rgba(219,224,230,1) 0%,;
+    background: rgb(169,168,163,);
+    background: linear-gradient(90deg, rgba(169,168,163,1) 100%) rgba(169,168,163,1) 35%, rgba(169,168,163,1) 0%,;
     position: relative;
 }
 .navbar img {
