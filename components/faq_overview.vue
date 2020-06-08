@@ -188,6 +188,7 @@ export default {
   }
   .ask_block li {
     margin-bottom: 0.5em;
+    cursor: pointer;
   }
 
   .ask_block li a {
