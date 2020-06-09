@@ -41,9 +41,22 @@
       <!-- Top Bammer -->
       <div class="teaser"  v-for="global in global" :key="global.id">
         <!-- Menu Sec -->
-          <div v-editable="blok">
+          <!-- <div v-editable="blok">
+            {{blok}}
             <component v-if="slide" :blok="slide" :is="slide.component">
             </component>
+            </div>
+         </div> -->
+         <div v-editable="blok" class="teaser">
+            <component v-if="slide" :blok="slide" :is="slide.component">
+            </component>
+            <div class="teaser__pag">
+              <button @click="handleDotClick(index)"
+                :key="index"
+                v-for="(slide_blok, index) in slide_blok"
+                :class="{'teaser__pag-dot--current': index == currentSlide}"
+                class="teaser__pag-dot">Next</button>
+              </div>
             </div>
          </div>
         <div class="menu_info">
@@ -104,7 +117,7 @@ export default {
   return {
     page: {story: {content: []}},
     global: [],
-    currentSlide: 0,
+    currentSlide: 1,
     // arrays:[]
     }
   },
@@ -146,6 +159,7 @@ export default {
       var arrays = this.blok.body.filter(function(el) {
         return el.component == "slide"
       });
+      console.log("slides", arrays)
       return arrays;
     },
     slide () {
@@ -154,6 +168,7 @@ export default {
       });
 
       let slides = array.filter((slide, index) => {
+        console.log("slide", this.currentSlide)
         return this.currentSlide === index
       })
 
@@ -166,6 +181,7 @@ export default {
 
   methods: {
     handleDotClick (index) {
+      console.log("currentSlide", this.currentSlide)
       this.currentSlide = index
     },
     openSearchBox :  (event) => {
@@ -182,7 +198,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/components/vicnav.scss";
-
 
 .date_info [class^="col-"]:nth-child(odd), .date_info > [class*=" col-"]:nth-child(odd) {
     padding: 5px 5px 5px 15px;
@@ -280,6 +295,7 @@ section.header {
   width: calc(50% - 5px);
 }
 .teaser__pag {
+  position: absolute;
   width: 100%;
   text-align: center;
   margin-top: -100px;

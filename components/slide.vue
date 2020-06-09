@@ -17,9 +17,9 @@ export default {
   position: relative;
 }
 .slide img {
-  height: 30em;
+  height: 33em;
   z-index: 20;
-  width: auto;
+  width: 100%;
   opacity: 0.75;
   max-width: none;
 }
