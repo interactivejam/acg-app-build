@@ -49,19 +49,6 @@ export default {
 }
 
 .teaser__pag-dot {
-  text-indent: -9999px;
-  border: 0;
-  border-radius: 50%;
-  width: 17px;
-  height: 17px;
-  padding: 0;
-  margin: 5px 6px;
-  background-color: #ccc;
-  -webkit-appearance: none;
-  cursor: pointer;
-
-  &--current {
-    background-color: #000;
-  }
+  display: none;
 }
 </style>

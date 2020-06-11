@@ -8,13 +8,13 @@
                 class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none"
                 href="/home"
               >
-                <img src="//a.storyblok.com/f/76648/x/67b1cb5b1d/corporate-games.svg" class="w-100" alt="Corporate Games" />
+                <img src="//a.storyblok.com/f/76648/x/08b4139697/corporate-games.svg" style="width: 70%; margin: auto;" alt="Corporate Games" />
               </a>
               <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
                 <Search />
                 <nav class="navbar navbar-expand-md navbar-light">
                    <a class="navbar-brand" href="/home">
-                      <img src="//a.storyblok.com/f/76648/x/67b1cb5b1d/corporate-games.svg" alt="Corporate Games" />
+                      <img src="//a.storyblok.com/f/76648/x/08b4139697/corporate-games.svg" alt="Corporate Games" />
                     </a>
                   <div class="collapse navbar-collapse" id="Navigation">
                     <ul class="navbar-nav ml-auto">

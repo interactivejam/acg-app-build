@@ -19,41 +19,105 @@
             ],
             "FridayScheduleCode": "EC",
             "SaturdayScheduleCode": "Y",
-            "SundayScheduleCode": "DE"
-        },
-        {
-            "SportCode": "BIA",
-            "SportTitle": "Biathlon",
-            "Venues": [
+            "SundayScheduleCode": "DE",
+            "ContentBlocks": [
                 {
-                    "VenueID": 9,
-                    "VenueName": "Fawkner Park South Yarra"
-                }
-            ],
-            "SaturdayScheduleCode": "DE",
-            "SundayScheduleCode": "AE"
-        },
-        {
-            "SportCode": "BKT",
-            "SportTitle": "Basketball",
-            "Venues": [
+                    "BlockTitle": "EVENTS",
+                    "BlockDetails": "<div><strong>Singles<br><strong>Doubles<\/strong><br><strong>Doubles<\/strong> <\/strong><\/div>\r\n<div><strong>Women &amp; Men <\/strong> Open &amp; 40+<br><strong>Women, Men &amp; Mixed <\/strong>Open <br><strong>Team <\/strong>40+<\/div>"
+                },
                 {
-                    "VenueID": 15,
-                    "VenueName": "Port Phillip Bay"
-                }
-            ],
-            "SaturdayScheduleCode": "Y",
-            "SundayScheduleCode": "Y"
-        },
-        {
-            "SportCode": "BVL",
-            "SportTitle": "Beach Volleyball",
-            "Venues": [
+                    "BlockTitle": "DATES",
+                    "BlockDetails": "<div><strong>SATURDAY<\/strong><br><strong>SUNDAY<\/strong><\/div>\r\n<div><strong>Nov 23<\/strong> day &amp; evening<br><strong>Nov 24<\/strong> day<strong> Doubles<\/strong><\/div>"
+                },
                 {
-                    "VenueID": 15,
-                    "VenueName": "Port Phillip Bay"
+                    "BlockTitle": "VENUE",
+                    "BlockDetails": "<div><strong>Melbourne Sports &amp; Aquatic Centre<\/strong><br>Aughtie Dr <strong>ALBERT PARK<\/strong><\/div>"
+                },
+                {
+                    "BlockTitle": "FORMAT",
+                    "BlockDetails": "Minimum 3 matches scheduled in pool play followed by elimination tournament"
+                },
+                {
+                    "BlockTitle": "REGULATIONS",
+                    "BlockDetails": "You may enter 1 singles and 1 doubles event only<br>\r\nDoubles team must represent the same organisation<br>\r\nDoubles 40+ team may be wom, men or mixed"
+                },
+                {
+                    "BlockTitle": "UNIFORM",
+                    "BlockDetails": "Non marking shoes"
+                },
+                {
+                    "BlockTitle": "AGE CLASSES",
+                    "BlockDetails": "2 age classes in Badminton<br>\r\nAge determined as of 31 December"
+                },
+                {
+                    "BlockTitle": "MORE DETAILED SPORT INFO",
+                    "BlockDetails": "See Sport Information Button above"
+                },
+                {
+                    "BlockTitle": "FEE",
+                    "BlockDetails": "$65 per person + $30 for 2nd event<br>\r\n<strong>including Online Accreditation<\/strong>"
                 }
             ]
-        }
+        },
+        {
+            "SportCode": "SCE",
+            "SportTitle": "Soccer 11s",
+            "Venues": [
+                {
+                    "VenueID": 1,
+                    "VenueName": "Albert Park  Melbourne"
+                },
+                {
+                    "VenueID": 11,
+                    "VenueName": "McIvor Reserve Yarraville"
+                },
+                {
+                    "VenueID": 16,
+                    "VenueName": "South Melbourne Beach"
+                }
+            ],
+            "FridayScheduleCode": "EC",
+            "SaturdayScheduleCode": "Y",
+            "SundayScheduleCode": "DE",
+            "ContentBlocks": [
+                {
+                    "BlockTitle": "EVENTS",
+                    "BlockDetails": "<div><strong>Singles<br><strong>Doubles<\/strong><br><strong>Doubles<\/strong> <\/strong><\/div>\r\n<div><strong>Women &amp; Men <\/strong> Open &amp; 40+<br><strong>Women, Men &amp; Mixed <\/strong>Open <br><strong>Team <\/strong>40+<\/div>"
+                },
+                {
+                    "BlockTitle": "DATES",
+                    "BlockDetails": "<div><strong>SATURDAY<\/strong><br><strong>SUNDAY<\/strong><\/div>\r\n<div><strong>Nov 23<\/strong> day &amp; evening<br><strong>Nov 24<\/strong> day<strong> Doubles<\/strong><\/div>"
+                },
+                {
+                    "BlockTitle": "VENUE",
+                    "BlockDetails": "<div><strong>Melbourne Sports &amp; Aquatic Centre<\/strong><br>Aughtie Dr <strong>ALBERT PARK<\/strong><\/div>"
+                },
+                {
+                    "BlockTitle": "FORMAT",
+                    "BlockDetails": "Minimum 3 matches scheduled in pool play followed by elimination tournament"
+                },
+                {
+                    "BlockTitle": "REGULATIONS",
+                    "BlockDetails": "You may enter 1 singles and 1 doubles event only<br>\r\nDoubles team must represent the same organisation<br>\r\nDoubles 40+ team may be wom, men or mixed"
+                },
+                {
+                    "BlockTitle": "UNIFORM",
+                    "BlockDetails": "Non marking shoes"
+                },
+                {
+                    "BlockTitle": "AGE CLASSES",
+                    "BlockDetails": "2 age classes in Badminton<br>\r\nAge determined as of 31 December"
+                },
+                {
+                    "BlockTitle": "MORE DETAILED SPORT INFO",
+                    "BlockDetails": "See Sport Information Button above"
+                },
+                {
+                    "BlockTitle": "FEE",
+                    "BlockDetails": "$65 per person + $30 for 2nd event<br>\r\n<strong>including Online Accreditation<\/strong>"
+                }
+            ]
+        },
+
     ]
 }

@@ -48,11 +48,11 @@ export default {
     margin: 0 0 10px 0;
     display: flex;
     padding: 0;
-    font-size: 1em;
+    font-size: 1.2em;
     color: #171616;
     line-height: 1em;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: "helvetica47regularcondensed" !important;
 }
 
 .impo_block p {

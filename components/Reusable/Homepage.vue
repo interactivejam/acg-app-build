@@ -300,22 +300,7 @@ section.header {
   text-align: center;
   margin-top: -100px;
 }
-.teaser__pag-dot {
-  text-indent: -9999px;
-  border: 0;
-  border-radius: 50%;
-  width: 17px;
-  height: 17px;
-  padding: 0;
-  margin: 5px 6px;
-  background-color: #ccc;
-  -webkit-appearance: none;
-  cursor: pointer;
 
-  &--current {
-    background-color: #000;
-  }
-  }
 @media (min-width: 768px) {
 .navbar-expand-md .navbar-collapse {
     margin: 1em 1em 0 0;

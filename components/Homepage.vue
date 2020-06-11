@@ -136,6 +136,20 @@ export default {
 .menu-items a:nth-child(odd) {
   margin-right: -5px;
 }
+.middle_sec {
+   position: relative;
+}
+.middle_sec:after {
+    content: url(https://a.storyblok.com/f/76648/x/a9d89bb827/gamesball.svg);
+    position: absolute;
+    right: -0.75em;
+    top: -2.5em;
+    width: 100px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+}
 
 
 </style>
