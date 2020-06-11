@@ -42,217 +42,253 @@
                 {{sport.MondayScheduleCode}}
               </template>
             </td>
+             <b-modal v-model="modalShow" scrollable hide-footer hide-header size="xl" centered class="modal">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <div class="m_logo"><img src="https://a.storyblok.com/f/76648/x/af4013eab5/badminton.svg" alt=""></div>
+                    <h2 class="mr-auto">Badminton</h2>
+                    <div class="align-self-center ml-auto d-flex">
+                        <ul class="md_list">
+                            <li><a href="#"><i class="fa fa-info"></i> <span>Games Information</span></a></li>
+                            <li><a href="#"><i class="fa fa-file"></i> <span>Download Sport Info</span> </a></li>
+                            <li><a href="#"><i class="fa fa-mouse-pointer"></i> <span>Enter on GOES</span></a></li>
+                            <li class="arrow"><a href="#"><i class="fa fa-angle-left"></i> </a></li>
+                            <li class="arrow"><a href="#"><i class="fa fa-angle-right"></i> </a></li>
+                        </ul>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                  </div>
+                  
+                  <div class="modal-body">
+                    <b-row>
+                      <b-col sm="4" v-for="contentblock in sport.ContentBlocks" :key="contentblock.id">
+                        <div class="ev_block">
+                                <h3>{{contentblock.BlockTitle}}</h3>
+                                <div class="detail" v-html="contentblock.BlockDetails">
+                                </div>
+                                <!-- <div class="detail">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Singles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Women & Men Open & 40+</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Doubles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Women, Men & Mixed Open </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Doubles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Team 40+</p>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                      </b-col> 
+                    </b-row>
+
+                        <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="ev_block">
+                                <h3>Events</h3>
+                                <div class="detail">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Singles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Women & Men Open & 40+</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Doubles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Women, Men & Mixed Open </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Doubles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Team 40+</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>DATES</h3>
+                                <div class="detail">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Saturday </label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Nov 23 day & evening </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Sunday</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Nov 24 day Doubles</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>SPORT COORDINATOR</h3>
+                                <div class="detail">
+                                    <p>Badminton Victoria</p>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>ENTRY FEE</h3>
+                                <div class="detail">
+                                    <p>$65 per participant including GST for one event If entering both Singles and Doubles add $30 including GST</p>
+                                    <p>This fee includes Online Accreditation ordered at time of entry. </p>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>ENTRY DEADLINES</h3>
+                                <div class="detail">
+                                    <p>Guaranteed Entry Deadline October 3 Only complete Entries with payment are guaranteed </p>
+                                    <p>Final Entry Deadline October 17 Entries received</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="ev_block">
+                                <h3>Events</h3>
+                                <div class="detail">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Singles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Women & Men Open & 40+</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Doubles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Women, Men & Mixed Open </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Doubles</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Team 40+</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>DATES</h3>
+                                <div class="detail">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Saturday </label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Nov 23 day & evening </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                            <label>Sunday</label>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                            <p>Nov 24 day Doubles</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>SPORT COORDINATOR</h3>
+                                <div class="detail">
+                                    <p>Badminton Victoria</p>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>ENTRY FEE</h3>
+                                <div class="detail">
+                                    <p>$65 per participant including GST for one event If entering both Singles and Doubles add $30 including GST</p>
+                                    <p>This fee includes Online Accreditation ordered at time of entry. </p>
+                                </div>
+                            </div>
+                            
+                            <div class="ev_block">
+                                <h3>ENTRY DEADLINES</h3>
+                                <div class="detail">
+                                    <p>Guaranteed Entry Deadline October 3 Only complete Entries with payment are guaranteed </p>
+                                    <p>Final Entry Deadline October 17 Entries received</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                            <div class="ev_block">
+                                <h3>VENUE</h3>
+                                <div class="detail detail_2">
+                                    <p>Melbourne Sports & Aquatic Centre Aughtie Dr ALBERT PARK</p>
+                                    <div class="map_info">
+                              
+                                    </div>
+                                    <p>Sport Venue Control Location – Inside Badminton Hall MSAC </p>
+                                    <p>Limited parking at a fee – public transport suggested Drinks, food and all facilities available</p>
+                                </div>
+                            </div>
+                        </div> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            </b-modal>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <b-modal v-model="modalShow" hide-footer hide-header size="xl" class="modal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-            <div class="m_logo"><img src="images/model_ic.png" alt=""></div>
-          <h2 class="mr-auto">Badminton</h2>
-          <div class="align-self-center ml-auto d-flex">
-              <ul class="md_list">
-                  <li><a href="#"><i class="fa fa-info"></i> <span>Games Information</span></a></li>
-                  <li><a href="#"><i class="fa fa-file"></i> <span>Download Sport Info</span> </a></li>
-                  <li><a href="#"><i class="fa fa-mouse-pointer"></i> <span>Enter on GOES</span></a></li>
-                  <li class="arrow"><a href="#"><i class="fa fa-angle-left"></i> </a></li>
-                  <li class="arrow"><a href="#"><i class="fa fa-angle-right"></i> </a></li>
-              </ul>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-        </div>
-  
-        
-        <div class="modal-body">
-          <div class="row">
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="ev_block">
-                      <h3>Events</h3>
-                      <div class="detail">
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Singles</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Women & Men Open & 40+</p>
-                              </div>
-                          </div>
-                          
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Doubles</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Women, Men & Mixed Open </p>
-                              </div>
-                          </div>
-                          
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Doubles</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Team 40+</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>DATES</h3>
-                      <div class="detail">
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Saturday </label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Nov 23 day & evening </p>
-                              </div>
-                          </div>
-                          
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Sunday</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Nov 24 day Doubles</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>SPORT COORDINATOR</h3>
-                      <div class="detail">
-                          <p>Badminton Victoria</p>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>ENTRY FEE</h3>
-                      <div class="detail">
-                          <p>$65 per participant including GST for one event If entering both Singles and Doubles add $30 including GST</p>
-                          <p>This fee includes Online Accreditation ordered at time of entry. </p>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>ENTRY DEADLINES</h3>
-                      <div class="detail">
-                          <p>Guaranteed Entry Deadline October 3 Only complete Entries with payment are guaranteed </p>
-                          <p>Final Entry Deadline October 17 Entries received</p>
-                      </div>
-                  </div>
-              </div>
-              
-              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                  <div class="ev_block">
-                      <h3>Events</h3>
-                      <div class="detail">
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Singles</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Women & Men Open & 40+</p>
-                              </div>
-                          </div>
-                          
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Doubles</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Women, Men & Mixed Open </p>
-                              </div>
-                          </div>
-                          
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Doubles</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Team 40+</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>DATES</h3>
-                      <div class="detail">
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Saturday </label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Nov 23 day & evening </p>
-                              </div>
-                          </div>
-                          
-                          <div class="row">
-                              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                                  <label>Sunday</label>
-                              </div>
-                              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                                  <p>Nov 24 day Doubles</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>SPORT COORDINATOR</h3>
-                      <div class="detail">
-                          <p>Badminton Victoria</p>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>ENTRY FEE</h3>
-                      <div class="detail">
-                          <p>$65 per participant including GST for one event If entering both Singles and Doubles add $30 including GST</p>
-                          <p>This fee includes Online Accreditation ordered at time of entry. </p>
-                      </div>
-                  </div>
-                  
-                  <div class="ev_block">
-                      <h3>ENTRY DEADLINES</h3>
-                      <div class="detail">
-                          <p>Guaranteed Entry Deadline October 3 Only complete Entries with payment are guaranteed </p>
-                          <p>Final Entry Deadline October 17 Entries received</p>
-                      </div>
-                  </div>
-              </div>
-              
-              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                  <div class="ev_block">
-                      <h3>VENUE</h3>
-                      <div class="detail detail_2">
-                          <p>Melbourne Sports & Aquatic Centre Aughtie Dr ALBERT PARK</p>
-                          <div class="map_info">
-                     
-                          </div>
-                          <p>Sport Venue Control Location – Inside Badminton Hall MSAC </p>
-                          <p>Limited parking at a fee – public transport suggested Drinks, food and all facilities available</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </b-modal>
+ 
 </div>
 </template>
 
 <script>
 
 import sports from '~/data/SportScheduleStructureExample.json';
-import Modal from "../Modal/Modal";
 
 export default {
   data () {
@@ -264,7 +300,7 @@ export default {
   },
 
   components: {
-    Modal
+  
   },
 
   props: ['blok'],
@@ -286,6 +322,13 @@ export default {
     // })
    
   },
+  computed: {
+    contentblock () {
+      for (let i= 0; i<sports.lenth; i++) {
+        return contentblock
+      }
+    }
+  },
   methods: {
     showModal() {
       this.$refs['bad_modal'].show()
@@ -293,8 +336,6 @@ export default {
     hideModal() {
       this.$refs['bad_modal'].hide()
     },
-    
-  // 
   }
 };
 </script>
