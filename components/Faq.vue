@@ -24,12 +24,9 @@
     <div class="row">
         <div class="col-xl-8 col-md-8">
             <h3 class="title">{{ blok.Title }}</h3>
-            <p v-for="text in faqText" :key="text.id" class="content">
-                {{text}}
-            </p>
-            <!-- <p class="content">
-                {{blok.text.content}}
-            </p> -->
+            <div class="content" v-editable="blok">
+                <component v-if="blok.component === 'rich-text'" :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+            </div>
         </div>
         <div class="col-xl-4 col-md-4">
             <ul v-for="faq in faq" :key="faq.id" class="faq_list">
@@ -91,7 +88,7 @@ export default {
       },
       faqText() {
         var faqText = [];
-        // console.log("faqtext", this.blok.text.content)
+        console.log("faqtext", this.blok.text.content)
         for (let i =0; i<this.blok.text.content.length; i++) {
             if(this.blok.text.content[i].content[0])
             // console.log("faqtext", this.blok.text.content[i].content)
