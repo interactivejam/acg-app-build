@@ -85,7 +85,7 @@ export default {
   -o-transition: width 0.3s;
   transition: width 0.3s;
   border-radius: 50px;
-  top: -.85em;
+  top: -2em;
 }
 
 .searchbox {

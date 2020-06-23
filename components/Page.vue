@@ -8,7 +8,9 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8 col-sm-12 web-headline">
-                 <h1>{{ blok.title }}</h1>
+                 <a class= "logo" href="/home">
+                      <img src="https://a.storyblok.com/f/76648/x/3ff6952321/corporate-games.svg" alt="Corporate Games" />
+                    </a>
                     <div class="row">
                         <div class="col-4" v-for="global in global"
                                 :key="global.id">
@@ -106,13 +108,7 @@ export default {
 @import "~/assets/scss/components/corporate.scss";
 
 
-.banner_sec {
-    margin: 0 0 20em 0;
-}
-.web-headline {
-  margin-top: 18em;
-  margin-bottom: -18em;
-}
+
 
 .menu-items a {
     width: 100% !important;

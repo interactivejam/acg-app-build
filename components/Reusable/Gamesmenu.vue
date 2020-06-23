@@ -93,8 +93,8 @@ export default {
 }
 li.nav-item .nav-link {
   display: block;
-    padding: 0 2.5rem 0 0;
-     font-size: 21px;
+  padding: 0 2.5rem;
+  font-size: 21px;
   color: #ffffff;
   font-family: "helvetica47regularcondensed";
 }

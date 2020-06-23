@@ -1,6 +1,6 @@
 <template>
 <div v-editable="blok">
-  <div v-if="blok.align == 'center'" class="d-flex justify-content-center">
+  <div v-if="blok.align == 'center'" class="d-flex justify-content-center" style="width: 100%;">
     <a :href="blok.link.cached_url"
        class="btn download"
        target="_blank">
@@ -8,7 +8,7 @@
       {{ blok.button }}
     </a>
    </div>
-   <div v-if="blok.align !== 'center'">
+   <div v-if="blok.align !== 'center'" style="width: 100%;">
     <a :href="blok.link.cached_url"
        class="btn download"
        target="_blank">
@@ -20,6 +20,7 @@
 </template>
 <script>
 export default {
+
   props: ['blok']
 }
 </script>
@@ -29,9 +30,11 @@ export default {
   .btn.download {
     padding: 0.625em 1.5em 0.625em 1em;
     display: inline-block;
-    border-radius: 1.875em;
+    border-radius: 0;
     background: #f6f5f5;
-    margin: 0 1em 1em 0;
+    margin: 0 1em 0.5em 0;
+    text-align: left;
+    width: 100%;
   }
   .btn.download:hover {
     background: #f7e037;

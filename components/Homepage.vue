@@ -8,7 +8,9 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-8 col-sm-12 web-headline">
-                 <h1>{{ blok.TeaserLineOne }}<br />{{ blok.TeaserLineTwo }}</h1>
+                 <a class= "logo" href="/home">
+                      <img src="https://a.storyblok.com/f/76648/x/3ff6952321/corporate-games.svg" alt="Corporate Games" />
+                    </a>
                     <div class="row tile-block-row">
                         <div class="col-4" v-for="global in global"
                                 :key="global.id">
@@ -111,18 +113,7 @@ export default {
 @import "~/assets/scss/components/corporate.scss";
 
 
-.banner_sec {
-    margin: 0 0 16em 0;
-}
-.web-headline {
-  margin-top: 14em;
-  margin-bottom: -14em;
-}
-.web-headline h1 {
-  text-align: center;
-  color: #ffffff;
-  font-size: 3em !important;
-}
+
 .menu-items {
   width: 100%;
 }
@@ -142,9 +133,9 @@ export default {
 .middle_sec:after {
     content: url(https://a.storyblok.com/f/76648/x/a9d89bb827/gamesball.svg);
     position: absolute;
-    right: -0.75em;
-    top: -2.5em;
-    width: 100px;
+    right: -1.25em;
+    top: -7em;
+    width: 180px;
 
     @media (max-width: 768px) {
       display: none;

@@ -14,9 +14,8 @@ h4.title {
 }
 
 .banner_sec {
-    margin: 0 0 20em 0;
+    margin: 0 0 2em 0;
     padding: 0;
-    background: #f6f5f5;
     position: relative;
 }
 .banner_sec .tile-block-row .col-* {
@@ -27,8 +26,9 @@ h4.title {
 
 .web-headline {
   padding: 0px;
-   margin-top: 8em;
+   margin-top: 12em;
    z-index: 50;
+   text-align: center;
 
    h1 {
     text-align: center;
@@ -38,12 +38,19 @@ h4.title {
     margin-bottom: 25px;
     font-family: 'helvetica47lightcondensed' !important;
    }
+   .logo {
+
+      img {
+        width: 400px;
+        margin: 3em 0;
+      }
+   }
 }
 
 .hero-image {
   position: absolute;
   overflow: hidden;
-  height: 30em;
+  height: 32em;
   width: 100%;
   z-index: 0;
 }
@@ -83,7 +90,7 @@ h3.middle_sec {
 }
 
 .menu_info .navbar-light .navbar-nav .nav-link:hover {
-    color: #ed1c24;
+    color: #ffffff;
 }
 
 .banner_sec .web-headline .row {
@@ -98,6 +105,7 @@ h3.middle_sec {
   background: #ed1c24;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: all .2s ease-in-out;
+  text-align: left;
 }
 .banner_sec .b_block h2 small {
   margin: 0;
@@ -125,6 +133,7 @@ h3.middle_sec {
   color: #fff;
   line-height: 18px;
   font-family: "helvetica47regularcondensed";
+  text-align: left;
 }
 .banner_sec .b_block img {
   max-width: 90%;
