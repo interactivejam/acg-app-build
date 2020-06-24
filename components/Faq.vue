@@ -14,7 +14,7 @@
             </div>
             <div class="col-xl-3 col-md-3 back">
               <!-- <nuxt-link :to="to" class="back_btn">
-                &#8592; Go Back 
+                &#8592; Go Back
               </nuxt-link> -->
               <a @click="$router.go(-1)" class="back_btn">
               <fa :icon="['fas', 'long-arrow-alt-left']" /> Go Back</a>
@@ -29,6 +29,10 @@
             </div>
         </div>
         <div class="col-xl-4 col-md-4">
+          <div class="highlight">
+          <div v-for="category in category" :key="category.id" >
+            <h2 v-if="blok.Categories == category.uuid">Also in {{ category.content.Name }}</h2>
+          </div>
             <ul v-for="faq in faq" :key="faq.id" class="faq_list">
                 <div v-if="faq.content.Categories[0] == blok.Categories">
                     <li>
@@ -36,6 +40,7 @@
                     </li>
                 </div>
             </ul>
+           </div>
         </div>
     </div>
 </div>
@@ -52,7 +57,7 @@ export default {
     },
 
     props: ['blok'],
-    
+
     mounted() {
       this.$storyapi.get('cdn/stories', {
         starts_with: 'faq/',
@@ -100,7 +105,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .faq {
     margin-top: 40px;
 }
@@ -172,6 +177,17 @@ ul.during_list li a:hover {
     font-size: 21px;
     color: #171616;
 }
+.highlight {
+    margin: 1em 0;
+    padding: 3em;
+    display: block;
+    background: #f6f5f5;
+
+    h2 {
+      margin-bottom: 1em;
+    }
+
+}
 
 .back_btn i {
     margin-right: 5px;
@@ -187,8 +203,8 @@ ul.during_list li a:hover {
 
 ul.faq_list li a {
     color: #ed1c24;
-    font-size: 24px;
-    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 24px;
     font-family: "helvetica47regularcondensed"
 }
 

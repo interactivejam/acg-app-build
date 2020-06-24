@@ -1,5 +1,5 @@
 <template>
-  <div class="row flex-column-reverse flex-lg-row part_block" v-editable="blok">
+  <div v-if="blok.isActive === true" class="row flex-column-reverse flex-lg-row part_block" v-editable="blok">
     <Modal :text="blok" v-if="showModal" @close="showModal = false"/>
     <div class="col-md-8 col-sm-12">
       <div class="part_inn">

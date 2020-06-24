@@ -2,7 +2,7 @@
   <div v-editable="blok">
     <b-nav class="navbar navbar-expand-lg navbar-light d-none d-sm-none d-md-none d-lg-block d-xl-block">
       <div class="collapse navbar-collapse" id="Navigation">
-            <b-nav-item-dropdown id="my-nav-dropdown" text="Organise Your Team" toggle-class="nav-link">
+            <b-nav-item-dropdown id="my-nav-dropdown" text="Organise Your Team" toggle-class="nav-link first">
               <b-dropdown-item
                 v-for="item in get_organiseSlug"
                 :key="item.id"
@@ -16,7 +16,7 @@
                 :to="{ path: item.real_path}"
               >{{ item.name }}</b-dropdown-item>
             </b-nav-item-dropdown>
-          <div class="row">
+          <div class="d-flex">
             <b-nav-item class="nav-link" v-for="slug in get_Slug" :key="slug.id" :to="slug.real_path">
             {{ slug.name }}
             </b-nav-item>
@@ -89,19 +89,29 @@ export default {
 </script>
 <style lang="scss">
 .navbar {
-  padding: 0.5em 0;
+  padding: 0;
+  margin: 0;
+}
+.nav-link {
+    padding: 0;
 }
 li.nav-item .nav-link {
   display: block;
-  padding: 0 2.5rem;
+  padding: 0;
   font-size: 21px;
   color: #ffffff;
   font-family: "helvetica47regularcondensed";
+  border-right: 1px solid rgba(255,255,255,0.25);
+  padding: 0.75em 1.25em;
+}
+li.nav-item .nav-link.first {
+  padding-left: 0;
 }
 
 
 
-a:hover{
+
+li.nav-item .nav-link:hover{
   color: #f7e037;
 }
 .navbar-light .navbar-toggler {

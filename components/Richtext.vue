@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 
   .richtext a, .red {
-    color: #171616;
+    color: #ed1c24;
   }
   .richtext a:hover, .yellow {
       color: #ed1c24;

@@ -66,6 +66,7 @@ export default {
     text-transform: uppercase;
     text-align: center;
     line-height: 15px;
+    width: 55px;
 }
 .impo_block p strong {
     display: block;
