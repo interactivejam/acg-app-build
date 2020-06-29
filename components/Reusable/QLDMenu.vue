@@ -40,7 +40,7 @@
                         <a class="nav-link" href="/">Corporate Games</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/Contact Us">Contact</a>
+                        <a class="nav-link" href="/contact-us">Contact</a>
                       </li>
                     </ul>
                   </div>

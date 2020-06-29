@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse" id="Navigation">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="/Contact Us">Contact</a>
+                      <a class="nav-link" href="/contact-us">Contact</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/">Corporate Games</a>
@@ -73,28 +73,27 @@
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-
-          <div class="rem_info" v-for="global in global" :key="global.id">
-            <div class="" v-if="importDate_blok">
-              <div v-for="dates in global.content.important_dates" :key="dates.id">
-                <Importantdates v-bind:blok="dates"/>
-              </div>
+        <div class="rem_info" v-for="global in global" :key="global.id">
+          <div class="" v-if="importDate_blok">
+            <div v-for="dates in global.content.important_dates" :key="dates.id">
+              <Importantdates v-bind:blok="dates"/>
             </div>
-             <div class="date_info" v-if="highlights_blok">
-                <div class="d-flex flex-wrap justify-content-between align-items-stretch">
-                  <div class="highlight" v-for="highlights in global.content.highlights" :key="highlights.id">
-                    <Highlights v-bind:blok="highlights"/>
-                  </div>
+          </div>
+            <div class="date_info" v-if="highlights_blok">
+              <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+                <div class="highlight" v-for="highlights in global.content.highlights" :key="highlights.id">
+                  <Highlights v-bind:blok="highlights"/>
                 </div>
               </div>
-            <div class="sponsor" v-if="sponsor_blok">
-              <h2>Corporate Games Supporter</h2>
-                <div class="d-flex flex-wrap justify-content-between align-items-stretch">
-                  <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
-                    <Supporter v-bind:blok="sponsor"/>
-                  </div>
-              </div>
             </div>
+          <div class="sponsor" v-if="sponsor_blok">
+            <h2>Corporate Games Supporter</h2>
+              <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+                <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+                  <Supporter v-bind:blok="sponsor"/>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

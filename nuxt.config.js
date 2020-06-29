@@ -38,6 +38,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/vuelidate',
     '~/plugins/components.js',
     '~/plugins/helper.js',
     '~/plugins/rich-text-renderer.js',
@@ -47,7 +48,13 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/global-components',
+    ['@nuxtjs/global-components', { /* module options */ }]
   ],
+
+  globalComponents: {
+    /* module options */
+  },
 
   /*
   ** Nuxt.js modules
@@ -59,6 +66,7 @@ export default {
       accessToken: process.env.NODE_ENV == "production" ? "ZkIEqD1i8FVF628krYkPhAtt" : "nroV5bOcaS2CHUosOINLJgtt",
       cacheProvider: 'memory'
     }],
+    '@nuxtjs/global-components',
     // Doc: https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module

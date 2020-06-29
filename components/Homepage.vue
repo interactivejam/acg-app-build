@@ -67,7 +67,7 @@
                               <nuxt-link to="participating-organisations" class="corpo_block">
                                 Participating Organisations<fa :icon="['fas', 'angle-right']"/>
                               </nuxt-link>
-                              <nuxt-link to="Contact Us" class="corpo_block">
+                              <nuxt-link to="contact-us" class="corpo_block">
                                 Contact Us<fa :icon="['fas', 'angle-right']"/>
                               </nuxt-link>
                           </div>
