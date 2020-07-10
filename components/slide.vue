@@ -12,16 +12,19 @@ export default {
 
 <style lang="scss">
 .slide {
-  text-align: center;
-  margin: auto;
-  position: relative;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    display: flex;
 }
 .slide img {
-  height: 33em;
-  z-index: 20;
-  width: 100%;
-  opacity: 0.75;
-  max-width: none;
+    height: 33em;
+    z-index: 20;
+    width: auto;
+    opacity: 0.75;
+    max-width: none;
+    align-self: center;
+    margin: auto;
 }
 
 </style>

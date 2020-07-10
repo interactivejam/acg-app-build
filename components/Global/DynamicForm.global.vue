@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" :form="blok._uid" class="form-btn" :class="blok.submitButtonClass">
+      <button type="submit" :form="blok._uid" class="form-btn ml-auto" :class="blok.submitButtonClass">
         {{ blok.submitButtonText }}
       </button>
     </form>
@@ -108,14 +108,31 @@
 
 <style lang="scss" scoped>
 .input-form {
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .form-btn {
   width: 20%;
   border-radius: 10px;
-  margin-left: 20px;;
-  margin-bottom: 10px;
+  margin: 20px;
   height: 40px;
+  background: #ed1c24;
+  color: #ffffff;
+  border-radius: 30px;
+  float: right;
 }
+
+label {
+  display: block;
+  padding-left: 10px;
+  color:rgba(51,51,51,.5);
+ }
+
+ input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(51,51,51,.25);
+ }
+
 </style>

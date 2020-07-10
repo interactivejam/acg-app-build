@@ -1,10 +1,11 @@
-<template>
-    <a :href="blok.URL" class="date_block" v-editable="blok">
+<template v-if="blok.isActive === true">
+    <a :href="blok.URL" class="date_block d-flex" style="width: 100%;" v-editable="blok">
         <figure>
-            <img :src="blok.Icon" :alt="blok.Name">
+            <img :src="blok.Icon" :alt="blok.Name" style="width: 80px;">
         </figure>
         <h3><fa class="icon" :icon="['fas', 'angle-right']" />{{blok.Name}}</h3>
     </a>
+
 </template>
 
 <script>
@@ -14,30 +15,35 @@ export default {
 </script>
 <style scoped>
 
+
 .date_block {
-    margin: 0 0 5px 0;
+    margin: 0;
     padding: 25px 30px;
     background: #f6f5f5;
     display: block;
     border-bottom: 5px solid #ffffff;
-}
+    align-items: center;
+   }
 .date_block:hover {
     background: #ffe800;
 }
 
 .date_block figure {
-    width: 140px;
+ /*   width: 140px;
     height: 40px;
-    margin: 0 0 25px 0;
+    margin: 0 0 25px 0;*/
     padding: 0;
+    margin: 0;
 }
 .date_block figure img {
-  height: 3.5em;
+  /*  height: 3.5em;*/
   max-width: 100%;
+  max-height: 4em;
+
 }
 
 .date_block h3 {
-    margin: 0;
+    margin: 0 0 0 1em;
     padding: 0 0 0 20px;
     font-size: 1em;
     color: #171616;

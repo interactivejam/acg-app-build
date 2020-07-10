@@ -101,9 +101,13 @@ li.nav-item .nav-link {
   font-size: 21px;
   color: #ffffff;
   font-family: "helvetica47regularcondensed";
-  border-right: 1px solid rgba(255,255,255,0.25);
   padding: 0.75em 1.25em;
 }
+
+.menu_info li.nav-item .nav-link  {
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+
 li.nav-item .nav-link.first {
   padding-left: 0;
 }

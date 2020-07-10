@@ -1,6 +1,8 @@
 <template>
   <section>
-    <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
+    <div v-editable="story.content">
+      <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
+    </div>
   </section>
 </template>
 
@@ -17,7 +19,7 @@ export default {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
     // Load the JSON from the API
     return context.app.$storyapi.get(`cdn/stories/vic/organise-your-team/${context.params.slug}`, {
-      version: version
+      version: context.isDev ? "draft" : "published"
     }).then((res) => {
       return res.data
     }).catch((res) => {
@@ -30,8 +32,8 @@ export default {
       if (event.story.id === this.story.id) {
         this.story.content = event.story.content
       }
-    } else {
-      window.location.reload()
+    } else if (!event.slugChanged) {
+        window.location.reload()
     }
   })
 }

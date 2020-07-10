@@ -81,14 +81,14 @@
           </div>
             <div class="date_info" v-if="highlights_blok">
               <div class="d-flex flex-wrap justify-content-between align-items-stretch">
-                <div class="highlight" v-for="highlights in global.content.highlights" :key="highlights.id">
-                  <Highlights v-bind:blok="highlights"/>
+                  <div class="highlights" v-for="highlights in global.content.highlights" :key="highlights.id">
+                    <Highlights v-bind:blok="highlights"/>
+                  </div>
                 </div>
-              </div>
             </div>
           <div class="sponsor" v-if="sponsor_blok">
             <h2>Corporate Games Supporter</h2>
-              <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+              <div class="d-flex flex-column">
                 <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
                   <Supporter v-bind:blok="sponsor"/>
                 </div>
@@ -314,9 +314,8 @@ h4.title {
     padding: 30px 30px 15px 30px;
     background: #f6f5f5;
 }
-
-.highlight, .sponsor .flex-fill {
-  width: calc(50% - 5px);
+.highlights {
+  width: 100%;
 }
 
 .inner_banner {

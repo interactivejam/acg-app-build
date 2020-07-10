@@ -83,14 +83,14 @@
               </div>
               <div class="date_info" v-if="highlights_blok">
                 <div class="d-flex flex-wrap justify-content-between align-items-stretch">
-                  <div class="highlight" v-for="highlights in global.content.highlights" :key="highlights.id">
+                  <div class="highlights" v-for="highlights in global.content.highlights" :key="highlights.id">
                     <Highlights v-bind:blok="highlights"/>
                   </div>
                 </div>
               </div>
               <div class="sponsor" v-if="sponsor_blok">
                 <h2>Corporate Games Supporter</h2>
-                  <div class="d-flex align-items-stretch">
+                  <div class="d-flex flex-column align-items-stretch">
                     <div class="flex-fill align-items-center frame" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
                       <Supporter v-bind:blok="sponsor"/>
                     </div>
@@ -207,6 +207,9 @@ export default {
     padding: 5px 15px 5px 5px;
     height: 100%;
 }
+.highlights {
+  width: 100%;
+}
 
 .teaser {
   background: #000000;
@@ -291,9 +294,7 @@ section.header {
     padding: 30px 30px 15px 30px;
     background: #f6f5f5;
 }
-.highlight {
-  width: calc(50% - 5px);
-}
+
 .teaser__pag {
   position: absolute;
   width: 100%;
