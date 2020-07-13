@@ -42,7 +42,8 @@ export default {
     '~/plugins/components.js',
     '~/plugins/helper.js',
     '~/plugins/rich-text-renderer.js',
-    { mode: 'client', src: '~plugins/vue-router-back-button.js' }
+    '~/plugins/google-maps',
+    { mode: 'client', src: '~plugins/vue-router-back-button.js' },
     ],
   /*
   ** Nuxt.js dev-modules

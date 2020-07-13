@@ -58,6 +58,10 @@
         <!-- <p>{{blok}}</p> -->
         <h1 class="title">{{ blok.Title }}</h1>
         <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="blok.component"></component>
+        <div v-if="showmaps(blok.Title)">
+          <p>maps-------------</p>
+          <Map />
+        </div>
         <div v-if="showschedule(blok.Title)">
           <schedule v-bind:blok="blok"/>
         </div>
@@ -109,6 +113,7 @@ import Importantdates from '~/components/Reusable/Importantdates.vue';
 import Highlights from '~/components/Reusable/Highlights.vue';
 import Supporter from '~/components/Reusable/Supporter.vue';
 import Schedule from '~/components/Reusable/Schedule.vue';
+import Map from '~/components/Reusable/Map.vue';
 // import func from '../vue-temp/vue-editor-bridge';
 
 export default {
@@ -127,7 +132,8 @@ export default {
     Importantdates,
     Highlights,
     Supporter,
-    Schedule
+    Schedule,
+    Map
   },
 
   props: ['blok'],
@@ -238,6 +244,10 @@ export default {
 
     showschedule: function(title) {
       if (title.toLowerCase().includes("event"))
+      return true
+    },
+    showmaps: function(title) {
+      if (title.toLowerCase().includes("map"))
       return true
     }
   }
