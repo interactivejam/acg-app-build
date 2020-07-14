@@ -1,0 +1,49 @@
+{ "data": 
+  [
+    {
+    "lat" : -37.843292,
+    "lng" : 144.961767,
+    "itemID" : 1103972,
+    "placemaker" : "Green",
+    "dates" : "Accreditation Centre",
+    "itemDesc" : "The Gallery, Melbourne Sports & Aquatic Centre",
+    "dates-1" : "Saturday 23 November",
+    "venueControl": "Games Tent at Fields",
+    "Notes" : "Parking limited at a fee, public transport suggested Drinks, food and all facilities available in the Albert Park Indoor Sports Centre"
+    },
+    {
+    "lat" : -37.811971,
+    "lng" : 144.959839,
+    "itemID" : 1103973,
+    "placemaker" : "Green",
+    "dates" : "Accreditation Centre",
+    "itemDesc" : "Novotel IBIS Melbourne Central",
+    "dates-1" : "Saturday 23 November",
+    "venueControl": "Games Tent at Fields",
+    "Notes" : "Parking limited at a fee, public transport suggested Drinks, food and all facilities available in the Albert Park Indoor Sports Centre"
+    
+    },
+    {
+    "lat" : -37.850222,
+    "lng" : 144.969385,
+    "itemID" : 110398,
+    "placemaker" : "Red",
+    "dates" : "Running",
+
+    "itemDesc" : "Albert Park Lake Path",
+    "venueControl": "Games Tent at Fields",
+    "Notes" : "Parking limited at a fee, public transport suggested Drinks, food and all facilities available in the Albert Park Indoor Sports Centre"
+
+    },{
+    "lat" : -37.852662,
+    "lng" : 144.970973,
+    "itemID" : 1103989,
+    "placemaker" : "Red",
+    "dates" : "Soccer 11s A",
+
+    "itemDesc" : "Albert Park Synthetic Fields",
+    "venueControl": "Games Tent at Fields",
+    "Notes" : "Parking limited at a fee, public transport suggested Drinks, food and all facilities available in the Albert Park Indoor Sports Centre"
+    }
+  ]
+}

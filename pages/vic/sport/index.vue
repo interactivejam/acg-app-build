@@ -1,6 +1,5 @@
 <template>
   <section>
-   <!-- <p>{{story.content}}</p> -->
     <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component>
   </section>
 </template>
@@ -15,6 +14,7 @@ export default {
       story: { content: {} }
     }
   },
+  props: ["map"],
   mounted () {
     // use the bridge to listen to events
     this.$storybridge.on(['input', 'published', 'change'], (event) => {
