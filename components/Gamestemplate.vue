@@ -90,13 +90,13 @@
                 </div>
             </div>
           <div class="sponsor" v-if="sponsor_blok">
-            <h2>Corporate Games Supporter</h2>
-              <div class="d-flex flex-column">
-                <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
-                  <Supporter v-bind:blok="sponsor"/>
-                </div>
-            </div>
-          </div>
+                <h2>Corporate Games Supporter</h2>
+                  <div class="d-flex align-items-stretch">
+                    <div class="flex-fill align-items-center frame" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+                      <Supporter v-bind:blok="sponsor"/>
+                    </div>
+                  </div>
+              </div>
         </div>
       </div>
     </div>
@@ -355,7 +355,17 @@ h4.title {
     width: auto;
     max-width: none;
 }
-
+.sponsor {
+    margin: 0 0 5px 0;
+    padding: 30px 30px 15px 30px;
+    background: #f6f5f5;
+}
+.frame {
+    padding: 5px;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #f6f5f5;
+}
 @media (min-width: 768px) {
 .navbar-expand-md .navbar-collapse {
     margin: 1em 1em 0 0;
