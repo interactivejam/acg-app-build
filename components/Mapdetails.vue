@@ -1,8 +1,7 @@
-
 <template>
 <div v-editable="blok">
   <header>
-    <!-- <div class="nav_sec top_part inner_top">
+    <div class="nav_sec top_part inner_top">
       <div class="container-fluid">
           <div class="col-12">
             <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
@@ -33,27 +32,71 @@
             </div>
           </div>
       </div>
-    </div> -->
+    </div>
   </header>
   <!--Section-->
   <section>
     <!--Inner Banner -->
-    <!-- <div class="inner_banner">
+    <div class="inner_banner">
       <div class="container-fluid">
         <div class="col-md-6 ml-md-auto" v-for="global in global" :key="global.id">
-          <P>{{ get_bannerimage }}</P>
+          <!-- <P>{{ get_bannerimage }}</P> -->
           <img :src="get_bannerimage.filename" alt="Corporate Games"  class="align-self-end" />
         </div>
       </div>
-    </div> -->
+    </div>
     <!-- Menu Sec -->
-    <!-- <div class="menu_info">
+    <div class="menu_info">
       <div class="container-fluid">
         <Gamesmenu v-bind:blok="blok"/>
       </div>
-    </div> -->
+    </div>
   </section>
-
+  <div class="container part_sec">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <h1>{{selectedmarker[0].dates}} - {{selectedmarker[0].itemDesc}}</h1>
+        <p>{{selectedmarker[0].itemDesc}}</p>
+        <div><span class="note">Dates</span><span>{{selectedmarker[0].dates_n}}</span></div>
+        <hr style="height: 1px; background-color: #ccc; border: none; margin:0">
+        <span class="note">Venue Control</span><span>{{selectedmarker[0].venueControl}}</span>
+        <hr style="height: 1px; background-color: #ccc; border: none; margin:1px">
+        <span class="note">Notes</span><span>{{selectedmarker[0].Notes}}</span><br>
+        <gmap-map :center="markerposition" :zoom="12" style="width: 100%; height: 500px">
+          <gmap-marker
+            :position="markerposition"
+            :icon="{ url: require('../assets/images/venue-flag-red.svg'),
+            size: {width: 56, height: 56, f: 'px', b: 'px'},
+            scaledSize: {width: 53, height: 53, f: 'px', b: 'px'}}"
+          />
+        </gmap-map>  
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="rem_info" v-for="global in global" :key="global.id">
+          <div class="" v-if="importDate_blok">
+            <div v-for="dates in global.content.important_dates" :key="dates.id">
+              <Importantdates v-bind:blok="dates"/>
+            </div>
+          </div>
+            <div class="date_info" v-if="highlights_blok">
+              <div class="d-flex flex-wrap justify-content-between align-items-stretch">
+                  <div class="highlights" v-for="highlights in global.content.highlights" :key="highlights.id">
+                    <Highlights v-bind:blok="highlights"/>
+                  </div>
+                </div>
+            </div>
+          <div class="sponsor" v-if="sponsor_blok">
+            <h2>Corporate Games Supporter</h2>
+              <div class="d-flex flex-column">
+                <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+                  <Supporter v-bind:blok="sponsor"/>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
 </div>
 </template>
 
@@ -67,13 +110,15 @@ import Supporter from '~/components/Reusable/Supporter.vue';
 import Schedule from '~/components/Reusable/Schedule.vue';
 import Map from '~/components/Reusable/Map.vue';
 // import func from '../vue-temp/vue-editor-bridge';
+import json from '../Data/venu.json'
 
 export default {
   data () {
   return {
-    global: [],
-    faq: [],
-    category: [],
+      global: [],
+      faq: [],
+      category: [],
+      mapdata: json.data,
     }
   },
 
@@ -127,14 +172,49 @@ export default {
     .catch((res) => {
       console.error('Failed to load resource', res)
     })
-  }
+  },
+  computed: {
+    importDate_blok: function() {
+      var date_temp = this.blok.body[3].reference;
+      return date_temp.includes('important_date')
+    },
+    highlights_blok: function() {
+      var highlights_temp = this.blok.body[3].reference;
+      return highlights_temp.includes('highlights')
+    },
+    sponsor_blok: function() {
+      var sponor_temp = this.blok.body[3].reference;
+      return sponor_temp.includes('sponor')
+    },
+    get_bannerimage () {
+      // var bannerimage = this.global.map(el => el.content.banner_following[Math.floor(Math.random() * el.content.banner_following.length)])
+      var imagesrc = this.global[0].content.banner_following;
+      imagesrc = imagesrc[Math.floor(Math.random() * imagesrc.length)]
+      return imagesrc;
+    },
+    selectedmarker() {
+      let markerid = Object.keys(this.$route.query)[0];
+      console.log("markerid", markerid)
+      return this.mapdata.filter(el => {
+        if(el.itemID == markerid)
+        return el
+      })
+    },
+    markerposition() {
+      let marker = {
+        lat: this.selectedmarker[0].lat,
+        lng: this.selectedmarker[0].lng
+      };
+      return marker;
+    }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-// @import "../assets/scss/components/vicnav.scss";
-// @import "../assets/scss/elements/colors.scss";
-// @import "../assets/scss/components/games_following.scss";
+@import "../assets/scss/components/vicnav.scss";
+@import "../assets/scss/elements/colors.scss";
+@import "../assets/scss/components/games_following.scss";
 
 .date_info [class^="col-"]:nth-child(odd), .date_info > [class*=" col-"]:nth-child(odd) {
     padding: 5px 5px 5px 15px;
@@ -232,6 +312,19 @@ h4.title {
     height: 400px;
     width: auto;
     max-width: none;
+}
+
+.note {
+  color: gray;
+  font-size: 14px;
+  width: 100px;
+  margin-bottom: 5px;
+  display: inline-block
+}
+
+.place-detail {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {

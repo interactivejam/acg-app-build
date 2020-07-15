@@ -2,12 +2,15 @@
   <section>
     <div>
       <!-- <component v-if="story.content.component" :key="story.content._uid" :blok="story.content" :is="story.content.component"></component> -->
-      <p>fjiewojifoew fewjafioewjaiofj ioewajfio jweiaojf ioewj</p>
+      <Mapdetails v-bind:blok="story.content" />
     </div>
   </section>
 </template>
 
 <script>
+
+import Mapdetails from '~/components/Mapdetails'
+
 export default {
   layout: 'games_following',
   data () {
@@ -15,6 +18,11 @@ export default {
       story: { content: {}} 
     }
   },
+
+  components: {
+    Mapdetails
+  },
+  
   asyncData (context) {
     // Check if we are in the editor mode
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'

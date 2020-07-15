@@ -90,7 +90,7 @@
               </div>
               <div class="sponsor" v-if="sponsor_blok">
                 <h2>Corporate Games Supporter</h2>
-                  <div class="d-flex align-items-stretch">
+                  <div class="d-flex flex-column align-items-stretch">
                     <div class="flex-fill align-items-center frame" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
                       <Supporter v-bind:blok="sponsor"/>
                     </div>

@@ -8,8 +8,18 @@
         :icon="{ url: require('../../assets/images/venue-flag-green.svg'),
         size: {width: 56, height: 56, f: 'px', b: 'px'},
         scaledSize: {width: 53, height: 53, f: 'px', b: 'px'}}"
-        @click="center=item.position"
+        @click="toggleInfoWindow(item, index)"
       />
+<!-- 
+     <gmap-info-window
+        :options="infoOptions"
+        :position="infoWindowPos"
+        :opened="infoWinOpen"
+        @closeclick="infoWinOpen=false"
+      >
+       <div v-html="infoContent"></div>
+      </gmap-info-window> -->
+
       <gmap-marker
         v-for="item in rmarkers"
         :key="item.itemID"
@@ -17,8 +27,15 @@
         :icon="{ url: require('../../assets/images/venue-flag-red.svg'), 
         size: {width: 56, height: 56, f: 'px', b: 'px'},
         scaledSize: {width: 53, height: 53, f: 'px', b: 'px'}}"
-        @click="center=item.position"
       />
+       <!-- <gmap-info-window
+        :options="infoOptions"
+        :position="infoWindowPos"
+        :opened="infoWinOpen"
+        @closeclick="infoWinOpen=false"
+      >
+       <div v-html="infoContent"></div>
+      </gmap-info-window> -->
     </gmap-map>
     <br>
     <div class="green-markers">
@@ -26,12 +43,11 @@
         <b-col cols="6" 
         style="display: flex; justify-content: start;" 
         v-for="(gmarker, index) in greenmarkers" :key="index">
-       
             <span class="gspanImage"><span>{{index + 1}}</span></span>
             <!-- <a href="" class="marker-dates">{{gmarker.dates}}</a> -->
             <span class="venuename">
-              <nuxt-link :to="{name: 'vic-sport-slug-mapdetails', params: { mapdetails: gmarker.dates}}" class="marker-dates">{{gmarker.dates}}</nuxt-link>
-              <!-- <a v-bind:href="'/vic/sport/venue-details-maps/'+ gmarker.dates">{{gmarker.dates}}</a> -->
+              <!-- <nuxt-link :to="{name: 'vic-sport-slug-mapdetails', params: { mapdetails: gmarker.dates}}" class="marker-dates">{{gmarker.dates}}</nuxt-link> -->
+              <a v-bind:href="'/vic/sport/venue-details-maps/'+ gmarker.dates + `?${gmarker.itemID}`" class="marker-dates">{{gmarker.dates}}</a>
               <br>
               <span style="vertical-align: baseline; margin-left: 35px; margin-top: 15px">{{gmarker.itemDesc}}</span>
             </span>
@@ -44,7 +60,8 @@
         <b-col cols="6" style="display: flex; justify-content: start; align-items: center;" 
         v-for="(rmarker, index) in redmarkers" :key="index">
            <span class="rspanImage"><span>{{index + 1}}</span></span>
-           <nuxt-link :to="{name: 'vic-sport-slug-mapdetails', params: { mapdetails: rmarker.dates}}" class="marker-dates">{{rmarker.dates}}</nuxt-link>
+           <!-- <nuxt-link :to="{name: 'vic-sport-slug-mapdetails', params: { mapdetails: rmarker.dates}}" class="marker-dates">{{rmarker.dates}}</nuxt-link> -->
+           <a v-bind:href="'/vic/sport/venue-details-maps/'+ rmarker.dates + `?${rmarker.itemID}`" class="marker-dates">{{rmarker.dates}}</a>
         </b-col>
       </b-row>
     </div>
@@ -58,6 +75,23 @@ import json from '../../Data/venu.json'
 export default {
   data() {
     return {
+        map: null,
+        infoContent: '',
+        infoWindowPos: {},
+        infoWinOpen: false,
+        currentMidx: null,
+        fullscreenControl:false,
+        infoOptions: {
+          pixelOffset: {
+            width: 0,
+            height: -35
+          }
+        },  
+        // MarkerOptions:{
+        //   zIndex:999999,
+        //   opacity:0.2
+
+        // },
       mapdata: json.data,
       center: { lat: -37.843292, lng: 144.961767 },
       gmarkers: [],
@@ -85,6 +119,26 @@ export default {
   },
 
   methods: {
+    toggleInfoWindow(marker, idx) {
+      console.log("marker---", marker)
+      
+      this.infoWindowPos = {
+            lat: marker.lat,
+            lng: marker.lng
+          };
+      this.infoContent = this.getInfoWindowContent(marker);
+
+      //check if its the same marker that was selected if yes toggle
+      if (this.currentMidx == idx) {
+        this.infoWinOpen = !this.infoWinOpen;
+      }
+      //if different marker set infowindow to open and reset current marker index
+      else {
+        this.infoWinOpen = true;
+        this.currentMidx = idx;
+      }
+    },
+    
     getGMarkers() {
       return this.mapdata.filter(el => {
         if(el.placemaker == "Green") {
@@ -107,7 +161,24 @@ export default {
         return this.rmarkers.push({position: marker})
         }
       })
-    }
+    },
+
+    getInfoWindowContent: function (marker) {
+      return (
+      `<div class="">
+        <div>
+          <div>
+            <div class="m-2"><span style="font-weight: bold;"></span>
+              ${marker.dates}
+            </div>
+          </div>
+          <div class="m-2"><span style="font-weight: bold;"></span>
+            ${marker.itemDesc}
+            <br>
+          </div>
+        </div>
+      </div>`);
+    },
   }
 };
 </script>
