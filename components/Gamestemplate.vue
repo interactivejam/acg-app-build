@@ -91,8 +91,8 @@
             </div>
           <div class="sponsor" v-if="sponsor_blok">
             <h2>Corporate Games Supporter</h2>
-              <div class="d-flex flex-column">
-                <div class="flex-fill align-items-stretch" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
+              <div class="d-flex">
+                <div class="flex-fill align-items-stretch frame" v-for="sponsor in global.content.sponsor" :key="sponsor.id">
                   <Supporter v-bind:blok="sponsor"/>
                 </div>
             </div>
@@ -355,6 +355,13 @@ h4.title {
     height: 400px;
     width: auto;
     max-width: none;
+}
+.frame {
+  background: yellow;
+    padding: 5px;
+  background: #fff;
+  text-align: center;
+  border: 1px solid #f6f5f5;
 }
 
 @media (min-width: 768px) {

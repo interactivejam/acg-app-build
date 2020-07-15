@@ -62,14 +62,14 @@
         <span class="note">Venue Control</span><span>{{selectedmarker[0].venueControl}}</span>
         <hr style="height: 1px; background-color: #ccc; border: none; margin:1px">
         <span class="note">Notes</span><span>{{selectedmarker[0].Notes}}</span><br>
-        <gmap-map :center="markerposition" :zoom="12" style="width: 100%; height: 500px">
+        <gmap-map :center="markerposition" :zoom="12" style="width: 100%; height: 500px; margin: 30px 0;">
           <gmap-marker
             :position="markerposition"
             :icon="{ url: require('../assets/images/venue-flag-red.svg'),
             size: {width: 56, height: 56, f: 'px', b: 'px'},
             scaledSize: {width: 53, height: 53, f: 'px', b: 'px'}}"
           />
-        </gmap-map>  
+        </gmap-map>
       </div>
       <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
         <div class="rem_info" v-for="global in global" :key="global.id">
@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
 </template>
 

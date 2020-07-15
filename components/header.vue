@@ -57,7 +57,9 @@ export default {
     padding: 10px 0;
     margin-top: 1em;
   }
-
+ #searchbox {
+  top: -2em;
+ }
 
 
 </style>
