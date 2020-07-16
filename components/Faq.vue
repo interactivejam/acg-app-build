@@ -107,7 +107,7 @@ export default {
 
 <style lang="scss" scoped>
 .faq {
-    margin-top: 40px;
+    // margin-top: -40px;
 }
 
 .icon {

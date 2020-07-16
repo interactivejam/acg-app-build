@@ -147,7 +147,7 @@ h4.title {
 }
 
 .menu_info {
-  top: -63px;
+  // top: -63px;
 }
 
 .part_sec {

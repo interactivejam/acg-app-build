@@ -224,7 +224,8 @@ h4.title {
 
 .part_sec {
   max-width: 1500px;
-  margin: 0 auto;
+  margin-top: 30px;
+  // margin: 0 auto;
   padding: 0;
   li {
   list-style: disc;

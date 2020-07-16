@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  layout: 'default_following',
+  layout: 'games_following',
   data () {
     return { 
       story: { content: {} },
