@@ -1,57 +1,5 @@
 <template>
 <div v-editable="blok">
-  <header>
-    <div class="nav_sec top_part inner_top">
-      <div class="container-fluid">
-          <div class="col-12">
-            <a class="navbar-brand text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" v-for="global in global" :key="global.id"
-              :href="global.content.URL">
-              <img :src="global.content.hero_logo"
-                alt="Corporate Games" />
-            </a>
-            <div class="inner d-none d-sm-none d-md-none d-lg-block d-xl-block">
-              <Search />
-              <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" v-for="global in global" :key="global.id"
-                :href="global.content.URL">
-                <img :src="global.content.hero_logo"
-                    alt="Corporate Games" />
-                <div class="date">{{ global.content.Dates }}<span>•</span>{{ global.content.Location }}<span>•</span>{{ global.content.Year }}</div>
-                </a>
-                <div class="collapse navbar-collapse" id="Navigation">
-                  <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/contact-us">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/">Corporate Games</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-      </div>
-    </div>
-  </header>
-  <!--Section-->
-  <section>
-    <!--Inner Banner -->
-    <div class="inner_banner">
-      <div class="container-fluid">
-        <div class="col-md-6 ml-md-auto" v-for="global in global" :key="global.id">
-          <!-- <P>{{ get_bannerimage }}</P> -->
-          <img :src="get_bannerimage.filename" alt="Corporate Games"  class="align-self-end" />
-        </div>
-      </div>
-    </div>
-    <!-- Menu Sec -->
-    <div class="menu_info">
-      <div class="container-fluid">
-        <Gamesmenu v-bind:blok="blok"/>
-      </div>
-    </div>
-  </section>
   <div class="container part_sec">
     <div class="row">
       <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
@@ -188,12 +136,6 @@ export default {
       var sponor_temp = this.blok.body[3].reference;
       return sponor_temp.includes('sponor')
     },
-    get_bannerimage () {
-      // var bannerimage = this.global.map(el => el.content.banner_following[Math.floor(Math.random() * el.content.banner_following.length)])
-      var imagesrc = this.global[0].content.banner_following;
-      imagesrc = imagesrc[Math.floor(Math.random() * imagesrc.length)]
-      return imagesrc;
-    }
   },
 
   methods: {
@@ -279,21 +221,6 @@ h4.title {
   padding-top: 0em;
   border-bottom: 2px solid #ffffff;
 }
-.menu_info .navbar-light .navbar-nav .nav-link:hover {
-    color: #ed1c24;
-}
-.navbar {
-  align-items: flex-start;
-}
-.inner_banner h3 span {
-  font-size: 18px;
-  opacity: 0.5;
-  padding: 0 0.75em;
-}
-
-.menu_info {
-  top: -63px;
-}
 
 .part_sec {
   max-width: 1500px;
@@ -328,34 +255,7 @@ h4.title {
   width: 100%;
 }
 
-.inner_banner {
-    margin: 0;
-    padding: 0 0 0;
-    background: rgb(169,168,163,);
-    background: linear-gradient(90deg, rgba(169,168,163,1) 100%) rgba(169,168,163,1) 35%, rgba(169,168,163,1) 0%,;
-    position: relative;
-}
-.navbar img {
-  height: 6em;
-}
-.inner_banner h3 {
-    font-size: 20px;
-    color: #505153;
-    letter-spacing: 5px;
-    outline: none !important;
-    font-family: "helvetica47regularcondensed";
-}
-.inner_banner h3 span {
-    font-size: 14px;
-}
 
-.inner_banner img {
-    position: relative;
-    z-index: 50;
-    height: 400px;
-    width: auto;
-    max-width: none;
-}
 .frame {
   background: yellow;
     padding: 5px;
@@ -364,12 +264,4 @@ h4.title {
   border: 1px solid #f6f5f5;
 }
 
-@media (min-width: 768px) {
-.navbar-expand-md .navbar-collapse {
-    margin: 1em 1em 0 0;
-  }
-  .nav_sec.inner_top .navbar-brand {
-    width: 350px;
-  }
-}
 </style>

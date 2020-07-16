@@ -1,5 +1,6 @@
 <template>
   <div>
+    <gamesheader />
     <section class="main-body">
       <nuxt />
     </section>
@@ -9,9 +10,11 @@
 
 <script>
 import BottomFooter from '~/components/BottomFooter.vue';
+import Gamesheader from '~/components/Reusable/Gamesheader.vue';
 export default {
   components: {
-    BottomFooter
+    BottomFooter,
+    Gamesheader
   }
 }
 </script>
