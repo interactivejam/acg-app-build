@@ -112,8 +112,18 @@ export default {
   },
 
   head () {
+    if (this.blok.metadata) {
+      return {
+        title: this.blok.metadata.title,
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'description', name: 'description', content: this.blok.metadata.description }
+        ]
+      }
+    }
+    else 
     return {
-      title: this.title || 'Corporate Games',
+      title: 'Corporate Games',
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         { hid: 'description', name: 'description', content: this.description }
@@ -123,27 +133,19 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "~/assets/scss/components/corporate.scss";
+  @import "~/assets/scss/components/corporate.scss";
+    .menu-items a {
+        width: 100% !important;
+        display: block;
+    }
+    @media (max-width: 768px ) {
 
-
-
-
-.menu-items a {
-    width: 100% !important;
-    display: block;
-}
-
-
-
-@media (max-width: 768px ) {
-
-  .menu-items a:nth-child(odd) {
-    margin-right: 0px;
-}
-  .menu-items a:nth-child(even) {
-    margin-left: 0px;
-}
-
-}
+      .menu-items a:nth-child(odd) {
+        margin-right: 0px;
+    }
+      .menu-items a:nth-child(even) {
+        margin-left: 0px;
+    }
+  }
 
 </style>
