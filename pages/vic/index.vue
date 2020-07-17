@@ -29,6 +29,24 @@ export default {
       }
     })
   },
+  computed: {
+    title() {
+      return this.story.content.metadata.title
+    },
+    description() {
+      return this.story.content.metadata.description
+    }
+  },
+
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'description', name: 'description', content: this.description }
+      ]
+    }
+  },
   asyncData (context) {
     // Load the JSON from the API
     return context.app.$storyapi.get('cdn/stories/vic/', {

@@ -1,5 +1,4 @@
 <template>
-  <!-- <div v-editable="blok"> -->
 <section class="following" v-editable="blok">
     <div class="position-relative banner_sec">
             <div class="hero-image">
@@ -105,7 +104,25 @@ export default {
       .catch((res) => {
         console.error('Failed to load resource', res)
       })
-  }
+  },
+  computed: {
+    title() {
+      return this.blok.metadata.title
+    },
+    description() {
+      return this.blok.metadata.description
+    }
+  },
+
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'description', name: 'description', content: this.description }
+      ]
+    }
+  },
 }
 </script>
 
