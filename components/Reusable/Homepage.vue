@@ -84,6 +84,7 @@
               <div class="date_info" v-if="highlights_blok">
                 <div class="d-flex flex-wrap justify-content-between align-items-stretch">
                   <div class="highlights" v-for="highlights in global.content.highlights" :key="highlights.id">
+                    <p>{{$route.fullpath}}</p>
                     <Highlights v-bind:blok="highlights"/>
                   </div>
                 </div>
@@ -118,13 +119,12 @@ export default {
     page: {story: {content: []}},
     global: [],
     currentSlide: 1,
-    // arrays:[]
     }
   },
   props: ['blok'],
   mounted() {
     this.$storyapi.get('cdn/stories', {
-      starts_with: 'global/vic-corporate-games',
+      starts_with: `global/${this.get_route}-corporate-games`,
       cv: this.$store.state.cacheVersion
     })
     .then((res) => {
@@ -143,6 +143,9 @@ export default {
   },
 
   computed: {
+    get_route: function() {
+      return $nuxt.$route.path.replace('/', '')
+    },
     importDate_blok: function() {
       var date_temp = this.blok.body[3].reference;
       return date_temp.includes('important_date')

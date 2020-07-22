@@ -74,7 +74,7 @@ export default {
 
   mounted() {
     this.$storyapi.get('cdn/stories', {
-      starts_with: 'global/vic-corporate-games',
+      // starts_with: 'global/vic-corporate-games',
       cv: this.$store.state.cacheVersion
     })
     .then((res) => {
