@@ -86,6 +86,7 @@
 <script>
 
 import sports from '~/data/SportScheduleStructureExample.json';
+// import sports from 'https://acg-goes-json-uploads.s3-ap-southeast-2.amazonaws.com/vic/games-details.json'
 
 export default {
   data () {
