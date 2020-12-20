@@ -3,30 +3,31 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _46f6e8a1 = () => interopDefault(import('../pages/category/index.vue' /* webpackChunkName: "pages/category/index" */))
-const _b36a00ae = () => interopDefault(import('../pages/faq/index.vue' /* webpackChunkName: "pages/faq/index" */))
-const _f93071f4 = () => interopDefault(import('../pages/global/index.vue' /* webpackChunkName: "pages/global/index" */))
-const _223d04e5 = () => interopDefault(import('../pages/nsw/index.vue' /* webpackChunkName: "pages/nsw/index" */))
-const _aa1d6308 = () => interopDefault(import('../pages/qld/index.vue' /* webpackChunkName: "pages/qld/index" */))
-const _b0f267ba = () => interopDefault(import('../pages/vic/index.vue' /* webpackChunkName: "pages/vic/index" */))
-const _27ef30e8 = () => interopDefault(import('../pages/nsw/FAQ/index.vue' /* webpackChunkName: "pages/nsw/FAQ/index" */))
-const _07c00da3 = () => interopDefault(import('../pages/qld/FAQ/index.vue' /* webpackChunkName: "pages/qld/FAQ/index" */))
-const _c6ff406c = () => interopDefault(import('../pages/vic/FAQ/index.vue' /* webpackChunkName: "pages/vic/FAQ/index" */))
-const _fed35b94 = () => interopDefault(import('../pages/vic/organise-your-team/index.vue' /* webpackChunkName: "pages/vic/organise-your-team/index" */))
-const _7033eef0 = () => interopDefault(import('../pages/vic/sport/index.vue' /* webpackChunkName: "pages/vic/sport/index" */))
-const _2b5c7378 = () => interopDefault(import('../pages/nsw/FAQ/_slug.vue' /* webpackChunkName: "pages/nsw/FAQ/_slug" */))
-const _06096c5b = () => interopDefault(import('../pages/qld/FAQ/_slug.vue' /* webpackChunkName: "pages/qld/FAQ/_slug" */))
-const _ca6c82fc = () => interopDefault(import('../pages/vic/FAQ/_slug.vue' /* webpackChunkName: "pages/vic/FAQ/_slug" */))
-const _7edfb0ee = () => interopDefault(import('../pages/vic/organise-your-team/_slug.vue' /* webpackChunkName: "pages/vic/organise-your-team/_slug" */))
-const _73a13180 = () => interopDefault(import('../pages/vic/sport/_slug.vue' /* webpackChunkName: "pages/vic/sport/_slug" */))
-const _45404759 = () => interopDefault(import('../pages/category/_slug.vue' /* webpackChunkName: "pages/category/_slug" */))
-const _b6d7433e = () => interopDefault(import('../pages/faq/_slug.vue' /* webpackChunkName: "pages/faq/_slug" */))
-const _fc9db484 = () => interopDefault(import('../pages/global/_slug.vue' /* webpackChunkName: "pages/global/_slug" */))
-const _2086639d = () => interopDefault(import('../pages/nsw/_slug.vue' /* webpackChunkName: "pages/nsw/_slug" */))
-const _ad8aa598 = () => interopDefault(import('../pages/qld/_slug.vue' /* webpackChunkName: "pages/qld/_slug" */))
-const _b45faa4a = () => interopDefault(import('../pages/vic/_slug.vue' /* webpackChunkName: "pages/vic/_slug" */))
-const _b6b1613c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
-const _ba1ea3cc = () => interopDefault(import('../pages/_slug.vue' /* webpackChunkName: "pages/_slug" */))
+const _2a9252dc = () => interopDefault(import('../pages/category/index.vue' /* webpackChunkName: "pages/category/index" */))
+const _090246e4 = () => interopDefault(import('../pages/faq/index.vue' /* webpackChunkName: "pages/faq/index" */))
+const _bc82f7fe = () => interopDefault(import('../pages/global/index.vue' /* webpackChunkName: "pages/global/index" */))
+const _7770e1ca = () => interopDefault(import('../pages/nsw/index.vue' /* webpackChunkName: "pages/nsw/index" */))
+const _00252b61 = () => interopDefault(import('../pages/qld/index.vue' /* webpackChunkName: "pages/qld/index" */))
+const _068aadf0 = () => interopDefault(import('../pages/vic/index.vue' /* webpackChunkName: "pages/vic/index" */))
+const _ceed6c1e = () => interopDefault(import('../pages/nsw/FAQ/index.vue' /* webpackChunkName: "pages/nsw/FAQ/index" */))
+const _977e1ff0 = () => interopDefault(import('../pages/qld/FAQ/index.vue' /* webpackChunkName: "pages/qld/FAQ/index" */))
+const _4901422f = () => interopDefault(import('../pages/vic/FAQ/index.vue' /* webpackChunkName: "pages/vic/FAQ/index" */))
+const _0881b931 = () => interopDefault(import('../pages/vic/organise-your-team/index.vue' /* webpackChunkName: "pages/vic/organise-your-team/index" */))
+const _57b7e5ad = () => interopDefault(import('../pages/vic/sport/index.vue' /* webpackChunkName: "pages/vic/sport/index" */))
+const _d25aaeae = () => interopDefault(import('../pages/nsw/FAQ/_slug.vue' /* webpackChunkName: "pages/nsw/FAQ/_slug" */))
+const _9aeb6280 = () => interopDefault(import('../pages/qld/FAQ/_slug.vue' /* webpackChunkName: "pages/qld/FAQ/_slug" */))
+const _474aa0e7 = () => interopDefault(import('../pages/vic/FAQ/_slug.vue' /* webpackChunkName: "pages/vic/FAQ/_slug" */))
+const _06cb17e9 = () => interopDefault(import('../pages/vic/organise-your-team/_slug.vue' /* webpackChunkName: "pages/vic/organise-your-team/_slug" */))
+const _2ba02b28 = () => interopDefault(import('../pages/vic/sport/_slug/index.vue' /* webpackChunkName: "pages/vic/sport/_slug/index" */))
+const _2e4ecd5b = () => interopDefault(import('../pages/vic/sport/_slug/_mapdetails.vue' /* webpackChunkName: "pages/vic/sport/_slug/_mapdetails" */))
+const _28dbb194 = () => interopDefault(import('../pages/category/_slug.vue' /* webpackChunkName: "pages/category/_slug" */))
+const _0c6f8974 = () => interopDefault(import('../pages/faq/_slug.vue' /* webpackChunkName: "pages/faq/_slug" */))
+const _bff03a8e = () => interopDefault(import('../pages/global/_slug.vue' /* webpackChunkName: "pages/global/_slug" */))
+const _75ba4082 = () => interopDefault(import('../pages/nsw/_slug.vue' /* webpackChunkName: "pages/nsw/_slug" */))
+const _0322ebce = () => interopDefault(import('../pages/qld/_slug.vue' /* webpackChunkName: "pages/qld/_slug" */))
+const _09f7f080 = () => interopDefault(import('../pages/vic/_slug.vue' /* webpackChunkName: "pages/vic/_slug" */))
+const _97a13272 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _9b0e7502 = () => interopDefault(import('../pages/_slug.vue' /* webpackChunkName: "pages/_slug" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -46,99 +47,103 @@ export const routerOptions = {
 
   routes: [{
     path: "/category",
-    component: _46f6e8a1,
+    component: _2a9252dc,
     name: "category"
   }, {
     path: "/faq",
-    component: _b36a00ae,
+    component: _090246e4,
     name: "faq"
   }, {
     path: "/global",
-    component: _f93071f4,
+    component: _bc82f7fe,
     name: "global"
   }, {
     path: "/nsw",
-    component: _223d04e5,
+    component: _7770e1ca,
     name: "nsw"
   }, {
     path: "/qld",
-    component: _aa1d6308,
+    component: _00252b61,
     name: "qld"
   }, {
     path: "/vic",
-    component: _b0f267ba,
+    component: _068aadf0,
     name: "vic"
   }, {
     path: "/nsw/FAQ",
-    component: _27ef30e8,
+    component: _ceed6c1e,
     name: "nsw-FAQ"
   }, {
     path: "/qld/FAQ",
-    component: _07c00da3,
+    component: _977e1ff0,
     name: "qld-FAQ"
   }, {
     path: "/vic/FAQ",
-    component: _c6ff406c,
+    component: _4901422f,
     name: "vic-FAQ"
   }, {
     path: "/vic/organise-your-team",
-    component: _fed35b94,
+    component: _0881b931,
     name: "vic-organise-your-team"
   }, {
     path: "/vic/sport",
-    component: _7033eef0,
+    component: _57b7e5ad,
     name: "vic-sport"
   }, {
     path: "/nsw/FAQ/:slug",
-    component: _2b5c7378,
+    component: _d25aaeae,
     name: "nsw-FAQ-slug"
   }, {
     path: "/qld/FAQ/:slug",
-    component: _06096c5b,
+    component: _9aeb6280,
     name: "qld-FAQ-slug"
   }, {
     path: "/vic/FAQ/:slug",
-    component: _ca6c82fc,
+    component: _474aa0e7,
     name: "vic-FAQ-slug"
   }, {
     path: "/vic/organise-your-team/:slug?",
-    component: _7edfb0ee,
+    component: _06cb17e9,
     name: "vic-organise-your-team-slug"
   }, {
     path: "/vic/sport/:slug",
-    component: _73a13180,
+    component: _2ba02b28,
     name: "vic-sport-slug"
   }, {
+    path: "/vic/sport/:slug/:mapdetails",
+    component: _2e4ecd5b,
+    name: "vic-sport-slug-mapdetails"
+  }, {
     path: "/category/:slug",
-    component: _45404759,
+    component: _28dbb194,
     name: "category-slug"
   }, {
     path: "/faq/:slug",
-    component: _b6d7433e,
+    component: _0c6f8974,
     name: "faq-slug"
   }, {
     path: "/global/:slug",
-    component: _fc9db484,
+    component: _bff03a8e,
     name: "global-slug"
   }, {
     path: "/nsw/:slug",
-    component: _2086639d,
+    component: _75ba4082,
     name: "nsw-slug"
   }, {
     path: "/qld/:slug",
-    component: _ad8aa598,
+    component: _0322ebce,
     name: "qld-slug"
   }, {
     path: "/vic/:slug",
-    component: _b45faa4a,
+    component: _09f7f080,
     name: "vic-slug"
   }, {
     path: "/",
-    component: _b6b1613c,
+    component: _97a13272,
     name: "index"
   }, {
     path: "/:slug",
-    component: _ba1ea3cc,
+    component: _9b0e7502,
     name: "slug"
   }],
 
