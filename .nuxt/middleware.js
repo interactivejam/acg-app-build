@@ -1,6 +1,6 @@
 const middleware = {}
 
-middleware['setCacheVersion'] = require('../middleware/setCacheVersion.js')
-middleware['setCacheVersion'] = middleware['setCacheVersion'].default || middleware['setCacheVersion']
+middleware['gamesDetection'] = require('../middleware/gamesDetection.js')
+middleware['gamesDetection'] = middleware['gamesDetection'].default || middleware['gamesDetection']
 
 export default middleware

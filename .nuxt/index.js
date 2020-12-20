@@ -12,17 +12,13 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_bootstrapvue_7a05c1b4 from 'nuxt_plugin_bootstrapvue_7a05c1b4' // Source: ./bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_templatesplugin27781b6c_3ffce13a from 'nuxt_plugin_templatesplugin27781b6c_3ffce13a' // Source: ./templates.plugin.27781b6c.js (mode: 'all')
-import nuxt_plugin_apollomodule_90b1e67a from 'nuxt_plugin_apollomodule_90b1e67a' // Source: ./apollo-module.js (mode: 'all')
-import nuxt_plugin_axios_5717b012 from 'nuxt_plugin_axios_5717b012' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_globalcomponents_7f66e7ad from 'nuxt_plugin_globalcomponents_7f66e7ad' // Source: ./global-components.js (mode: 'all')
-import nuxt_plugin_templatesplugin6b8fe892_1c5d4dbe from 'nuxt_plugin_templatesplugin6b8fe892_1c5d4dbe' // Source: ./templates.plugin.6b8fe892.js (mode: 'all')
-import nuxt_plugin_vuelidate_4345260a from 'nuxt_plugin_vuelidate_4345260a' // Source: ../plugins/vuelidate (mode: 'all')
+import nuxt_plugin_bootstrapvue_b6b33baa from 'nuxt_plugin_bootstrapvue_b6b33baa' // Source: ./bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_templatesplugincb509072_1c627d40 from 'nuxt_plugin_templatesplugincb509072_1c627d40' // Source: ./templates.plugin.cb509072.js (mode: 'all')
+import nuxt_plugin_apollomodule_cd5f6070 from 'nuxt_plugin_apollomodule_cd5f6070' // Source: ./apollo-module.js (mode: 'all')
+import nuxt_plugin_axios_fd418008 from 'nuxt_plugin_axios_fd418008' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_templatesplugin097902d2_21bb3671 from 'nuxt_plugin_templatesplugin097902d2_21bb3671' // Source: ./templates.plugin.097902d2.js (mode: 'all')
 import nuxt_plugin_components_50cb0b6b from 'nuxt_plugin_components_50cb0b6b' // Source: ../plugins/components.js (mode: 'all')
-import nuxt_plugin_helper_850e665a from 'nuxt_plugin_helper_850e665a' // Source: ../plugins/helper.js (mode: 'all')
 import nuxt_plugin_richtextrenderer_98325662 from 'nuxt_plugin_richtextrenderer_98325662' // Source: ../plugins/rich-text-renderer.js (mode: 'all')
-import nuxt_plugin_googlemaps_ab35f716 from 'nuxt_plugin_googlemaps_ab35f716' // Source: ../plugins/google-maps (mode: 'all')
 import nuxt_plugin_vuerouterbackbutton_140e9bb6 from 'nuxt_plugin_vuerouterbackbutton_140e9bb6' // Source: ../plugins/vue-router-back-button.js (mode: 'client')
 
 // Component: <ClientOnly>
@@ -52,7 +48,7 @@ Vue.component(Nuxt.name, Nuxt)
 
 Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
-const defaultTransition = {"name":"page","mode":"out-in","appear":true,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
+const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
 async function createApp (ssrContext) {
   const router = await createRouter(ssrContext)
@@ -60,6 +56,10 @@ async function createApp (ssrContext) {
   const store = createStore(ssrContext)
   // Add this.$router into store actions/mutations
   store.$router = router
+
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  const registerModule = store.registerModule
+  store.registerModule = (path, rawModule, options) => registerModule.call(store, path, rawModule, Object.assign({ preserveState: process.client }, options))
 
   // Create Root instance
 
@@ -176,48 +176,32 @@ async function createApp (ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_bootstrapvue_7a05c1b4 === 'function') {
-    await nuxt_plugin_bootstrapvue_7a05c1b4(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_b6b33baa === 'function') {
+    await nuxt_plugin_bootstrapvue_b6b33baa(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_templatesplugin27781b6c_3ffce13a === 'function') {
-    await nuxt_plugin_templatesplugin27781b6c_3ffce13a(app.context, inject)
+  if (typeof nuxt_plugin_templatesplugincb509072_1c627d40 === 'function') {
+    await nuxt_plugin_templatesplugincb509072_1c627d40(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_apollomodule_90b1e67a === 'function') {
-    await nuxt_plugin_apollomodule_90b1e67a(app.context, inject)
+  if (typeof nuxt_plugin_apollomodule_cd5f6070 === 'function') {
+    await nuxt_plugin_apollomodule_cd5f6070(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_5717b012 === 'function') {
-    await nuxt_plugin_axios_5717b012(app.context, inject)
+  if (typeof nuxt_plugin_axios_fd418008 === 'function') {
+    await nuxt_plugin_axios_fd418008(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_globalcomponents_7f66e7ad === 'function') {
-    await nuxt_plugin_globalcomponents_7f66e7ad(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_templatesplugin6b8fe892_1c5d4dbe === 'function') {
-    await nuxt_plugin_templatesplugin6b8fe892_1c5d4dbe(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_vuelidate_4345260a === 'function') {
-    await nuxt_plugin_vuelidate_4345260a(app.context, inject)
+  if (typeof nuxt_plugin_templatesplugin097902d2_21bb3671 === 'function') {
+    await nuxt_plugin_templatesplugin097902d2_21bb3671(app.context, inject)
   }
 
   if (typeof nuxt_plugin_components_50cb0b6b === 'function') {
     await nuxt_plugin_components_50cb0b6b(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_helper_850e665a === 'function') {
-    await nuxt_plugin_helper_850e665a(app.context, inject)
-  }
-
   if (typeof nuxt_plugin_richtextrenderer_98325662 === 'function') {
     await nuxt_plugin_richtextrenderer_98325662(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_googlemaps_ab35f716 === 'function') {
-    await nuxt_plugin_googlemaps_ab35f716(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuerouterbackbutton_140e9bb6 === 'function') {
