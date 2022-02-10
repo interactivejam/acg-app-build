@@ -42,7 +42,7 @@
     "@nuxtjs/global-components": "^0.6.1",
     "css-loader": "^3.4.2",
     "fibers": "^4.0.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "webpack": "^4.42.1"
